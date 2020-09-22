@@ -1,0 +1,55 @@
+sudo: required
+
+dist: bionic
+
+language: node_js
+
+node_js:
+  - 12
+
+services:
+  - docker
+  - xvfb
+
+before_install:
+  - |
+    if [[ $TRAVIS_BRANCH =~ ^(feature\/.*)$ ]]; then
+      export E2E_TAG="dev"
+    elif [[ $TRAVIS_BRANCH =~ ^(dev|testing|demo|training|staging|rrt\/.*)$ ]]; then
+      export E2E_TAG="${TRAVIS_BRANCH//\//_}"
+    else
+      export E2E_TAG="latest"
+    fi
+    echo "E2E_TAG = $E2E_TAG"
+
+install:
+  - npm install
+
+addons:
+  chrome: stable
+
+env:
+  global:
+    - API_URL=http://localhost:5000/v1.0
+    - BASE_HREF=/
+    - DEPLOY_URL=/
+    - HOME_ROUTE=home
+    - IRB_URL=http://localhost:5001/
+    - PORT0=4200
+    - PRODUCTION=false
+script:
+  - npm run ci
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh sartography/cr-connect-frontend
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(dev|testing|demo|training|staging|master|rrt\/.*)$
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+    recipients:
+      - dan@sartography.com
