@@ -3,8 +3,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {TestBed} from '@angular/core/testing';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
-import {SessionRedirectComponent} from '../components/session-redirect/session-redirect.component';
-import {MockEnvironment} from '../testing/mocks/environment.mocks';
+import {MockEnvironment} from '../testing/environment.mock';
 import {GoogleAnalyticsService} from './google-analytics.service';
 
 describe('GoogleAnalyticsService', () => {
@@ -17,15 +16,8 @@ describe('GoogleAnalyticsService', () => {
   };
 
   beforeEach(() => TestBed.configureTestingModule({
-    declarations: [SessionRedirectComponent],
     imports: [
       HttpClientTestingModule,
-      RouterTestingModule.withRoutes([
-        {
-          path: 'session/:token',
-          component: SessionRedirectComponent
-        }
-      ])
     ],
     providers: [
       GoogleAnalyticsService,

@@ -1,4 +1,4 @@
-import {_has, environment} from './environment.runtime';
+import {hasEnv, environment} from './environment.runtime';
 
 declare var ENV;
 
@@ -7,7 +7,7 @@ describe('Environments', () => {
     expect(environment).toBeDefined();
     expect(environment.production).toEqual(false);
     expect(environment.api).toEqual('apiRoot');
-    expect(environment.title).toEqual('Research Ramp-Up Toolkit');
+    expect(environment.title).toEqual('COVID19 Testing Kiosk');
     expect(environment.googleAnalyticsKey).toEqual('UA-168203235-5');
   });
 
@@ -19,29 +19,29 @@ describe('Environments', () => {
       googleAnalyticsKey: '$GOOGLE_ANALYTICS_KEY',
     };
 
-    expect(_has(env, 'production', '$PRODUCTION')).toBeFalse();
-    expect(_has(env, 'api', '$API_URL')).toBeFalse();
-    expect(_has(env, 'title', '$TITLE')).toBeFalse();
-    expect(_has(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeFalse();
+    expect(hasEnv(env, 'production', '$PRODUCTION')).toBeFalse();
+    expect(hasEnv(env, 'api', '$API_URL')).toBeFalse();
+    expect(hasEnv(env, 'title', '$TITLE')).toBeFalse();
+    expect(hasEnv(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeFalse();
 
     env.production = undefined;
     env.api = undefined;
     env.title = undefined;
     env.googleAnalyticsKey = undefined;
 
-    expect(_has(env, 'production', '$PRODUCTION')).toBeFalse();
-    expect(_has(env, 'api', '$API_URL')).toBeFalse();
-    expect(_has(env, 'title', '$TITLE')).toBeFalse();
-    expect(_has(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeFalse();
+    expect(hasEnv(env, 'production', '$PRODUCTION')).toBeFalse();
+    expect(hasEnv(env, 'api', '$API_URL')).toBeFalse();
+    expect(hasEnv(env, 'title', '$TITLE')).toBeFalse();
+    expect(hasEnv(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeFalse();
 
     env.production = 'something';
     env.api = 'something';
     env.title = 'something';
     env.googleAnalyticsKey = 'something';
 
-    expect(_has(env, 'production', '$PRODUCTION')).toBeTrue();
-    expect(_has(env, 'api', '$API_URL')).toBeTrue();
-    expect(_has(env, 'title', '$TITLE')).toBeTrue();
-    expect(_has(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeTrue();
+    expect(hasEnv(env, 'production', '$PRODUCTION')).toBeTrue();
+    expect(hasEnv(env, 'api', '$API_URL')).toBeTrue();
+    expect(hasEnv(env, 'title', '$TITLE')).toBeTrue();
+    expect(hasEnv(env, 'googleAnalyticsKey', '$GOOGLE_ANALYTICS_KEY')).toBeTrue();
   });
 });

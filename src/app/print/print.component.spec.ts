@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ActivatedRoute, convertToParamMap} from '@angular/router';
+import {of} from 'rxjs';
 
 import { PrintComponent } from './print.component';
 
@@ -8,7 +10,13 @@ describe('PrintComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrintComponent ]
+      declarations: [ PrintComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {queryParamMap: of(convertToParamMap({barCode: '123456789', initials: 'abc'}))}
+        },
+      ]
     })
     .compileComponents();
   });

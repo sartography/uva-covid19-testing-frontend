@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {QRCodeSVGModule} from 'ngx-qrcode-svg';
 
 import { LabelLayoutComponent } from './label-layout.component';
 
@@ -8,7 +9,10 @@ describe('LabelLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LabelLayoutComponent ]
+      declarations: [ LabelLayoutComponent ],
+      imports: [
+        QRCodeSVGModule,
+      ],
     })
     .compileComponents();
   });
@@ -16,6 +20,9 @@ describe('LabelLayoutComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LabelLayoutComponent);
     component = fixture.componentInstance;
+    component.dateCreated = new Date();
+    component.barCode = '123456789';
+    component.initials = 'abc';
     fixture.detectChanges();
   });
 
