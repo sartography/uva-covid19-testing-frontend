@@ -1,12 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {MatInput} from '@angular/material/input';
-import {MatSelect} from '@angular/material/select';
 import {Router} from '@angular/router';
-import {getSettings, labelLayouts, saveSettings} from '../config/defaults';
+import {labelLayouts} from '../config/defaults';
 import {AppDefaults} from '../interfaces/appDefaults.interface';
 import {LabelLayout} from '../interfaces/labelLayout.interface';
-
+import {SettingsService} from '../services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,21 +12,31 @@ import {LabelLayout} from '../interfaces/labelLayout.interface';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  settings: AppDefaults = getSettings();
-  numCopiesFormControl = new FormControl(this.settings.numCopies, [
-    Validators.required,
-  ]);
-  labelLayoutFormControl = new FormControl(this.settings.labelLayout.type, [
-    Validators.required,
-  ]);
-  locationIdFormControl = new FormControl(this.settings.locationId, [
-    Validators.required,
-    Validators.pattern(this.settings.locationIdRegExp),
-  ]);
+  settings: AppDefaults;
+  numCopiesFormControl: FormControl;
+  labelLayoutFormControl: FormControl;
+  locationIdFormControl: FormControl;
+  labelLayouts: LabelLayout[];
 
-  labelLayouts: LabelLayout[] = Object.values(labelLayouts);
+  constructor(
+    private router: Router,
+    private settingsService: SettingsService
+  ) {
+    this.settings = this.settingsService.getSettings();
+    this.numCopiesFormControl = new FormControl(this.settings.numCopies, [
+      Validators.required,
+    ]);
 
-  constructor(private router: Router) {
+    this.labelLayoutFormControl = new FormControl(this.settings.labelLayout.type, [
+      Validators.required,
+    ]);
+
+    this.locationIdFormControl = new FormControl(this.settings.locationId, [
+      Validators.required,
+      Validators.pattern(this.settings.locationIdRegExp),
+    ]);
+
+    this.labelLayouts = Object.values(labelLayouts);
   }
 
   get hasInfo(): boolean {
@@ -39,7 +47,7 @@ export class SettingsComponent implements OnInit {
   }
 
   save() {
-    saveSettings({
+    this.settingsService.saveSettings({
       labelLayout: labelLayouts[this.labelLayoutFormControl.value],
       numCopies: this.numCopiesFormControl.value,
       locationId: this.locationIdFormControl.value,

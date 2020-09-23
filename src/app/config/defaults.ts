@@ -1,6 +1,4 @@
-import createClone from 'rfdc';
-import serializeJs from 'serialize-javascript';
-import {AppDefaults, AppDefaultsOptions} from '../interfaces/appDefaults.interface';
+import {AppDefaultsOptions} from '../interfaces/appDefaults.interface';
 import {LabelLayout} from '../interfaces/labelLayout.interface';
 
 export const labelLayouts = {
@@ -34,40 +32,4 @@ export const defaultOptions: AppDefaultsOptions = {
   numCopies: 1,                                         // Default number of copies of labels to print. Can be overridden by user setting.
   qrCodeRegExp: /^[\d]{9}-[a-zA-Z]+-[\d]{12}-[\d]{4}$/, // ID format for QR Code records.
   samplesCollection: 'samples',                         // Name of collection for Line Counts in Firebase.
-};
-
-// Default form field and data values
-export const defaults: AppDefaults = new AppDefaults(defaultOptions);
-
-// Deserializes settings from local storage and returns AppDefaults instance
-export const getStoredSettings = (): AppDefaults => {
-  // tslint:disable-next-line:no-eval
-  return new AppDefaults(eval(`(${localStorage.getItem('settings')})`));
-};
-
-// Returns true if settings are found in local storage
-export const hasStoredSettings = (): boolean => {
-  return !!localStorage.getItem('settings');
-};
-
-// Returns settings from local storage, or defaults if none have been saved yet.
-export const getSettings = (): AppDefaults => {
-  if (hasStoredSettings()) {
-    return getStoredSettings();
-  } else {
-    return saveSettings(defaults);
-  }
-};
-
-// Serializes given settings and stores them in local storage
-export const saveSettings = (newSettings: AppDefaultsOptions): AppDefaults => {
-  const settings: AppDefaults = createClone({circles: true})(defaults);
-
-  Object.keys(newSettings).forEach(k => {
-    console.log(`${k}:`, newSettings[k]);
-    settings[k] = newSettings[k];
-  });
-
-  localStorage.setItem('settings', serializeJs(settings));
-  return settings;
 };

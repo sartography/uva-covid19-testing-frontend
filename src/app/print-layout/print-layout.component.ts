@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {getSettings} from '../config/defaults';
+import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {SettingsService} from '../services/settings.service';
 
 @Component({
   selector: 'app-print-layout',
@@ -10,10 +11,13 @@ export class PrintLayoutComponent implements OnInit {
   @Input() dateCreated: Date;
   @Input() barCode: string;
   @Input() initials: string;
-  settings = getSettings();
-  dimensions = this.settings.labelLayout.dimensions;
+  settings: AppDefaults;
+  dimensions: {[key: string]: string};
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) {
+    this.settings = this.settingsService.getSettings();
+    this.dimensions = this.settings.labelLayout.dimensions;
+  }
 
   ngOnInit(): void {
   }

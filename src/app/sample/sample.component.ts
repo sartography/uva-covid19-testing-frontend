@@ -1,10 +1,10 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {Params, Router} from '@angular/router';
-import {defaults, getSettings} from '../config/defaults';
 import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {SettingsService} from '../services/settings.service';
 
 
 @Component({
@@ -13,32 +13,36 @@ import {AppDefaults} from '../interfaces/appDefaults.interface';
   styleUrls: ['./sample.component.scss']
 })
 export class SampleComponent implements AfterViewInit {
-  settings: AppDefaults = getSettings();
-  barCodeFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.settings.barCodeRegExp),
-  ]);
-  initialsFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.settings.initialsRegExp),
-  ]);
+  settings: AppDefaults;
+  barCodeFormControl: FormControl;
+  initialsFormControl: FormControl;
   @ViewChild('barCodeInput') barCodeInput: MatInput;
   @ViewChild('initialsInput') initialsInput: MatInput;
   @ViewChild('nextButton') nextButton: MatButton;
+
+  constructor(
+    private router: Router,
+    private changeDetector: ChangeDetectorRef,
+    private settingsService: SettingsService,
+  ) {
+    this.settings = this.settingsService.getSettings();
+    this.barCodeFormControl = new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.settings.barCodeRegExp),
+    ]);
+    this.initialsFormControl = new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.settings.initialsRegExp),
+    ]);
+    this.barCodeFormControl.registerOnChange(() => this.checkBarCodeValue());
+    this.initialsFormControl.registerOnChange(() => this.checkInitialsValue());
+  }
 
   get queryParams(): Params {
     return {
       barCode: this.barCodeValue.slice(0, 9),
       initials: this.initialsValue,
     };
-  }
-
-  constructor(
-    private router: Router,
-    private changeDetector: ChangeDetectorRef
-  ) {
-    this.barCodeFormControl.registerOnChange(() => this.checkBarCodeValue());
-    this.initialsFormControl.registerOnChange(() => this.checkInitialsValue());
   }
 
   get barCodeValue(): string {
@@ -67,7 +71,6 @@ export class SampleComponent implements AfterViewInit {
   }
 
   checkBarCodeValue() {
-    console.log('--- checkBarCodeValue ---');
     if (this.hasBarCode) {
       this.initialsInput.focus();
       this.changeDetector.detectChanges();
@@ -75,7 +78,6 @@ export class SampleComponent implements AfterViewInit {
   }
 
   checkInitialsValue() {
-    console.log('--- checkInitialsValue ---');
     if (this.hasInitials && this.hasBarCode) {
       this.nextButton.focus();
       this.changeDetector.detectChanges();

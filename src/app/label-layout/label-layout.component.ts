@@ -1,6 +1,7 @@
 import {formatDate} from '@angular/common';
 import {Component, Input, OnInit} from '@angular/core';
-import {getSettings} from '../config/defaults';
+import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {SettingsService} from '../services/settings.service';
 
 @Component({
   selector: 'app-label-layout',
@@ -11,9 +12,10 @@ export class LabelLayoutComponent implements OnInit {
   @Input() dateCreated: Date;
   @Input() barCode: string;
   @Input() initials: string;
-  settings = getSettings();
+  settings: AppDefaults;
 
-  constructor() {
+  constructor(private settingsService: SettingsService) {
+    this.settings = this.settingsService.getSettings();
   }
 
   get qrCodeValue(): string {

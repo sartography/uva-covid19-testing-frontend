@@ -6,5 +6,5 @@ export class MockEnvironment implements AppEnvironment {
   production = false;
   api = 'apiRoot';
   title = 'Mock Title';
-  googleAnalyticsKey = '';
+  googleAnalyticsKey = 'SOME_KEY';
 }

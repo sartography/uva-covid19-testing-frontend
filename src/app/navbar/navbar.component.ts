@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {getSettings} from '../config/defaults';
+import {SettingsService} from '../services/settings.service';
 import {TestingLocation} from '../interfaces/testingLocation.interface';
 
 @Component({
@@ -11,8 +11,8 @@ export class NavbarComponent implements OnInit {
   @Input() testingLocation: TestingLocation;
   locationId: string;
 
-  constructor() {
-    const settings = getSettings();
+  constructor(private settingsService: SettingsService) {
+    const settings = this.settingsService.getSettings();
     this.locationId = settings.locationId;
   }
 
