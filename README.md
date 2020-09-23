@@ -1,8 +1,8 @@
-# sartography/cr-connect-frontend
-[![Build Status](https://travis-ci.com/sartography/cr-connect-frontend.svg?branch=master)](https://travis-ci.com/sartography/cr-connect-frontend)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sartography_cr-connect-frontend&metric=coverage)](https://sonarcloud.io/dashboard?id=sartography_cr-connect-frontend)
+# sartography/covid19-testing-kiosk
+[![Build Status](https://travis-ci.com/sartography/covid19-testing-kiosk.svg?branch=master)](https://travis-ci.com/sartography/covid19-testing-kiosk)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sartography_covid19-testing-kiosk&metric=coverage)](https://sonarcloud.io/dashboard?id=sartography_covid19-testing-kiosk)
 
-# CR Connect Frontend
+# UVA COVID19 Testing Kiosk
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
 
 ## Development server
