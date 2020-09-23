@@ -1,8 +1,10 @@
 import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {Params} from '@angular/router';
-import {defaults} from '../config/defaults';
+import {defaults, getSettings} from '../config/defaults';
+import {AppDefaults} from '../interfaces/appDefaults.interface';
 
 
 @Component({
@@ -11,18 +13,18 @@ import {defaults} from '../config/defaults';
   styleUrls: ['./sample.component.scss']
 })
 export class SampleComponent implements AfterViewInit {
-  barCodeErrorMessage = '';
-  initialsErrorMessage = '';
+  settings: AppDefaults = getSettings();
   barCodeFormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern(defaults.barCodeRegex),
+    Validators.pattern(this.settings.barCodeRegExp),
   ]);
   initialsFormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern(defaults.initialsRegex),
+    Validators.pattern(this.settings.initialsRegExp),
   ]);
   @ViewChild('barCodeInput') barCodeInput: MatInput;
   @ViewChild('initialsInput') initialsInput: MatInput;
+  @ViewChild('nextButton') nextButton: MatButton;
 
   get queryParams(): Params {
     return {
@@ -32,9 +34,7 @@ export class SampleComponent implements AfterViewInit {
   }
 
   constructor(private changeDetector: ChangeDetectorRef) {
-    this.barCodeFormControl.registerOnChange(() => {
-      this.checkBarCodeValue();
-    });
+    this.barCodeFormControl.registerOnChange(() => this.checkBarCodeValue());
     this.initialsFormControl.registerOnChange(() => this.checkInitialsValue());
   }
 
@@ -47,11 +47,11 @@ export class SampleComponent implements AfterViewInit {
   }
 
   get hasBarCode(): boolean {
-    return defaults.barCodeRegex.test(this.barCodeValue);
+    return this.settings.barCodeRegExp.test(this.barCodeValue);
   }
 
   get hasInitials(): boolean {
-    return defaults.initialsRegex.test(this.initialsValue);
+    return this.settings.initialsRegExp.test(this.initialsValue);
   }
 
   get hasInfo(): boolean {
@@ -66,19 +66,21 @@ export class SampleComponent implements AfterViewInit {
   checkBarCodeValue() {
     console.log('--- checkBarCodeValue ---');
     if (this.hasBarCode) {
-      this.barCodeErrorMessage = '';
       this.initialsInput.focus();
       this.changeDetector.detectChanges();
-    } else {
-      this.barCodeErrorMessage = 'Wrong barcode.';
     }
   }
 
   checkInitialsValue() {
-    if (this.hasInitials) {
-      this.initialsErrorMessage = '';
-    } else {
-      this.initialsErrorMessage = 'Wrong barcode.';
+    console.log('--- checkInitialsValue ---');
+    if (this.hasInitials && this.hasBarCode) {
+      this.nextButton.focus();
+      this.changeDetector.detectChanges();
     }
+  }
+
+  resetForm() {
+    this.barCodeFormControl.patchValue('');
+    this.initialsFormControl.patchValue('');
   }
 }

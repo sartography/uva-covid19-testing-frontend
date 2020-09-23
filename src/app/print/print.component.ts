@@ -43,7 +43,7 @@ export class PrintComponent implements OnInit {
   }
 
   get columns() {
-    return Array(defaults.labelLayout === 'round_32mm_2up' ? 2 : 1).fill('');
+    return Array(defaults.labelLayout.type === 'round_32mm_2up' ? 2 : 1).fill('');
   }
 
   ngOnInit(): void {

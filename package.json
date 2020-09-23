@@ -39,6 +39,7 @@
     "ngx-qrcode-svg": "^2.0.0",
     "rfdc": "^1.1.4",
     "rxjs": "~6.6.3",
+    "serialize-javascript": "^5.0.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },

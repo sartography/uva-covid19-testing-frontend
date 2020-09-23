@@ -1,6 +1,6 @@
-export declare type LabelLayoutType = 'round_32mm_1up' | 'round_32mm_2up';
-
 export interface LayoutOptions {
+  type?: string;
+  name?: string;
   units?: string;
   pointsPerUnit?: number;
   labelSize?: number;
@@ -17,6 +17,8 @@ export interface LayoutOptions {
 }
 
 export class LabelLayout {
+  type = 'round_32mm_1up';
+  name = '32mm Round Label - 1up';
   units = 'mm';
   pointsPerUnit = 0.3528;
   labelSize = 28.6;
@@ -32,18 +34,10 @@ export class LabelLayout {
   numCopies = 1;
 
   constructor(private options: LayoutOptions) {
-    this.units = options.units || this.units;
-    this.pointsPerUnit = options.pointsPerUnit || this.pointsPerUnit;
-    this.marginSize = options.marginSize || this.marginSize;
-    this.labelSize = options.labelSize || this.labelSize;
-    this.numCols = options.numCols || this.numCols;
-    this.columnGap = options.columnGap || this.columnGap;
-    this.sideTextWidth = options.sideTextWidth || this.sideTextWidth;
-    this.sideTextTop = options.sideTextTop || this.sideTextTop;
-    this.sideTextMargin = options.sideTextMargin || this.sideTextMargin;
-    this.topTextMargin = options.topTextMargin || this.topTextMargin;
-    this.bottomTextMargin = options.bottomTextMargin || this.bottomTextMargin;
-    this.fontSizePt = options.fontSizePt || this.fontSizePt;
+    const keys = Object.keys(options);
+    keys.forEach(k => {
+      this[k] = options[k];
+    });
   }
 
   get dimensions() {
