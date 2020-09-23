@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {getSettings} from '../config/defaults';
 import {TestingLocation} from '../interfaces/testingLocation.interface';
 
 @Component({
@@ -8,8 +9,12 @@ import {TestingLocation} from '../interfaces/testingLocation.interface';
 })
 export class NavbarComponent implements OnInit {
   @Input() testingLocation: TestingLocation;
+  locationId: string;
 
-  constructor() { }
+  constructor() {
+    const settings = getSettings();
+    this.locationId = settings.locationId;
+  }
 
   ngOnInit(): void {
   }

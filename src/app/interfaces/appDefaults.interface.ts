@@ -1,3 +1,4 @@
+import {defaultOptions} from '../config/defaults';
 import {LabelLayout} from './labelLayout.interface';
 
 export interface AppDefaultsOptions {
@@ -34,17 +35,18 @@ export class AppDefaults {
   samplesCollection: string;
 
   constructor(options: AppDefaultsOptions) {
-    console.log('options', options);
-    const keys = Object.keys(options);
+    const keys = Object.keys(defaultOptions);
     keys.forEach(k => {
       if (k.includes('RegExp')) {
         if (typeof options[k] === 'string') {
           this[k] = new RegExp(options[k]);
-        } else {
+        } else if (options[k] instanceof RegExp) {
           this[k] = options[k];
+        } else {
+          this[k] = defaultOptions[k];
         }
       } else {
-        this[k] = options[k];
+        this[k] = options[k] || defaultOptions[k];
       }
     });
   }

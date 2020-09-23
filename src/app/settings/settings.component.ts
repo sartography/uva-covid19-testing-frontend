@@ -39,7 +39,9 @@ export class SettingsComponent implements OnInit {
 
   save() {
     saveSettings({
-
+      labelLayout: labelLayouts[this.labelLayoutFormControl.value],
+      numCopies: this.numCopiesFormControl.value,
+      locationId: this.locationIdFormControl.value,
     });
   }
 }
