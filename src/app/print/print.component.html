@@ -1,5 +1,5 @@
 <div
-  id="screen"
+  id="media-screen"
   class="full-height bg-primary"
   fxLayout="row"
   fxLayoutAlign="center center"
@@ -11,36 +11,22 @@
     </mat-card-header>
 
     <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <app-label-layout
+      <app-print-layout
         [barCode]="barCode"
         [initials]="initials"
         [dateCreated]="dateCreated"
-      ></app-label-layout>
+      ></app-print-layout>
     </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center center">
+      <button mat-flat-button class="btn-xl margin-4" color="accent" (click)="saveAndPrint()">Print labels</button>
+    </mat-card-actions>
   </mat-card>
 </div>
 
-
-<div
-  id="print"
-  [style]="{width: pageWidth, height: pageHeight}"
-  [gdRows]="pagesToGridFractions"
-  gdGap="1.5mm"
-  gdAlignColumns="center"
-  gdAlignRows="center"
->
-  <div
-    *ngFor="let page of pages"
-    [gdColumns]="colsToGridFractions"
-    gdAlignColumns="center"
-    gdAlignRows="center"
-    gdGap="3mm"
-  >
-    <app-label-layout
-      *ngFor="let col of columns"
-      [barCode]="barCode"
-      [initials]="initials"
-      [dateCreated]="dateCreated"
-    ></app-label-layout>
-  </div>
+<div id="media-print">
+  <app-print-layout
+    [barCode]="barCode"
+    [initials]="initials"
+    [dateCreated]="dateCreated"
+  ></app-print-layout>
 </div>

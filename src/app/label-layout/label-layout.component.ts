@@ -1,6 +1,6 @@
 import {formatDate} from '@angular/common';
 import {Component, Input, OnInit} from '@angular/core';
-import {defaults} from '../config/defaults';
+import {getSettings} from '../config/defaults';
 
 @Component({
   selector: 'app-label-layout',
@@ -11,7 +11,7 @@ export class LabelLayoutComponent implements OnInit {
   @Input() dateCreated: Date;
   @Input() barCode: string;
   @Input() initials: string;
-  locationId = defaults.locationId;
+  settings = getSettings();
 
   constructor() {
   }
@@ -21,7 +21,7 @@ export class LabelLayoutComponent implements OnInit {
       this.barCode,
       this.initials,
       formatDate(this.dateCreated, 'yyyyMMddHHmm', 'en-us'),
-      defaults.locationId,
+      this.settings.locationId,
     ];
     return valArray.join('-');
   }

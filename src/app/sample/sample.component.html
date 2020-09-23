@@ -17,6 +17,8 @@
           matInput
           type="text"
           [formControl]="barCodeFormControl"
+          (change)="checkBarCodeValue()"
+          (keyup.enter)="goPrint()"
         >
         <mat-error *ngIf="barCodeFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="barCodeFormControl.hasError('pattern')">Please enter exactly 9 or 14 digits.</mat-error>
@@ -28,6 +30,8 @@
           matInput
           type="text"
           [formControl]="initialsFormControl"
+          (change)="checkInitialsValue()"
+          (keyup.enter)="goPrint()"
         >
         <mat-error *ngIf="initialsFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="initialsFormControl.hasError('pattern')">Please enter only 2-5 letters.</mat-error>
@@ -39,9 +43,8 @@
         mat-flat-button
         class="btn-xl"
         color="accent"
-        [disabled]="!hasInfo"
-        routerLink="/print"
-        [queryParams]="queryParams"
+        [disabled]="hasErrors"
+        (click)="goPrint()"
       >Next <mat-icon>navigate_next</mat-icon></button>
       <button
         mat-flat-button

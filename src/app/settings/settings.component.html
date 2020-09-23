@@ -6,11 +6,11 @@
 >
   <mat-card fxFlex="50%">
     <mat-card-header>
-      <h1>Scan Barcode</h1>
+      <h1>Change Settings</h1>
     </mat-card-header>
 
     <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
-      <mat-form-field class="barcode-input" fxFlex="95%">
+      <mat-form-field class="location-input" fxFlex="95%">
         <mat-label>Location ID #</mat-label>
         <input
           #locationIdInput="matInput"
@@ -21,7 +21,7 @@
         <mat-error *ngIf="locationIdFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="locationIdFormControl.hasError('pattern')">Please enter exactly 4 digits.</mat-error>
       </mat-form-field>
-      <mat-form-field class="initials-input" fxFlex="95%">
+      <mat-form-field class="label-layout-select" fxFlex="95%">
         <mat-label>Label layout</mat-label>
         <mat-select
           #labelLayoutSelect="matSelect"
@@ -32,7 +32,7 @@
         </mat-select>
         <mat-error *ngIf="labelLayoutFormControl.hasError('required')">This field is required.</mat-error>
       </mat-form-field>
-      <mat-form-field class="initials-input" fxFlex="95%">
+      <mat-form-field class="num-copies-input" fxFlex="95%">
         <mat-label>Number of copies of label</mat-label>
         <input
           #numCopiesInput="matInput"

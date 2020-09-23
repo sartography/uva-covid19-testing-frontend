@@ -23,7 +23,7 @@ export class LabelLayout {
   pointsPerUnit = 0.3528;
   labelSize = 28.6;
   marginSize = 1.7;
-  numCols = 2;
+  numCols = 1;
   columnGap = 4;
   sideTextWidth = 4;
   sideTextTop = 11;
@@ -42,19 +42,19 @@ export class LabelLayout {
 
   get dimensions() {
     return {
-      columnGap: this._toUnits(this.columnGap),
-      sideTextWidth: this._toUnits(this.sideTextWidth),
-      sideTextTop: this._toUnits(this.sideTextTop),
-      sideTextMargin: this._toUnits(this.sideTextMargin),
-      topTextMargin: this._toUnits(this.topTextMargin),
       bottomTextMargin: this._toUnits(this.bottomTextMargin),
+      columnGap: this._toUnits(this.columnGap),
       columnGapWidth: this._toUnits(this.columnGapWidth),
-      marginWidth: this._toUnits(this.marginSize),
+      fontSize: this._toUnits(this.fontSize),
       labelSize: this._toUnits(this.labelSize),
       labelSizeWithMargins: this._toUnits(this.labelSizeWithMargins),
-      pageWidth: this._toUnits(this.pageWidth),
+      marginWidth: this._toUnits(this.marginSize),
       pageHeight: this._toUnits(this.pageHeight),
-      fontSize: this._toUnits(this.fontSize),
+      pageWidth: this._toUnits(this.pageWidth),
+      sideTextMargin: this._toUnits(this.sideTextMargin),
+      sideTextTop: this._toUnits(this.sideTextTop),
+      sideTextWidth: this._toUnits(this.sideTextWidth),
+      topTextMargin: this._toUnits(this.topTextMargin),
     };
   }
 

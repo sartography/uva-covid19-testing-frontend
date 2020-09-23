@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {MatSelect} from '@angular/material/select';
+import {Router} from '@angular/router';
 import {getSettings, labelLayouts, saveSettings} from '../config/defaults';
 import {AppDefaults} from '../interfaces/appDefaults.interface';
 import {LabelLayout} from '../interfaces/labelLayout.interface';
@@ -27,7 +28,7 @@ export class SettingsComponent implements OnInit {
 
   labelLayouts: LabelLayout[] = Object.values(labelLayouts);
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   get hasInfo(): boolean {
@@ -43,5 +44,6 @@ export class SettingsComponent implements OnInit {
       numCopies: this.numCopiesFormControl.value,
       locationId: this.locationIdFormControl.value,
     });
+    this.router.navigate(['/']);
   }
 }

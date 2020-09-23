@@ -1,6 +1,8 @@
+@import 'src/config';
+
 @media screen {
-  #print { display: none !important; }
-  #screen { display: flex !important; }
+  #media-print { display: none !important; }
+  #media-screen { display: flex !important; }
 }
 
 @media print {
@@ -25,29 +27,12 @@
   ::ng-deep app-footer {
     display: none;
   }
-
-  #print {
-    display: grid !important;
-    background-color: transparent;
-    width: 64mm;
-    height: 32mm;
-    padding-top: 2mm;
-    padding-bottom: 2mm;
-
-    .page {
-      padding-top: 2mm;
-      padding-bottom: 2mm;
-    }
-
-    .column {
-      padding: 1mm;
-    }
-  }
-  #screen { display: none !important; }
+  #media-print { display: flex !important; }
+  #media-screen { display: none !important; }
 }
 
 .mat-card-content {
-  background-color: #6C799C;
+  background-color: $brand-gray-tint-2;
   height: 500px;
 }
 

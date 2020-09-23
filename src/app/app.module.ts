@@ -28,6 +28,7 @@ import {SampleComponent} from './sample/sample.component';
 import {ApiService} from './services/api.service';
 import {SettingsComponent} from './settings/settings.component';
 import { LabelLayoutComponent } from './label-layout/label-layout.component';
+import { PrintLayoutComponent } from './print-layout/print-layout.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -56,6 +57,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     SettingsComponent,
     PrintComponent,
     LabelLayoutComponent,
+    PrintLayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,

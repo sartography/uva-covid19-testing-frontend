@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {defaults} from '../config/defaults';
 
 @Component({
   selector: 'app-print',
@@ -12,24 +11,6 @@ export class PrintComponent implements OnInit {
   initials: string;
   dateCreated: Date;
 
-  get pagesToGridFractions(): string {
-    const what = this.pages.map(() => '1fr').join(' ');
-    console.log('what', what);
-    return what;
-  }
-
-  get colsToGridFractions(): string {
-    return this.columns.map(() => '1fr').join(' ');
-  }
-
-  get pageHeight(): string {
-    return `${this.pages.length * 32}mm`;
-  }
-
-  get pageWidth(): string {
-    return `${this.columns.length * 32}mm`;
-  }
-
   constructor(private route: ActivatedRoute) {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
@@ -38,15 +19,11 @@ export class PrintComponent implements OnInit {
     });
   }
 
-  get pages() {
-    return Array(defaults.numCopies).fill('');
-  }
-
-  get columns() {
-    return Array(defaults.labelLayout.type === 'round_32mm_2up' ? 2 : 1).fill('');
-  }
-
   ngOnInit(): void {
   }
 
+  saveAndPrint() {
+    // TODO: Upload new count to backend.
+    window.print();
+  }
 }

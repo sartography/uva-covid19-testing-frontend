@@ -1,1 +1,42 @@
-<p>count works!</p>
+<div
+  class="full-height bg-primary"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+>
+  <mat-card fxFlex="50%">
+    <mat-card-header>
+      <h1>Change Settings</h1>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-form-field class="line-count-input" fxFlex="95%">
+        <mat-label>Number of people in line</mat-label>
+        <input
+          #numPeopleInput="matInput"
+          matInput
+          type="number"
+          [formControl]="numPeopleFormControl"
+          [value]="0"
+        >
+        <mat-error *ngIf="numPeopleFormControl.hasError('required')">This field is required.</mat-error>
+        <mat-error *ngIf="numPeopleFormControl.hasError('pattern')">Please enter a number greater than or equal to 0.</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        class="btn-xl"
+        color="accent"
+        [disabled]="hasErrors"
+        (click)="save()"
+      >Save <mat-icon>save</mat-icon></button>
+      <button
+        mat-flat-button
+        class="btn-xl"
+        routerLink="/"
+      ><mat-icon>cancel</mat-icon> Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

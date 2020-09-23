@@ -1,0 +1,23 @@
+<div
+  id="print"
+  [style]="{width: pageWidth, height: pageHeight}"
+  [gdRows]="pagesToGridFractions"
+  gdGap="1.5mm"
+  gdAlignColumns="center"
+  gdAlignRows="center"
+>
+  <div
+    *ngFor="let page of pages"
+    [gdColumns]="colsToGridFractions"
+    gdAlignColumns="center"
+    gdAlignRows="center"
+    gdGap="3mm"
+  >
+    <app-label-layout
+      *ngFor="let col of columns"
+      [barCode]="barCode"
+      [initials]="initials"
+      [dateCreated]="dateCreated"
+    ></app-label-layout>
+  </div>
+</div>

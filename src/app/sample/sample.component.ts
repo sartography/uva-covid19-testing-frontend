@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@a
 import {FormControl, Validators} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
-import {Params} from '@angular/router';
+import {Params, Router} from '@angular/router';
 import {defaults, getSettings} from '../config/defaults';
 import {AppDefaults} from '../interfaces/appDefaults.interface';
 
@@ -28,12 +28,15 @@ export class SampleComponent implements AfterViewInit {
 
   get queryParams(): Params {
     return {
-      barCode: this.barCodeValue,
+      barCode: this.barCodeValue.slice(0, 9),
       initials: this.initialsValue,
     };
   }
 
-  constructor(private changeDetector: ChangeDetectorRef) {
+  constructor(
+    private router: Router,
+    private changeDetector: ChangeDetectorRef
+  ) {
     this.barCodeFormControl.registerOnChange(() => this.checkBarCodeValue());
     this.initialsFormControl.registerOnChange(() => this.checkInitialsValue());
   }
@@ -54,8 +57,8 @@ export class SampleComponent implements AfterViewInit {
     return this.settings.initialsRegExp.test(this.initialsValue);
   }
 
-  get hasInfo(): boolean {
-    return this.hasBarCode && this.hasInitials;
+  get hasErrors(): boolean {
+    return !(this.barCodeFormControl.valid && this.initialsFormControl.valid);
   }
 
   ngAfterViewInit() {
@@ -82,5 +85,11 @@ export class SampleComponent implements AfterViewInit {
   resetForm() {
     this.barCodeFormControl.patchValue('');
     this.initialsFormControl.patchValue('');
+  }
+
+  goPrint() {
+    if (!this.hasErrors) {
+      this.router.navigate(['/print'], {queryParams: this.queryParams});
+    }
   }
 }
