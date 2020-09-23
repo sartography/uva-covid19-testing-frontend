@@ -3,6 +3,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer, Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {AppEnvironment} from './interfaces/appEnvironment.interface';
+import {TestingLocation} from './interfaces/testingLocation.interface';
 import {GoogleAnalyticsService} from './services/google-analytics.service';
 
 @Component({
@@ -12,6 +13,10 @@ import {GoogleAnalyticsService} from './services/google-analytics.service';
 })
 export class AppComponent {
   loading: boolean;
+  testingLocation: TestingLocation = {
+    id: '0000',
+    name: 'Click here to set location',
+  };
 
   constructor(
     @Inject('APP_ENVIRONMENT') private environment: AppEnvironment,

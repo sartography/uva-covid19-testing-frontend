@@ -4,20 +4,28 @@ import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormlyModule} from '@ngx-formly/core';
+import {QRCodeSVGModule} from 'ngx-qrcode-svg';
 import {ThisEnvironment} from '../environments/environment.injectable';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {CountComponent} from './count/count.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
 import {LoadingComponent} from './loading/loading.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {PrintComponent} from './print/print.component';
+import {SampleComponent} from './sample/sample.component';
 import {ApiService} from './services/api.service';
+import {SettingsComponent} from './settings/settings.component';
+import { LabelLayoutComponent } from './label-layout/label-layout.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -41,6 +49,11 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     FooterComponent,
     NavbarComponent,
     HomeComponent,
+    SampleComponent,
+    CountComponent,
+    SettingsComponent,
+    PrintComponent,
+    LabelLayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,11 +63,14 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     HttpClientModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    AppRoutingModule,
+    MatCardModule,
+    MatInputModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    // <-- This line MUST be last (https://angular.io/guide/router#module-import-order-matters)
+    MatFormFieldModule,
+    QRCodeSVGModule,
+    AppRoutingModule, // <-- This line MUST be last (https://angular.io/guide/router#module-import-order-matters)
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},

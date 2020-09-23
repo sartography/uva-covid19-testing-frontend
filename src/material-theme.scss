@@ -16,6 +16,14 @@
     padding-top: $header-height;
   }
 
+  app-navbar {
+    @include mat-elevation(4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
   .mat-display-4 {
     color: $brand-primary;
     border-bottom: 1px solid $brand-gray-light;
@@ -120,6 +128,10 @@
   }
 
   button {
+    &:focus {
+      outline: 4px solid white;
+    }
+
     &.btn-xl {
       font-size: 24px;
       padding-left: 24px;
@@ -194,6 +206,9 @@
       }
     }
   }
+
+  .bg-primary { background-color: $brand-primary; }
+  .bg-accent { background-color: $brand-accent; }
 
   .pad-0 {
     padding: 0px;

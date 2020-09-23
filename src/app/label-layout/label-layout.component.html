@@ -1,0 +1,18 @@
+<div class="label-layout">
+  <div class="date">{{dateCreated | date:'yyyyMMdd'}}</div>
+  <div class="time">
+    T<br />
+    {{dateCreated | date:'HH'}}<br />
+    {{dateCreated | date:'mm'}}
+  </div>
+  <qrcode-svg
+    [value]="qrCodeValue"
+    errorCorrectionLevel="H"
+  ></qrcode-svg>
+  <div class="location">
+    L<br />
+    {{locationId.slice(0, 2)}}<br />
+    {{locationId.slice(2, 4)}}
+  </div>
+  <div class="barcode">#{{barCode}}</div>
+</div>

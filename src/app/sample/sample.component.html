@@ -1,0 +1,70 @@
+<div
+  class="full-height bg-primary"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+>
+  <mat-card fxFlex="50%">
+    <mat-card-header>
+      <h1>Scan Barcode</h1>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-form-field class="barcode-input" fxFlex="95%">
+        <mat-label>Barcode ID #</mat-label>
+        <input
+          #barCodeInput="matInput"
+          matInput
+          type="text"
+          [formControl]="barCodeFormControl"
+        >
+        <button
+          mat-button
+          *ngIf="barCodeValue"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="barCodeFormControl.patchValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="barCodeFormControl.hasError('required')">This field is required.</mat-error>
+        <mat-error *ngIf="barCodeFormControl.hasError('pattern')">Please enter exactly 9 or 14 digits.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="initials-input" fxFlex="95%">
+        <mat-label>Initials</mat-label>
+        <input
+          #initialsInput="matInput"
+          matInput
+          type="text"
+          [formControl]="initialsFormControl"
+        >
+        <button
+          mat-button
+          *ngIf="initialsValue"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="initialsFormControl.patchValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="initialsFormControl.hasError('required')">This field is required.</mat-error>
+        <mat-error *ngIf="initialsFormControl.hasError('pattern')">Please enter only letters.</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        class="btn-xl"
+        color="accent"
+        fxFlex="50%"
+        [disabled]="!hasInfo"
+        routerLink="/print"
+        [queryParams]="queryParams"
+      >Next</button>
+      <button mat-flat-button class="btn-xl" fxFlex="50%" routerLink="/">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

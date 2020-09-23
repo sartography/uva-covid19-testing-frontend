@@ -1,13 +1,37 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ThisEnvironment} from '../environments/environment.injectable';
+import {CountComponent} from './count/count.component';
 import {HomeComponent} from './home/home.component';
+import {PrintComponent} from './print/print.component';
+import {SampleComponent} from './sample/sample.component';
+import {SettingsComponent} from './settings/settings.component';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     component: HomeComponent
+  },
+  {
+    path: 'sample',
+    pathMatch: 'full',
+    component: SampleComponent
+  },
+  {
+    path: 'print',
+    pathMatch: 'full',
+    component: PrintComponent
+  },
+  {
+    path: 'count',
+    pathMatch: 'full',
+    component: CountComponent
+  },
+  {
+    path: 'settings',
+    pathMatch: 'full',
+    component: SettingsComponent
   },
 ];
 
