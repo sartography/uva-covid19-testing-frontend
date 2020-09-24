@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 import {ActivatedRoute, convertToParamMap} from '@angular/router';
 import {of} from 'rxjs';
 
@@ -11,6 +14,11 @@ describe('PrintComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PrintComponent ],
+      imports: [
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+      ],
       providers: [
         {
           provide: ActivatedRoute,
