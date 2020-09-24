@@ -1,6 +1,6 @@
-# sartography/covid19-testing-kiosk
-[![Build Status](https://travis-ci.com/sartography/covid19-testing-kiosk.svg?branch=master)](https://travis-ci.com/sartography/covid19-testing-kiosk)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sartography_covid19-testing-kiosk&metric=coverage)](https://sonarcloud.io/dashboard?id=sartography_covid19-testing-kiosk)
+# sartography/uva-covid19-testing-frontend
+[![Build Status](https://travis-ci.com/sartography/uva-covid19-testing-frontend.svg?branch=master)](https://travis-ci.com/sartography/uva-covid19-testing-frontend)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sartography_uva-covid19-testing-frontend&metric=coverage)](https://sonarcloud.io/dashboard?id=sartography_uva-covid19-testing-frontend)
 
 # UVA COVID19 Testing Kiosk
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.

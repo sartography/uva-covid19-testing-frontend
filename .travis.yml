@@ -41,7 +41,7 @@ script:
 
 deploy:
   provider: script
-  script: bash ./deploy.sh sartography/uva-covid19-testing-kiosk
+  script: bash ./deploy.sh sartography/uva-covid19-testing-frontend
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(dev|testing|demo|training|staging|master|rrt\/.*)$

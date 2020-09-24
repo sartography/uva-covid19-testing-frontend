@@ -43,7 +43,7 @@ services:
 #    depends_on:
 #       - db
 #       - backend
-#    image: sartography/uva-covid19-testing-kiosk:dev
+#    image: sartography/uva-covid19-testing-frontend:dev
 #    environment:
 #      - API_URL=http://localhost:5000/api/v1.0
 #      - BASE_HREF=/app/
