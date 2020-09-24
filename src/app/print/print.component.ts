@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {MatButton} from '@angular/material/button';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -6,12 +7,16 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './print.component.html',
   styleUrls: ['./print.component.scss']
 })
-export class PrintComponent implements OnInit {
+export class PrintComponent implements AfterViewInit {
   barCode: string;
   initials: string;
   dateCreated: Date;
+  @ViewChild('saveAndPrintButton') saveAndPrintButton: MatButton;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private changeDetector: ChangeDetectorRef
+  ) {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
       this.barCode = queryParamMap.get('barCode');
@@ -19,7 +24,9 @@ export class PrintComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.saveAndPrintButton.focus();
+    this.changeDetector.detectChanges();
   }
 
   saveAndPrint() {

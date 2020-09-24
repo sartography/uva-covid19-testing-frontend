@@ -17,24 +17,28 @@
           matInput
           type="number"
           [formControl]="numPeopleFormControl"
-          [value]="0"
+          (keyup.enter)="save()"
         >
         <mat-error *ngIf="numPeopleFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="numPeopleFormControl.hasError('pattern')">Please enter a number greater than or equal to 0.</mat-error>
       </mat-form-field>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions
+      fxLayoutAlign="center center"
+    >
       <button
         mat-flat-button
-        class="btn-xl"
+        class="btn-lg"
         color="accent"
         [disabled]="hasErrors"
         (click)="save()"
+        fxFlex="33%"
       >Save <mat-icon>save</mat-icon></button>
       <button
         mat-flat-button
-        class="btn-xl"
+        class="btn-lg"
         routerLink="/"
+        fxFlex="33%"
       ><mat-icon>cancel</mat-icon> Cancel</button>
     </mat-card-actions>
   </mat-card>

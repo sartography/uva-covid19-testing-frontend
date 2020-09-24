@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
 
 @Component({
@@ -7,25 +8,33 @@ import {Router} from '@angular/router';
   templateUrl: './count.component.html',
   styleUrls: ['./count.component.scss']
 })
-export class CountComponent implements OnInit {
-  numPeopleFormControl = new FormControl(0, [
+export class CountComponent implements AfterViewInit {
+  numPeopleFormControl = new FormControl('', [
     Validators.required,
     Validators.min(0),
     Validators.max(1000),
   ]);
+  @ViewChild('numPeopleInput') numPeopleInput: MatInput;
 
   get hasErrors(): boolean {
     return !this.numPeopleFormControl.valid;
   }
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private changeDetector: ChangeDetectorRef,
+  ) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.numPeopleInput.focus();
+    this.changeDetector.detectChanges();
   }
 
   save() {
-    // TODO: Upload new count to backend.
-    this.router.navigate(['/']);
+    if (!this.hasErrors) {
+      // TODO: Upload new count to backend.
+      this.router.navigate(['/']);
+    }
   }
 
 }

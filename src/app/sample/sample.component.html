@@ -41,20 +41,23 @@
       <button
         #nextButton="matButton"
         mat-flat-button
-        class="btn-xl"
+        class="btn-lg"
         color="accent"
         [disabled]="hasErrors"
         (click)="goPrint()"
+        fxFlex="33%"
       >Next <mat-icon>navigate_next</mat-icon></button>
       <button
         mat-flat-button
-        class="btn-xl"
+        class="btn-lg"
         (click)="resetForm()"
-      ><mat-icon>restore_page</mat-icon> Reset</button>
+        fxFlex="33%"
+      ><mat-icon>restore</mat-icon> Reset</button>
       <button
         mat-flat-button
-        class="btn-xl"
+        class="btn-lg"
         routerLink="/"
+        fxFlex="33%"
       ><mat-icon>cancel</mat-icon> Cancel</button>
     </mat-card-actions>
   </mat-card>

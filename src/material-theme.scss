@@ -127,25 +127,31 @@
     }
   }
 
+  .mat-card-actions {
+    button {
+      margin: 4px;
+    }
+  }
+
   button {
     &:focus {
-      outline: 4px solid white;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $brand-accent !important;
     }
 
     &.btn-xl {
-      font-size: 24px;
-      padding-left: 24px;
-      padding-right: 24px;
-      padding-top: 8px;
-      padding-bottom: 8px;
+      font-size: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     &.btn-lg {
-      font-size: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 6px;
-      padding-bottom: 6px;
+      font-size: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: .75rem;
+      padding-bottom: .75rem;
     }
 
     &.disabled {

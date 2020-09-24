@@ -18,7 +18,21 @@
       ></app-print-layout>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="center center">
-      <button mat-flat-button class="btn-xl margin-4" color="accent" (click)="saveAndPrint()">Print labels</button>
+      <button
+        #saveAndPrintButton="matButton"
+        mat-flat-button
+        class="btn-lg"
+        color="accent"
+        (click)="saveAndPrint()"
+        autofocus
+        fxFlex="33%"
+      ><mat-icon>print</mat-icon> Print labels</button>
+      <button
+        mat-flat-button
+        class="btn-lg"
+        routerLink="/"
+        fxFlex="33%"
+      ><mat-icon>cancel</mat-icon> Cancel</button>
     </mat-card-actions>
   </mat-card>
 </div>
