@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {AppDefaults} from '../models/appDefaults.interface';
+import {LabelLayout} from '../models/labelLayout.interface';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -7,19 +8,17 @@ import {SettingsService} from '../services/settings.service';
   templateUrl: './print-layout.component.html',
   styleUrls: ['./print-layout.component.scss']
 })
-export class PrintLayoutComponent implements OnInit {
+export class PrintLayoutComponent implements AfterViewInit {
   @Input() dateCreated: Date;
   @Input() barCode: string;
   @Input() initials: string;
   settings: AppDefaults;
-  dimensions: {[key: string]: string};
+  layout: LabelLayout;
 
   constructor(private settingsService: SettingsService) {
     this.settings = this.settingsService.getSettings();
-    this.dimensions = this.settings.labelLayout.dimensions;
-  }
-
-  ngOnInit(): void {
+    this.layout = new LabelLayout(this.settings.labelLayout);
+    this.layout.numCopies = this.settings.numCopies;
   }
 
   get pagesToGridFractions(): string {
@@ -31,19 +30,30 @@ export class PrintLayoutComponent implements OnInit {
   }
 
   get pageHeight(): string {
-    return this.dimensions && this.dimensions.pageHeight;
+    return this.layout.dimensions.pageHeight;
   }
 
   get pageWidth(): string {
-    return this.dimensions && this.dimensions.pageWidth;
+    return this.layout.dimensions.pageWidth;
+  }
+
+  get marginWidth(): string {
+    return this.layout.dimensions.marginWidth;
+  }
+
+  get columnGap(): string {
+    return this.layout.dimensions.columnGap;
   }
 
   get pages() {
-    return Array(this.settings.numCopies).fill('');
+    return Array(this.layout.numCopies).fill('');
   }
 
   get columns() {
-    return Array(this.settings.labelLayout.numCols).fill('');
+    return Array(this.layout.numCols).fill('');
+  }
+
+  ngAfterViewInit(): void {
   }
 
 }

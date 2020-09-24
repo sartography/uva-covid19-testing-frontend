@@ -1,8 +1,8 @@
 <div
-  id="print"
+  class="print-layout"
   [style]="{width: pageWidth, height: pageHeight}"
   [gdRows]="pagesToGridFractions"
-  gdGap="1.5mm"
+  [gdGap]="marginWidth"
   gdAlignColumns="center"
   gdAlignRows="center"
 >
@@ -11,7 +11,7 @@
     [gdColumns]="colsToGridFractions"
     gdAlignColumns="center"
     gdAlignRows="center"
-    gdGap="3mm"
+    [gdGap]="columnGap"
   >
     <app-label-layout
       *ngFor="let col of columns"

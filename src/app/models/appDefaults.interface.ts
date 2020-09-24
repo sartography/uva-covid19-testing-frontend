@@ -45,6 +45,8 @@ export class AppDefaults {
         } else {
           this[k] = defaultOptions[k];
         }
+      } else if (k === 'labelLayout') {
+        this[k] = new LabelLayout(options[k]);
       } else {
         this[k] = options[k] || defaultOptions[k];
       }

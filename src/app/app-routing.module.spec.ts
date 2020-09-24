@@ -72,7 +72,6 @@ describe('Router: App', () => {
   });
 
   it('navigate to "" redirects you to /', async () => {
-    console.log('mockEnvironment', mockEnvironment);
     const success = await fixture.ngZone.run(() => router.navigate(['']));
     expect(success).toBeTruthy();
     expect(location.path()).toBe('/');

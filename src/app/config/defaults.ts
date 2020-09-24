@@ -12,7 +12,7 @@ export const labelLayouts = {
     name: '32mm Round Label - 2up',
     type: 'round_32mm_2up',
     numCols: 2,
-    columnGap: 1.3,
+    columnGap: 3.4,
   }),
 };
 

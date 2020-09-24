@@ -4,7 +4,6 @@ import serializeJs from 'serialize-javascript';
 import {defaultOptions} from '../config/defaults';
 import {AppDefaults, AppDefaultsOptions} from '../models/appDefaults.interface';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +36,6 @@ export class SettingsService {
     const settings: AppDefaults = createClone({circles: true})(this.defaults);
 
     Object.keys(newSettings).forEach(k => {
-      console.log(`${k}:`, newSettings[k]);
       settings[k] = newSettings[k];
     });
 

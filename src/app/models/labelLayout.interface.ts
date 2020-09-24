@@ -44,7 +44,6 @@ export class LabelLayout {
     return {
       bottomTextMargin: this._toUnits(this.bottomTextMargin),
       columnGap: this._toUnits(this.columnGap),
-      columnGapWidth: this._toUnits(this.columnGapWidth),
       fontSize: this._toUnits(this.fontSize),
       labelSize: this._toUnits(this.labelSize),
       labelSizeWithMargins: this._toUnits(this.labelSizeWithMargins),
@@ -58,16 +57,12 @@ export class LabelLayout {
     };
   }
 
-  get columnGapWidth(): number {
-    return this.columnGap;
-  }
-
   get labelSizeWithMargins(): number {
     return (this.labelSize + (this.marginSize * 2));
   }
 
   get pageWidth(): number {
-    return (this.labelSizeWithMargins * this.numCols) + (this.columnGap * this.numCols - 1);
+    return (this.labelSizeWithMargins * this.numCols);
   }
 
   get pageHeight(): number {

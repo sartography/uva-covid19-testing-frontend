@@ -26,7 +26,6 @@
         <mat-select
           #labelLayoutSelect="matSelect"
           [formControl]="labelLayoutFormControl"
-          [value]="settings.labelLayout.type"
         >
           <mat-option *ngFor="let layout of labelLayouts" [value]="layout.type">{{layout.name}}</mat-option>
         </mat-select>
@@ -39,7 +38,6 @@
           matInput
           type="number"
           [formControl]="numCopiesFormControl"
-          [value]="settings.numCopies.toString()"
         >
         <mat-error *ngIf="numCopiesFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="numCopiesFormControl.hasError('pattern')">Please enter only 2-5 letters.</mat-error>

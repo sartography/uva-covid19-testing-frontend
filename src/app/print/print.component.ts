@@ -3,6 +3,7 @@ import {MatButton} from '@angular/material/button';
 import {ActivatedRoute} from '@angular/router';
 import {createQrCodeValue} from '../_util/qrCode';
 import {AppDefaults} from '../models/appDefaults.interface';
+import {LabelLayout} from '../models/labelLayout.interface';
 import {Sample} from '../models/sample.interface';
 import {ApiService} from '../services/api.service';
 import {SettingsService} from '../services/settings.service';
@@ -36,6 +37,28 @@ export class PrintComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.saveAndPrintButton.focus();
     this.changeDetector.detectChanges();
+    const layout = new LabelLayout(this.settings.labelLayout);
+    layout.numCopies = this.settings.numCopies;
+
+    // Inject the print CSS, with dynamic layout settings, into the DOM.
+    const printCss = `
+      @media print {
+        @page {
+          size: ${layout.dimensions.pageWidth} ${layout.dimensions.pageHeight};
+        }
+
+        html,
+        body {
+          width: ${layout.dimensions.pageWidth} !important;
+          height: ${layout.dimensions.pageHeight} !important;
+        }
+      }
+    `;
+    const headEl = document.getElementsByTagName('head')[0];
+    const styleEl = document.createElement('style');
+    styleEl.setAttribute('type', 'text/css');
+    styleEl.appendChild(document.createTextNode(printCss));
+    headEl.appendChild(styleEl);
   }
 
   saveAndPrint() {

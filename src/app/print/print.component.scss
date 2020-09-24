@@ -7,18 +7,16 @@
 
 @media print {
   @page {
-    size: 64mm 32mm;
     margin: 0 !important;
     padding: 0 !important;
   }
 
   ::ng-deep html,
   ::ng-deep body {
-    width: 64mm;
-    height: 32mm;
     margin: 0 !important;
     padding: 0 !important;
-    background-color: transparent;
+    background-color: red;
+    overflow: hidden;
   }
 
   ::ng-deep .no-print,
@@ -27,7 +25,8 @@
   ::ng-deep app-footer {
     display: none;
   }
-  #media-print { display: flex !important; }
+
+  #media-print { display: block !important; }
   #media-screen { display: none !important; }
 }
 
