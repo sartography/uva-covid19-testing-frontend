@@ -33,7 +33,6 @@ env:
     - API_URL=http://localhost:5000/v1.0
     - BASE_HREF=/
     - DEPLOY_URL=/
-    - HOME_ROUTE=home
     - PORT0=4200
     - PRODUCTION=false
 script:
