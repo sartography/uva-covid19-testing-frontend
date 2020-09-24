@@ -19,6 +19,8 @@ export class PrintComponent implements AfterViewInit {
   dateCreated: Date;
   settings: AppDefaults;
   @ViewChild('saveAndPrintButton') saveAndPrintButton: MatButton;
+  @ViewChild('doneButton') doneButton: MatButton;
+  isSaved = false;
 
   constructor(
     private api: ApiService,
@@ -76,6 +78,11 @@ export class PrintComponent implements AfterViewInit {
       location: this.settings.locationId,
     };
 
-    this.api.addSample(newSample).subscribe(() => window.print());
+    this.api.addSample(newSample).subscribe(() => {
+      this.isSaved = true;
+      window.print();
+      this.doneButton.focus();
+      this.changeDetector.detectChanges();
+    });
   }
 }

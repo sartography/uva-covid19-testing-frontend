@@ -22,17 +22,19 @@
         #saveAndPrintButton="matButton"
         mat-flat-button
         class="btn-lg"
-        color="accent"
+        [color]="isSaved ? '' : 'accent'"
         (click)="saveAndPrint()"
         autofocus
         fxFlex="33%"
       ><mat-icon>print</mat-icon> Print labels</button>
       <button
+        #doneButton="matButton"
         mat-flat-button
         class="btn-lg"
         routerLink="/"
         fxFlex="33%"
-      ><mat-icon>cancel</mat-icon> Cancel</button>
+        [color]="isSaved ? 'accent' : ''"
+      ><mat-icon>done</mat-icon> Done</button>
     </mat-card-actions>
   </mat-card>
 </div>
