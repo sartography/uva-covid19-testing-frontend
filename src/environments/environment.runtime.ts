@@ -1,4 +1,4 @@
-import {AppEnvironment} from '../app/interfaces/appEnvironment.interface';
+import {AppEnvironment} from '../app/models/appEnvironment.interface';
 
 declare var ENV;
 

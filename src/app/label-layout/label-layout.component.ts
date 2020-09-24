@@ -1,6 +1,6 @@
-import {formatDate} from '@angular/common';
 import {Component, Input, OnInit} from '@angular/core';
-import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {createQrCodeValue} from '../_util/qrCode';
+import {AppDefaults} from '../models/appDefaults.interface';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -19,13 +19,12 @@ export class LabelLayoutComponent implements OnInit {
   }
 
   get qrCodeValue(): string {
-    const valArray = [
+    return createQrCodeValue(
       this.barCode,
       this.initials,
-      formatDate(this.dateCreated, 'yyyyMMddHHmm', 'en-us'),
-      this.settings.locationId,
-    ];
-    return valArray.join('-');
+      this.dateCreated,
+      this.settings.locationId
+    );
   }
 
   ngOnInit(): void {

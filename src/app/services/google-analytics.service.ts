@@ -2,8 +2,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {HttpRequest} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
-import {ApiError} from '../interfaces/apiError.interface';
-import {AppEnvironment} from '../interfaces/appEnvironment.interface';
+import {ApiError} from '../models/apiError.interface';
+import {AppEnvironment} from '../models/appEnvironment.interface';
 
 declare var gtag;
 

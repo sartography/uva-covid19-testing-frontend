@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AppEnvironment} from '../interfaces/appEnvironment.interface';
+import {AppEnvironment} from '../models/appEnvironment.interface';
 
 @Injectable()
 export class MockEnvironment implements AppEnvironment {

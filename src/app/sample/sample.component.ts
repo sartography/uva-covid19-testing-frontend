@@ -3,7 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {Params, Router} from '@angular/router';
-import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {AppDefaults} from '../models/appDefaults.interface';
 import {SettingsService} from '../services/settings.service';
 
 

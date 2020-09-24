@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import createClone from 'rfdc';
 import serializeJs from 'serialize-javascript';
 import {defaultOptions} from '../config/defaults';
-import {AppDefaults, AppDefaultsOptions} from '../interfaces/appDefaults.interface';
+import {AppDefaults, AppDefaultsOptions} from '../models/appDefaults.interface';
 
 
 @Injectable({

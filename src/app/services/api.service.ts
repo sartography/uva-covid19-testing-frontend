@@ -4,9 +4,9 @@ import {Inject, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {ApiError} from '../interfaces/apiError.interface';
-import {AppEnvironment} from '../interfaces/appEnvironment.interface';
-import {Sample} from '../interfaces/sample.interface';
+import {ApiError} from '../models/apiError.interface';
+import {AppEnvironment} from '../models/appEnvironment.interface';
+import {Sample} from '../models/sample.interface';
 
 
 @Injectable({
@@ -14,13 +14,14 @@ import {Sample} from '../interfaces/sample.interface';
 })
 export class ApiService {
   apiRoot: string;
+  endpoints = {
+    sample: '/sample',
+  };
 
   constructor(
     @Inject('APP_ENVIRONMENT') private environment: AppEnvironment,
     @Inject(APP_BASE_HREF) public baseHref: string,
     private httpClient: HttpClient,
-    private router: Router,
-    private location: Location,
   ) {
     this.apiRoot = environment.api;
   }
@@ -34,10 +35,10 @@ export class ApiService {
 
   /** Add new sample */
   addSample(sample: Sample): Observable<Sample> {
-    const url = this.apiRoot;
+    const url = this.apiRoot + this.endpoints.sample;
 
     return this.httpClient
-      .put<Sample>(url, sample)
+      .post<Sample>(url, sample)
       .pipe(catchError(err => this._handleError(err)));
   }
 

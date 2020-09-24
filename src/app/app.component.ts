@@ -2,8 +2,8 @@ import {Component, Inject} from '@angular/core';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer, Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
-import {AppEnvironment} from './interfaces/appEnvironment.interface';
-import {TestingLocation} from './interfaces/testingLocation.interface';
+import {AppEnvironment} from './models/appEnvironment.interface';
+import {TestingLocation} from './models/testingLocation.interface';
 import {GoogleAnalyticsService} from './services/google-analytics.service';
 
 @Component({

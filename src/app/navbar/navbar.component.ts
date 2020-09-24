@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SettingsService} from '../services/settings.service';
-import {TestingLocation} from '../interfaces/testingLocation.interface';
+import {TestingLocation} from '../models/testingLocation.interface';
 
 @Component({
   selector: 'app-navbar',

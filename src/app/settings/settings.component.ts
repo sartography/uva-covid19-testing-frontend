@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {labelLayouts} from '../config/defaults';
-import {AppDefaults} from '../interfaces/appDefaults.interface';
-import {LabelLayout} from '../interfaces/labelLayout.interface';
+import {AppDefaults} from '../models/appDefaults.interface';
+import {LabelLayout} from '../models/labelLayout.interface';
 import {SettingsService} from '../services/settings.service';
 
 @Component({

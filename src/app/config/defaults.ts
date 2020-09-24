@@ -1,5 +1,5 @@
-import {AppDefaultsOptions} from '../interfaces/appDefaults.interface';
-import {LabelLayout} from '../interfaces/labelLayout.interface';
+import {AppDefaultsOptions} from '../models/appDefaults.interface';
+import {LabelLayout} from '../models/labelLayout.interface';
 
 export const labelLayouts = {
   round_32mm_1up: new LabelLayout({

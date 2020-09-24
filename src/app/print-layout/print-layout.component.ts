@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AppDefaults} from '../interfaces/appDefaults.interface';
+import {AppDefaults} from '../models/appDefaults.interface';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
