@@ -1,8 +1,21 @@
 @import 'src/config';
 
+::ng-deep .loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 100;
+}
+
 @media screen {
   #media-print { display: none !important; }
-  #media-screen { display: flex !important; }
+  #media-screen {
+    display: flex !important;
+
+  }
 }
 
 @media print {
@@ -34,4 +47,3 @@
   background-color: $brand-gray-tint-2;
   height: 500px;
 }
-

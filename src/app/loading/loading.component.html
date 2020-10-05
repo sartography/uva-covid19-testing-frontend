@@ -1,5 +1,14 @@
-<div *ngIf="showSpinner" class="loading" fxLayoutAlign="center center">
-  {{message || ''}}
-  <mat-spinner [diameter]="diameter"></mat-spinner>
+<div *ngIf="showSpinner"
+     class="loading"
+     fxLayoutAlign="center center"
+     fxLayout="column"
+     fxLayoutGap="40px"
+>
+  <div>
+    <mat-spinner [diameter]="diameter"></mat-spinner>
+  </div>
+  <div>
+    {{message || ''}}
+  </div>
 </div>
 <span *ngIf="!showSpinner">{{message || '...'}}</span>

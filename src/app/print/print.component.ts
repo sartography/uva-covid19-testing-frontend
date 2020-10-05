@@ -20,7 +20,7 @@ export class PrintComponent implements AfterViewInit {
   settings: AppDefaults;
   @ViewChild('saveAndPrintButton') saveAndPrintButton: MatButton;
   @ViewChild('doneButton') doneButton: MatButton;
-  isSaved = false;
+  isSaved: boolean;
 
   constructor(
     private api: ApiService,
@@ -34,6 +34,11 @@ export class PrintComponent implements AfterViewInit {
       this.initials = queryParamMap.get('initials');
     });
     this.settings = this.settingsService.getSettings();
+    this.isSaved = false;
+
+    this.save(s => {
+      this.isSaved = true;
+    });
   }
 
   ngAfterViewInit() {
@@ -63,7 +68,7 @@ export class PrintComponent implements AfterViewInit {
     headEl.appendChild(styleEl);
   }
 
-  saveAndPrint() {
+  save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
       this.barCode,
       this.initials,
@@ -78,8 +83,14 @@ export class PrintComponent implements AfterViewInit {
       location: this.settings.locationId,
     };
 
-    this.api.addSample(newSample).subscribe(() => {
-      this.isSaved = true;
+    this.api.addSample(newSample).subscribe((result) => {
+      console.log('addSample subscribe callback');
+      callback(result);
+    });
+  }
+
+  saveAndPrint() {
+    this.save(s => {
       window.print();
       this.doneButton.focus();
       this.changeDetector.detectChanges();
