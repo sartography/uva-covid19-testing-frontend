@@ -34,11 +34,11 @@ export class ApiService {
   }
 
   /** Add new sample */
-  addSample(sample: Sample): Observable<Sample> {
+  addSample(sample: Sample): Observable<null> {
     const url = this.apiRoot + this.endpoints.sample;
 
     return this.httpClient
-      .post<Sample>(url, sample)
+      .post<null>(url, sample)
       .pipe(catchError(err => this._handleError(err)));
   }
 

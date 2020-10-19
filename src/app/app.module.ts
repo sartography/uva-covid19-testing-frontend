@@ -21,14 +21,16 @@ import {AppComponent} from './app.component';
 import {CountComponent} from './count/count.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
+import {LabelLayoutComponent} from './label-layout/label-layout.component';
 import {LoadingComponent} from './loading/loading.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {PrintLayoutComponent} from './print-layout/print-layout.component';
 import {PrintComponent} from './print/print.component';
 import {SampleComponent} from './sample/sample.component';
 import {ApiService} from './services/api.service';
+import {CacheService} from './services/cache.service';
+import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
-import { LabelLayoutComponent } from './label-layout/label-layout.component';
-import { PrintLayoutComponent } from './print-layout/print-layout.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -48,16 +50,16 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingComponent,
-    FooterComponent,
-    NavbarComponent,
-    HomeComponent,
-    SampleComponent,
     CountComponent,
-    SettingsComponent,
-    PrintComponent,
+    FooterComponent,
+    HomeComponent,
     LabelLayoutComponent,
+    LoadingComponent,
+    NavbarComponent,
+    PrintComponent,
     PrintLayoutComponent,
+    SampleComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -65,25 +67,26 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     FormlyModule,
     FormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatInputModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
+    MatCardModule,
     MatFormFieldModule,
-    QRCodeSVGModule,
-    AppRoutingModule,
+    MatIconModule,
+    MatInputModule,
     MatOptionModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
-    // <-- This line MUST be last (https://angular.io/guide/router#module-import-order-matters)
+    MatToolbarModule,
+    QRCodeSVGModule,
+    ReactiveFormsModule,
+    AppRoutingModule, // <-- This line MUST be last (https://angular.io/guide/router#module-import-order-matters)
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
     ApiService,
+    CacheService,
+    SettingsService,
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
   ],
   bootstrap: [AppComponent],
   entryComponents: []

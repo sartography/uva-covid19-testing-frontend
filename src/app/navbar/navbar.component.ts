@@ -9,14 +9,15 @@ import {TestingLocation} from '../models/testingLocation.interface';
 })
 export class NavbarComponent implements OnInit {
   @Input() testingLocation: TestingLocation;
-  locationId: string;
 
   constructor(private settingsService: SettingsService) {
-    const settings = this.settingsService.getSettings();
-    this.locationId = settings.locationId;
   }
 
   ngOnInit(): void {
   }
 
+  get locationId(): string {
+    const settings = this.settingsService.getSettings();
+    return settings.locationId;
+  }
 }

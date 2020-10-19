@@ -6,6 +6,7 @@ import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 import {Sample} from '../models/sample.interface';
 import {ApiService} from '../services/api.service';
+import {CacheService} from '../services/cache.service';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -26,7 +27,8 @@ export class PrintComponent implements AfterViewInit {
     private api: ApiService,
     private route: ActivatedRoute,
     private changeDetector: ChangeDetectorRef,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private cacheService: CacheService,
   ) {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
@@ -86,6 +88,14 @@ export class PrintComponent implements AfterViewInit {
     this.api.addSample(newSample).subscribe((result) => {
       console.log('addSample subscribe callback');
       callback(result);
+    }, err => {
+      if (err) {
+        console.error(err);
+      }
+
+      const cachedRecords = this.cacheService.saveRecord(newSample);
+      console.log('cachedRecords', cachedRecords);
+      callback(newSample);
     });
   }
 
