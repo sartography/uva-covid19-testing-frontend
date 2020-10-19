@@ -10,7 +10,11 @@
       <h1>Print Labels</h1>
     </mat-card-header>
 
-    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-content
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      *ngIf="isSaved; else loadingMessage"
+    >
       <app-print-layout
         [barCode]="barCode"
         [initials]="initials"
@@ -46,3 +50,10 @@
     [dateCreated]="dateCreated"
   ></app-print-layout>
 </div>
+
+<ng-template #loadingMessage>
+  <app-loading
+    message="Contacting the server..."
+    size="lg"
+  ></app-loading>
+</ng-template>

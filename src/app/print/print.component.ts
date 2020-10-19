@@ -6,6 +6,7 @@ import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 import {Sample} from '../models/sample.interface';
 import {ApiService} from '../services/api.service';
+import {CacheService} from '../services/cache.service';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -20,13 +21,14 @@ export class PrintComponent implements AfterViewInit {
   settings: AppDefaults;
   @ViewChild('saveAndPrintButton') saveAndPrintButton: MatButton;
   @ViewChild('doneButton') doneButton: MatButton;
-  isSaved = false;
+  isSaved: boolean;
 
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
     private changeDetector: ChangeDetectorRef,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private cacheService: CacheService,
   ) {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
@@ -34,6 +36,11 @@ export class PrintComponent implements AfterViewInit {
       this.initials = queryParamMap.get('initials');
     });
     this.settings = this.settingsService.getSettings();
+    this.isSaved = false;
+
+    this.save(s => {
+      this.isSaved = true;
+    });
   }
 
   ngAfterViewInit() {
@@ -63,7 +70,7 @@ export class PrintComponent implements AfterViewInit {
     headEl.appendChild(styleEl);
   }
 
-  saveAndPrint() {
+  save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
       this.barCode,
       this.initials,
@@ -78,8 +85,22 @@ export class PrintComponent implements AfterViewInit {
       location: this.settings.locationId,
     };
 
-    this.api.addSample(newSample).subscribe(() => {
-      this.isSaved = true;
+    this.api.addSample(newSample).subscribe((result) => {
+      console.log('addSample subscribe callback');
+      callback(result);
+    }, err => {
+      if (err) {
+        console.error(err);
+      }
+
+      const cachedRecords = this.cacheService.saveRecord(newSample);
+      console.log('cachedRecords', cachedRecords);
+      callback(newSample);
+    });
+  }
+
+  saveAndPrint() {
+    this.save(s => {
       window.print();
       this.doneButton.focus();
       this.changeDetector.detectChanges();

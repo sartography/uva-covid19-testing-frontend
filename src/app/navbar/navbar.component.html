@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button id="nav_logo" mat-button routerLink="/" class="logo">BeSAFE</button>
-    <button id="nav_location" mat-button routerLink="/settings">{{testingLocation ? testingLocation.name : 'No location found'}} ({{locationId}})</button>
+    <button id="nav_location" mat-button routerLink="/settings">{{locationId === '0000' ? 'Click here to set location' : 'Location: ' + locationId}}</button>
     <span fxFlex></span>
     <button id="nav_home" mat-icon-button routerLink="/"><mat-icon>home</mat-icon></button>
     <button id="nav_settings" mat-icon-button routerLink="/settings"><mat-icon>settings</mat-icon></button>
