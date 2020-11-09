@@ -20,16 +20,18 @@ export class BarcodeDataMatrixComponent implements OnInit {
   }
 
   renderBarcode(): void {
-    bwipjs.toCanvas('barcodeCanvas', {
-      bcid: this.format,
-      text: this.value,
-      scale: 2,
-      width: this.settings.labelLayout.labelWidth,
-      height: this.settings.labelLayout.labelHeight,
-      includetext: false,
-      textalign: 'center',
-      version: '8x96',
-      padding: this.settings.labelLayout.marginSize,
-    });
+    if (bwipjs && bwipjs.toCanvas && this.settings && this.format) {
+      bwipjs.toCanvas('barcodeCanvas', {
+        bcid: this.format,
+        text: this.value,
+        scale: 2,
+        width: this.settings.labelLayout.labelWidth,
+        height: this.settings.labelLayout.labelHeight,
+        includetext: false,
+        textalign: 'center',
+        version: '12x64',
+        padding: this.settings.labelLayout.marginSize,
+      });
+    }
   }
 }

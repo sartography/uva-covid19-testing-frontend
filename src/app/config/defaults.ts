@@ -18,12 +18,13 @@ export const labelLayouts = {
   }),
   rectangular_lg: new LabelLayout({
     name: '2in x 1.25in Rectangular Label',
-    barcodeType: 'qrcode',
+    barcodeType: 'datamatrixrectangularextension',
     type: 'rectangular_lg',
     numCols: 1,
     columnGap: 0,
-    labelWidth: 38,
-    labelHeight: 38,
+    labelWidth: 47,
+    labelHeight: 8,
+    marginSize: 3,
   }),
   rectangular_sm: new LabelLayout({
     name: '96mm x 15mm Rectangular Label',
@@ -31,9 +32,9 @@ export const labelLayouts = {
     type: 'rectangular_sm',
     numCols: 1,
     columnGap: 0,
-    labelWidth: 96,
-    labelHeight: 8,
-    marginSize: 4,
+    labelWidth: 32,
+    labelHeight: 6,
+    marginSize: 3,
   }),
 };
 
