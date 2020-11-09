@@ -1,4 +1,4 @@
-<div class="label-layout">
+<div class="label-layout" [ngStyle]="pageStyle">
   <div class="date">{{dateCreated | date:'yyMMdd'}}{{initials}}</div>
   <div class="time">
     T<br />
@@ -6,9 +6,18 @@
     {{dateCreated | date:'mm'}}
   </div>
   <qrcode-svg
+    *ngIf="settings.labelLayout.barcodeType === 'qrcode'"
     [value]="qrCodeValue"
     errorCorrectionLevel="H"
+    [ngStyle]="labelStyle"
   ></qrcode-svg>
+  <app-barcode-data-matrix
+    *ngIf="settings.labelLayout.barcodeType !== 'qrcode'"
+    [value]="qrCodeValue"
+    [format]="settings.labelLayout.barcodeType"
+    [ngStyle]="labelStyle"
+    [settings]="settings"
+  ></app-barcode-data-matrix>
   <div class="location">
     L<br />
     {{settings.locationId.slice(0, 2)}}<br />

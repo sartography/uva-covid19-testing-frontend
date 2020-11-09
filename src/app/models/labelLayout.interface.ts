@@ -1,9 +1,11 @@
 export interface LayoutOptions {
+  barcodeType?: string;
   type?: string;
   name?: string;
   units?: string;
   pointsPerUnit?: number;
-  labelSize?: number;
+  labelWidth?: number;
+  labelHeight?: number;
   marginSize?: number;
   numCols?: number;
   columnGap?: number;
@@ -17,11 +19,13 @@ export interface LayoutOptions {
 }
 
 export class LabelLayout {
+  barcodeType = 'qrcode';
   type = 'round_32mm_1up';
   name = '32mm Round Label - 1up';
   units = 'mm';
   pointsPerUnit = 0.3528;
-  labelSize = 28.6;
+  labelHeight = 28.6;
+  labelWidth = 28.6;
   marginSize = 1.7;
   numCols = 1;
   columnGap = 4;
@@ -45,8 +49,10 @@ export class LabelLayout {
       bottomTextMargin: this._toUnits(this.bottomTextMargin),
       columnGap: this._toUnits(this.columnGap),
       fontSize: this._toUnits(this.fontSize),
-      labelSize: this._toUnits(this.labelSize),
-      labelSizeWithMargins: this._toUnits(this.labelSizeWithMargins),
+      labelWidth: this._toUnits(this.labelWidth),
+      labelWidthWithMargins: this._toUnits(this.labelWidthWithMargins),
+      labelHeight: this._toUnits(this.labelHeight),
+      labelHeightWithMargins: this._toUnits(this.labelHeightWithMargins),
       marginWidth: this._toUnits(this.marginSize),
       pageHeight: this._toUnits(this.pageHeight),
       pageWidth: this._toUnits(this.pageWidth),
@@ -57,16 +63,20 @@ export class LabelLayout {
     };
   }
 
-  get labelSizeWithMargins(): number {
-    return (this.labelSize + (this.marginSize * 2));
+  get labelWidthWithMargins(): number {
+    return (this.labelWidth + (this.marginSize * 2));
+  }
+
+  get labelHeightWithMargins(): number {
+    return (this.labelHeight + (this.marginSize * 2));
   }
 
   get pageWidth(): number {
-    return (this.labelSizeWithMargins * this.numCols);
+    return (this.labelWidthWithMargins * this.numCols);
   }
 
   get pageHeight(): number {
-    return (this.labelSizeWithMargins * this.numCopies);
+    return (this.labelHeightWithMargins * this.numCopies);
   }
 
   get fontSize(): number {

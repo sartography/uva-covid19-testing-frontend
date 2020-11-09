@@ -4,15 +4,36 @@ import {LabelLayout} from '../models/labelLayout.interface';
 export const labelLayouts = {
   round_32mm_1up: new LabelLayout({
     name: '32mm Round Label - 1up',
+    barcodeType: 'qrcode',
     type: 'round_32mm_1up',
     numCols: 1,
     columnGap: 0,
   }),
   round_32mm_2up: new LabelLayout({
     name: '32mm Round Label - 2up',
+    barcodeType: 'qrcode',
     type: 'round_32mm_2up',
     numCols: 2,
     columnGap: 3.4,
+  }),
+  rectangular_lg: new LabelLayout({
+    name: '2in x 1.25in Rectangular Label',
+    barcodeType: 'qrcode',
+    type: 'rectangular_lg',
+    numCols: 1,
+    columnGap: 0,
+    labelWidth: 38,
+    labelHeight: 38,
+  }),
+  rectangular_sm: new LabelLayout({
+    name: '96mm x 15mm Rectangular Label',
+    barcodeType: 'datamatrixrectangularextension',
+    type: 'rectangular_sm',
+    numCols: 1,
+    columnGap: 0,
+    labelWidth: 96,
+    labelHeight: 8,
+    marginSize: 4,
   }),
 };
 

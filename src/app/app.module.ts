@@ -31,6 +31,7 @@ import {ApiService} from './services/api.service';
 import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
+import { BarcodeDataMatrixComponent } from './barcode-data-matrix/barcode-data-matrix.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -60,6 +61,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     PrintLayoutComponent,
     SampleComponent,
     SettingsComponent,
+    BarcodeDataMatrixComponent,
   ],
   imports: [
     BrowserAnimationsModule,
