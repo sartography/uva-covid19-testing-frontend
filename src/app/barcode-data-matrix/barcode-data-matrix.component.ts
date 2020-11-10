@@ -29,7 +29,7 @@ export class BarcodeDataMatrixComponent implements OnInit {
         height: this.settings.labelLayout.labelHeight,
         includetext: false,
         textalign: 'center',
-        version: '12x64',
+        // version: '12x64',
         padding: this.settings.labelLayout.marginSize,
       });
     }

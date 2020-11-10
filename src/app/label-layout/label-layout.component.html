@@ -1,6 +1,15 @@
-<div class="label-layout" [ngStyle]="pageStyle">
-  <div class="date">{{dateCreated | date:'yyMMdd'}}{{initials}}</div>
-  <div class="time">
+<div
+  class="label-layout"
+  [ngStyle]="pageStyle"
+>
+  <div
+    class="date"
+    [ngStyle]="{marginTop: settings.labelLayout.dimensions.topTextMargin}"
+  >{{dateCreated | date:'yyMMdd'}}{{initials}}</div>
+  <div
+    class="time"
+    [ngStyle]="{marginLeft: settings.labelLayout.dimensions.sideTextMargin}"
+  >
     T<br />
     {{dateCreated | date:'HH'}}<br />
     {{dateCreated | date:'mm'}}
@@ -18,10 +27,16 @@
     [ngStyle]="labelStyle"
     [settings]="settings"
   ></app-barcode-data-matrix>
-  <div class="location">
+  <div
+    class="location"
+    [ngStyle]="{marginRight: settings.labelLayout.dimensions.sideTextMargin}"
+  >
     L<br />
     {{settings.locationId.slice(0, 2)}}<br />
     {{settings.locationId.slice(2, 4)}}
   </div>
-  <div class="barcode">#{{barCode}}</div>
+  <div
+    class="barcode"
+    [ngStyle]="{marginBottom: settings.labelLayout.dimensions.bottomTextMargin}"
+  >#{{barCode}}</div>
 </div>

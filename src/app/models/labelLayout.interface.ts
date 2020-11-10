@@ -64,11 +64,20 @@ export class LabelLayout {
   }
 
   get labelWidthWithMargins(): number {
-    return (this.labelWidth + (this.marginSize * 2));
+    return (
+      this.labelWidth +
+      (this.marginSize * 2) +
+      (this.sideTextMargin * 2)
+    );
   }
 
   get labelHeightWithMargins(): number {
-    return (this.labelHeight + (this.marginSize * 2));
+    return (
+      this.labelHeight +
+      (this.marginSize * 2) +
+      this.topTextMargin +
+      this.bottomTextMargin
+    );
   }
 
   get pageWidth(): number {

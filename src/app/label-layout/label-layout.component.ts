@@ -22,8 +22,9 @@ export class LabelLayoutComponent implements OnInit {
     const d = this.settings.labelLayout.dimensions;
 
     this.pageStyle = {
-      width: d.pageWidth,
-      height: d.pageHeight
+      width: d.labelWidth,
+      height: d.labelHeight,
+      padding: d.marginWidth,
     };
 
     this.labelStyle = {
@@ -32,9 +33,6 @@ export class LabelLayoutComponent implements OnInit {
       marginTop: `-${this.settings.labelLayout.labelHeight / 2}mm`,
       marginLeft: `-${this.settings.labelLayout.labelWidth / 2}mm`,
     };
-
-
-
   }
 
   get qrCodeValue(): string {
