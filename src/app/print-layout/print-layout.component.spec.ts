@@ -16,6 +16,7 @@ describe('PrintLayoutComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PrintLayoutComponent);
     component = fixture.componentInstance;
+    component.initials = 'abcde';
     fixture.detectChanges();
   });
 

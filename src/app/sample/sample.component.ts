@@ -41,7 +41,7 @@ export class SampleComponent implements AfterViewInit {
   get queryParams(): Params {
     return {
       barCode: this.barCodeValue.slice(0, 9),
-      initials: this.initialsValue,
+      initials: this.initialsValue.toUpperCase(),
     };
   }
 
@@ -50,7 +50,7 @@ export class SampleComponent implements AfterViewInit {
   }
 
   get initialsValue(): string {
-    return this.initialsFormControl.value;
+    return this.initialsFormControl.value.toUpperCase();
   }
 
   get hasBarCode(): boolean {
@@ -58,7 +58,7 @@ export class SampleComponent implements AfterViewInit {
   }
 
   get hasInitials(): boolean {
-    return this.settings.initialsRegExp.test(this.initialsValue);
+    return this.settings.initialsRegExp.test(this.initialsValue.toUpperCase());
   }
 
   get hasErrors(): boolean {

@@ -5,7 +5,7 @@
   <div
     class="date"
     [ngStyle]="{marginTop: settings.labelLayout.dimensions.topTextMargin}"
-  >{{dateCreated | date:'yyMMdd'}}{{initials}}</div>
+  >{{dateCreated | date:'yyMMdd'}}{{initials.toUpperCase()}}</div>
   <div
     class="time"
     [ngStyle]="{marginLeft: settings.labelLayout.dimensions.sideTextMargin}"

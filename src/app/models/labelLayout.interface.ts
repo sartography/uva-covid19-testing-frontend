@@ -28,12 +28,12 @@ export class LabelLayout {
   labelWidth = 28.6;
   marginSize = 1.7;
   numCols = 1;
-  columnGap = 4;
+  columnGap = 0;
   sideTextWidth = 4;
   sideTextTop = 11;
-  sideTextMargin = 1.5;
-  topTextMargin = 3;
-  bottomTextMargin = 2.5;
+  sideTextMargin = 0;
+  topTextMargin = 0;
+  bottomTextMargin = 0;
   fontSizePt = 6;
   numCopies = 1;
 

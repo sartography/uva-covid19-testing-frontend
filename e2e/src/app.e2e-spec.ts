@@ -10,9 +10,10 @@ describe('COVID19 Testing Kiosk App', () => {
     http = new HttpClient('http://localhost:5001');
   });
 
-  it('should automatically sign-in and redirect to home screen', () => {
+  it('should automatically sign-in and redirect to sample input screen', () => {
     page.navigateTo();
     expect(page.getRoute()).toEqual('/');
+
   });
 
   it('should navigate to settings screen', () => {
@@ -23,15 +24,7 @@ describe('COVID19 Testing Kiosk App', () => {
     page.clickAndExpectRoute('#nav_home', '/');
   });
 
-  it('should navigate to occupancy count input screen', () => {
-    page.clickAndExpectRoute('#nav_count', '/count');
-  });
-
-  it('should navigate back to home screen', () => {
+  it('should navigate back to sample input screen', () => {
     page.clickAndExpectRoute('#nav_home', '/');
-  });
-
-  it('should navigate to sample input screen', () => {
-    page.clickAndExpectRoute('#nav_sample', '/sample');
   });
 });

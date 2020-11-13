@@ -1,6 +1,6 @@
 import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatButton} from '@angular/material/button';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {createQrCodeValue} from '../_util/qrCode';
 import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
@@ -26,6 +26,7 @@ export class PrintComponent implements AfterViewInit {
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
+    private router: Router,
     private changeDetector: ChangeDetectorRef,
     private settingsService: SettingsService,
     private cacheService: CacheService,
@@ -33,13 +34,14 @@ export class PrintComponent implements AfterViewInit {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
       this.barCode = queryParamMap.get('barCode');
-      this.initials = queryParamMap.get('initials');
+      this.initials = queryParamMap.get('initials').toUpperCase();
     });
     this.settings = this.settingsService.getSettings();
     this.isSaved = false;
 
     this.save(s => {
       this.isSaved = true;
+      this.changeDetector.detectChanges();
     });
   }
 
@@ -73,7 +75,7 @@ export class PrintComponent implements AfterViewInit {
   save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
       this.barCode,
-      this.initials,
+      this.initials.toUpperCase(),
       this.dateCreated,
       this.settings.locationId
     );
@@ -102,8 +104,7 @@ export class PrintComponent implements AfterViewInit {
   saveAndPrint() {
     this.save(s => {
       window.print();
-      this.doneButton.focus();
-      this.changeDetector.detectChanges();
+      this.router.navigate(['/']);
     });
   }
 }

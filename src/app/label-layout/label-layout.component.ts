@@ -38,7 +38,7 @@ export class LabelLayoutComponent implements OnInit {
   get qrCodeValue(): string {
     return createQrCodeValue(
       this.barCode,
-      this.initials,
+      this.initials.toUpperCase(),
       this.dateCreated,
       this.settings.locationId
     );

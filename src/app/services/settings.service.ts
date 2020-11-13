@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import createClone from 'rfdc';
+import {BehaviorSubject} from 'rxjs';
 import serializeJs from 'serialize-javascript';
 import {defaultOptions} from '../config/defaults';
 import {AppDefaults, AppDefaultsOptions} from '../models/appDefaults.interface';
@@ -11,10 +12,15 @@ export class SettingsService {
   // Default form field and data values
   defaults: AppDefaults = new AppDefaults(defaultOptions);
 
+  // Observable to subscribe to settings updates
+  settings = new BehaviorSubject<AppDefaults>(this.defaults);
+
   // Deserializes settings from local storage and returns AppDefaults instance
   getStoredSettings(): AppDefaults {
     // tslint:disable-next-line:no-eval
-    return new AppDefaults(eval(`(${localStorage.getItem('settings')})`));
+    const storedSettings = new AppDefaults(eval(`(${localStorage.getItem('settings')})`));
+    this.settings.next(storedSettings);
+    return storedSettings;
   }
 
   // Returns true if settings are found in local storage
@@ -40,6 +46,7 @@ export class SettingsService {
     });
 
     localStorage.setItem('settings', serializeJs(settings));
+    this.settings.next(settings);
     return settings;
   }
 
