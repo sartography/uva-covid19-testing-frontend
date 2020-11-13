@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
@@ -23,7 +23,8 @@ export class SettingsComponent implements AfterViewInit {
 
   constructor(
     private router: Router,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private changeDetector: ChangeDetectorRef,
   ) {
     this.settings = this.settingsService.getSettings();
     this.numCopiesFormControl = new FormControl(this.settings.numCopies, [
@@ -48,6 +49,7 @@ export class SettingsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.locationIdInput.focus();
+    this.changeDetector.detectChanges();
   }
 
   save() {
