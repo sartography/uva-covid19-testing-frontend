@@ -18,13 +18,13 @@
     *ngIf="settings.labelLayout.barcodeType === 'qrcode'"
     [value]="qrCodeValue"
     errorCorrectionLevel="H"
-    [ngStyle]="labelStyle"
+    [ngStyle]="barcodeStyle"
   ></qrcode-svg>
   <app-barcode-data-matrix
     *ngIf="settings.labelLayout.barcodeType !== 'qrcode'"
     [value]="qrCodeValue"
     [format]="settings.labelLayout.barcodeType"
-    [ngStyle]="labelStyle"
+    [ngStyle]="barcodeStyle"
     [settings]="settings"
   ></app-barcode-data-matrix>
   <div

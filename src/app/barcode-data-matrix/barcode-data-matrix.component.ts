@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import bwipjs from 'bwip-js';
 import {AppDefaults} from '../models/appDefaults.interface';
 
@@ -20,17 +20,17 @@ export class BarcodeDataMatrixComponent implements OnInit {
   }
 
   renderBarcode(): void {
-    if (bwipjs && bwipjs.toCanvas && this.settings && this.format) {
+    if (!!(bwipjs && bwipjs.toCanvas && this.settings && this.format)) {
       bwipjs.toCanvas('barcodeCanvas', {
         bcid: this.format,
         text: this.value,
-        scale: 2,
-        width: this.settings.labelLayout.labelWidth,
-        height: this.settings.labelLayout.labelHeight,
-        includetext: false,
-        textalign: 'center',
+        scale: 1,
+        width: this.settings.labelLayout.barcodeWidth,
+        height: this.settings.labelLayout.barcodeHeight,
+        // includetext: false,
+        // textalign: 'center',
         // version: '12x64',
-        padding: this.settings.labelLayout.marginSize,
+        // padding: this.settings.labelLayout.marginSize,
       });
     }
   }

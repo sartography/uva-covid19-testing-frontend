@@ -75,7 +75,7 @@ export class PrintComponent implements AfterViewInit {
   save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
       this.barCode,
-      this.initials.toUpperCase(),
+      this.initials,
       this.dateCreated,
       this.settings.locationId
     );

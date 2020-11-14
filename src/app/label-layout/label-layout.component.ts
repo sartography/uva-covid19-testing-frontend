@@ -15,30 +15,30 @@ export class LabelLayoutComponent implements OnInit {
   @Input() initials: string;
   settings: AppDefaults;
   pageStyle: CssStyle;
-  labelStyle: CssStyle;
+  barcodeStyle: CssStyle;
 
   constructor(private settingsService: SettingsService) {
     this.settings = this.settingsService.getSettings();
     const d = this.settings.labelLayout.dimensions;
 
     this.pageStyle = {
-      width: d.labelWidth,
-      height: d.labelHeight,
+      width: d.columnWidth,
+      height: d.columnHeight,
       padding: d.marginWidth,
     };
 
-    this.labelStyle = {
-      width: d.labelWidth,
-      height: d.labelHeight,
-      marginTop: `-${this.settings.labelLayout.labelHeight / 2}mm`,
-      marginLeft: `-${this.settings.labelLayout.labelWidth / 2}mm`,
+    this.barcodeStyle = {
+      width: d.barcodeWidth,
+      height: d.barcodeHeight,
+      marginTop: `-${this.settings.labelLayout.barcodeHeight / 2}mm`,
+      marginLeft: `-${this.settings.labelLayout.barcodeWidth / 2}mm`,
     };
   }
 
   get qrCodeValue(): string {
     return createQrCodeValue(
       this.barCode,
-      this.initials.toUpperCase(),
+      this.initials,
       this.dateCreated,
       this.settings.locationId
     );

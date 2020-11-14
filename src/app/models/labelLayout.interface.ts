@@ -4,8 +4,10 @@ export interface LayoutOptions {
   name?: string;
   units?: string;
   pointsPerUnit?: number;
-  labelWidth?: number;
-  labelHeight?: number;
+  barcodeWidth?: number;
+  barcodeHeight?: number;
+  columnHeight?: number;
+  columnWidth?: number;
   marginSize?: number;
   numCols?: number;
   columnGap?: number;
@@ -24,8 +26,10 @@ export class LabelLayout {
   name = '32mm Round Label - 1up';
   units = 'mm';
   pointsPerUnit = 0.3528;
-  labelHeight = 28.6;
-  labelWidth = 28.6;
+  barcodeHeight = 28.6;
+  barcodeWidth = 28.6;
+  columnHeight = 32;
+  columnWidth = 32;
   marginSize = 1.7;
   numCols = 1;
   columnGap = 0;
@@ -49,10 +53,12 @@ export class LabelLayout {
       bottomTextMargin: this._toUnits(this.bottomTextMargin),
       columnGap: this._toUnits(this.columnGap),
       fontSize: this._toUnits(this.fontSize),
-      labelWidth: this._toUnits(this.labelWidth),
-      labelWidthWithMargins: this._toUnits(this.labelWidthWithMargins),
-      labelHeight: this._toUnits(this.labelHeight),
-      labelHeightWithMargins: this._toUnits(this.labelHeightWithMargins),
+      columnWidth: this._toUnits(this.columnWidth),
+      columnHeight: this._toUnits(this.columnHeight),
+      barcodeWidth: this._toUnits(this.barcodeWidth),
+      barcodeWidthWithMargins: this._toUnits(this.barcodeWidthWithMargins),
+      barcodeHeight: this._toUnits(this.barcodeHeight),
+      barcodeHeightWithMargins: this._toUnits(this.barcodeHeightWithMargins),
       marginWidth: this._toUnits(this.marginSize),
       pageHeight: this._toUnits(this.pageHeight),
       pageWidth: this._toUnits(this.pageWidth),
@@ -63,17 +69,17 @@ export class LabelLayout {
     };
   }
 
-  get labelWidthWithMargins(): number {
+  get barcodeWidthWithMargins(): number {
     return (
-      this.labelWidth +
+      this.barcodeWidth +
       (this.marginSize * 2) +
       (this.sideTextMargin * 2)
     );
   }
 
-  get labelHeightWithMargins(): number {
+  get barcodeHeightWithMargins(): number {
     return (
-      this.labelHeight +
+      this.barcodeHeight +
       (this.marginSize * 2) +
       this.topTextMargin +
       this.bottomTextMargin
@@ -81,11 +87,11 @@ export class LabelLayout {
   }
 
   get pageWidth(): number {
-    return (this.labelWidthWithMargins * this.numCols);
+    return (this.barcodeWidthWithMargins * this.numCols);
   }
 
   get pageHeight(): number {
-    return (this.labelHeightWithMargins * this.numCopies);
+    return (this.barcodeHeightWithMargins * this.numCopies);
   }
 
   get fontSize(): number {
