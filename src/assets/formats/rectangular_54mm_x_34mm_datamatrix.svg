@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="54mm"
+   height="34mm"
+   viewBox="0 0 54 34"
+   version="1.1"
+   id="svg5173"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="datamatrix-54mm_x_34mm.svg">
+  <defs
+     id="defs5167" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="152.70791"
+     inkscape:cy="5.307426"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="407"
+     inkscape:window-y="1467"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5170">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-263)">
+    <g
+       id="g872">
+      <rect
+         ry="1.5875"
+         rx="1.5875"
+         y="264.125"
+         x="1.6000004"
+         height="31.75"
+         width="50.799999"
+         id="rect5000"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#cccccc;stroke-width:0.17638889;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="g1163"
+         transform="translate(-2.087723,-1.7764499)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:0;font-family:monospace;-inkscape-font-specification:'monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="6.6571178"
+           y="268.65799"
+           id="text4940-2-2-3"><tspan
+             sodipodi:role="line"
+             x="6.6571178"
+             y="268.65799"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:2.11666656px;font-family:monospace;-inkscape-font-specification:'monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+             id="tspan4951-6-0-1">UP</tspan></text>
+        <g
+           id="g5088-1"
+           transform="matrix(0.08333333,0,0,0.08333333,4.687723,266.90145)">
+          <path
+             id="path5074-0"
+             d="M 0,0 H 24 V 24 H 0 Z"
+             inkscape:connector-curvature="0"
+             style="fill:none" />
+          <path
+             id="path5076-3"
+             d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g1163-9"
+         transform="translate(-2.087723,25.97355)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:0;font-family:monospace;-inkscape-font-specification:'monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="6.6571178"
+           y="268.65799"
+           id="text4940-2-2-3-0"><tspan
+             sodipodi:role="line"
+             x="6.6571178"
+             y="268.65799"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:2.11666656px;font-family:monospace;-inkscape-font-specification:'monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+             id="tspan4951-6-0-1-8">UP</tspan></text>
+        <g
+           id="g5088-1-8"
+           transform="matrix(0.08333333,0,0,0.08333333,4.687723,266.90145)">
+          <path
+             id="path5074-0-5"
+             d="M 0,0 H 24 V 24 H 0 Z"
+             inkscape:connector-curvature="0"
+             style="fill:none" />
+          <path
+             id="path5076-3-0"
+             d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.125,0,0,-0.125,4.387,285.125)"
+       inkscape:label="ink_ext_XXXXXX"
+       id="g1445">
+      <g
+         transform="scale(0.1)"
+         id="g1447">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1449"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="M 10,810 H 50 V 770 H 90 V 610 H 50 v -40 h 40 v 40 h 40 v -40 h 40 V 530 H 50 V 490 H 90 V 450 H 50 V 370 H 90 V 330 H 50 V 290 H 90 V 250 H 50 V 130 H 90 V 90 H 250 V 50 h 40 v 80 h 40 v 40 h 40 v -40 h 40 V 90 H 370 V 50 h 40 v 40 h 40 V 50 h 40 v 40 h -40 v 40 h 80 V 50 h 200 v 40 h 40 V 50 h 40 V 10 H 10 Z m 80,0 h 40 V 770 H 90 Z m 80,0 h 40 v -80 h -40 z m 80,0 h 40 v -40 h -40 z m 80,0 h 40 v -40 h -40 z m 80,0 h 40 v -40 h -40 z m 80,0 h 40 V 690 h -40 v 40 h -40 v 40 h 40 z m 80,0 h 40 v -40 h -40 z m 80,0 h 40 v -40 h 40 v -40 h -40 v -40 h -40 z m 80,0 h 40 V 770 H 730 Z M 290,770 h 40 v -40 h -40 z m 80,0 h 40 v -40 h -40 z m 400,0 h 40 V 730 H 770 Z M 410,730 h 40 V 610 h -80 v 80 h 40 z m 160,0 h 40 v -40 h 40 v -40 h 40 v 40 h 120 v -40 h -80 v -80 h -40 v 40 h -80 v 40 H 570 Z M 170,690 h 120 v -40 h -40 v -40 h -40 v 40 h -40 z m 120,-40 h 40 v -40 h 40 v -80 h -40 v 40 h -80 v 40 h 40 z m 200,0 h 40 v -40 h 80 v -80 h -40 v 40 H 530 V 490 H 410 v 80 h 40 v -40 h 40 z M 170,610 h 40 v -40 h -40 z m 600,0 h 40 V 570 H 770 Z M 170,530 H 290 V 490 H 170 Z m 600,0 h 40 V 490 H 770 Z M 330,490 h 40 V 450 H 490 V 330 h -40 v 80 h -40 v -40 h -40 v 40 h -40 z m 280,0 h 160 v -40 h 40 v -40 h -80 v 40 h -40 v -40 h -40 v 40 H 610 Z M 90,450 h 80 V 410 H 90 Z m 120,0 h 80 v -40 h 40 v -40 h -40 v -40 h -40 v 80 h -40 z m 320,0 h 80 V 330 h -40 v 40 H 530 Z M 170,410 h 40 v -40 h -40 z m 160,-40 h 40 v -40 h -40 z m 400,0 h 80 V 330 H 770 V 290 H 730 Z M 90,330 h 40 V 290 H 90 Z m 80,0 h 40 v -40 h 80 v -40 h -40 v -40 h 80 v -40 h -40 v -40 h -40 v 40 h -40 v -40 h -40 v 80 h 40 v 40 h -40 z m 200,0 h 80 V 290 H 410 V 170 h -40 v 80 h -40 v 40 h 40 z m 120,0 h 80 V 170 h -40 v 80 h -40 z m 160,0 h 40 v -40 h -40 z m -40,-40 h 40 v -80 h -40 z m 80,0 h 40 v -80 h -40 z m 80,0 h 40 V 250 H 770 Z M 90,250 h 40 V 210 H 90 Z m 640,-40 h 80 V 170 H 770 V 130 H 730 V 90 h -40 v 80 h 40 z M 90,170 h 40 V 130 H 90 Z m 320,0 h 40 v -40 h -40 z m 200,0 h 40 v -40 h -40 z m -40,-40 h 40 V 90 h -40 z m 200,0 h 40 V 90 h -40 z" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222223px;line-height:0;font-family:monospace;-inkscape-font-specification:'monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="17.653555"
+       y="278.20511"
+       id="text4940-2"><tspan
+         sodipodi:role="line"
+         x="17.653555"
+         y="278.20511"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222223px;line-height:2.82222223px;font-family:monospace;-inkscape-font-specification:'monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4944-4">#987654321</tspan><tspan
+         sodipodi:role="line"
+         x="17.653555"
+         y="281.02734"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222223px;line-height:2.82222223px;font-family:monospace;-inkscape-font-specification:'monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4953-0">2021-01-23 12:34</tspan><tspan
+         sodipodi:role="line"
+         x="17.653555"
+         y="283.84955"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222223px;line-height:2.82222223px;font-family:monospace;-inkscape-font-specification:'monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4951-6">ABCDE 0404</tspan></text>
+  </g>
+</svg>

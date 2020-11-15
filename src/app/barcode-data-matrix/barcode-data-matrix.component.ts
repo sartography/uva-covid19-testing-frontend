@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import bwipjs from 'bwip-js';
 import {AppDefaults} from '../models/appDefaults.interface';
+import DrawingSVG from './draw-svg.js';
 
 @Component({
   selector: 'app-barcode-data-matrix',
@@ -21,7 +22,7 @@ export class BarcodeDataMatrixComponent implements OnInit {
 
   renderBarcode(): void {
     if (!!(bwipjs && bwipjs.toCanvas && this.settings && this.format)) {
-      bwipjs.toCanvas('barcodeCanvas', {
+      const opts = {
         bcid: this.format,
         text: this.value,
         scale: 1,
@@ -31,7 +32,9 @@ export class BarcodeDataMatrixComponent implements OnInit {
         // textalign: 'center',
         // version: '12x64',
         // padding: this.settings.labelLayout.marginSize,
-      });
+      };
+      const barcodeSVG = bwipjs.render(opts, DrawingSVG(opts), bwipjs.FontLib);
+      // bwipjs.toCanvas('barcodeCanvas', );
     }
   }
 }

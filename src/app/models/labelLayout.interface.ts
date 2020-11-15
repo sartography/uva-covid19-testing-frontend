@@ -21,9 +21,9 @@ export interface LayoutOptions {
 }
 
 export class LabelLayout {
+  name = '32mm Round Label - QR Code (1up)';
   barcodeType = 'qrcode';
-  type = 'round_32mm_1up';
-  name = '32mm Round Label - 1up';
+  type = 'circle_1up_32mm_x_32mm_qrcode';
   units = 'mm';
   pointsPerUnit = 0.3528;
   barcodeHeight = 28.6;
