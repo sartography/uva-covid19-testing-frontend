@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="54mm"
+   height="34mm"
+   viewBox="0 0 54 34"
+   version="1.1"
+   id="svg5173">
+  <defs
+     id="defs5167" />
+  <g
+     id="layer1"
+     transform="translate(0,-263)">
+    <g
+       id="g872">
+      <rect
+         ry="1.5875"
+         rx="1.5875"
+         y="264.125"
+         x="1.6000004"
+         height="31.75"
+         width="50.799999"
+         id="rect5000"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#cccccc;stroke-width:0.17638889;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="g1163"
+         transform="translate(-2.087723,-1.7764499)">
+        <text
+           xml:space="preserve"
+           x="6.6571178"
+           y="268.65799"
+           id="text4940-2-2-3"><tspan
+             x="6.6571178"
+             y="268.65799"
+             id="tspan4951-6-0-1">UP</tspan></text>
+        <g
+           id="g5088-1"
+           transform="matrix(0.08333333,0,0,0.08333333,4.687723,266.90145)">
+          <path
+             id="path5074-0"
+             d="M 0,0 H 24 V 24 H 0 Z"
+
+             style="fill:none" />
+          <path
+             id="path5076-3"
+             d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z"
+              />
+        </g>
+      </g>
+      <g
+         id="g1163-9"
+         transform="translate(-2.087723,25.97355)">
+        <text
+           xml:space="preserve"
+           x="6.6571178"
+           y="268.65799"
+           id="text4940-2-2-3-0"><tspan
+             x="6.6571178"
+             y="268.65799"
+             id="tspan4951-6-0-1-8">UP</tspan></text>
+        <g
+           id="g5088-1-8"
+           transform="matrix(0.08333333,0,0,0.08333333,4.687723,266.90145)">
+          <path
+             id="path5074-0-5"
+             d="M 0,0 H 24 V 24 H 0 Z"
+
+             style="fill:none" />
+          <path
+             id="path5076-3-0"
+             d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z"
+              />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.125,0,0,-0.125,4.387,285.125)"
+       id="g1445">
+      <g
+         transform="scale(0.1)"
+         id="g1447">
+<!--        <app-barcode-data-matrix-->
+<!--          format="datamatrix"-->
+<!--          [value]="value"-->
+<!--          [settings]="settings"-->
+<!--          width="820"-->
+<!--          height="820"-->
+<!--          x="0"-->
+<!--          y="0"></app-barcode-data-matrix>-->
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       x="17.653555"
+       y="278.20511"
+       id="text4940-2"><tspan
+     x="17.653555"
+         y="278.20511"
+         id="tspan4944-4">#987654321</tspan><tspan
+     x="17.653555"
+         y="281.02734"
+         id="tspan4953-0">2021-01-23 12:34</tspan><tspan
+     x="17.653555"
+         y="283.84955"
+         id="tspan4951-6">ABCDE 0404</tspan></text>
+  </g>
+</svg>

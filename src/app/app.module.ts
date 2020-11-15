@@ -18,9 +18,14 @@ import {QRCodeSVGModule} from 'ngx-qrcode-svg';
 import {ThisEnvironment} from '../environments/environment.injectable';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {BarcodeDataMatrixComponent} from './barcode-data-matrix/barcode-data-matrix.component';
 import {CountComponent} from './count/count.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
+import {CircleQRcodeDoubleComponent} from './label-layout/formats/circle-qrcode-double/circle-qrcode-double.component';
+import {CircleQRcodeSingleComponent} from './label-layout/formats/circle-qrcode-single/circle-qrcode-single.component';
+import {RectangleCode128Component} from './label-layout/formats/rectangle-code128/rectangle-code128.component';
+import {RectangleDatamatrixComponent} from './label-layout/formats/rectangle-datamatrix/rectangle-datamatrix.component';
 import {LabelLayoutComponent} from './label-layout/label-layout.component';
 import {LoadingComponent} from './loading/loading.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -31,7 +36,6 @@ import {ApiService} from './services/api.service';
 import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
-import { BarcodeDataMatrixComponent } from './barcode-data-matrix/barcode-data-matrix.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -62,6 +66,10 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     SampleComponent,
     SettingsComponent,
     BarcodeDataMatrixComponent,
+    CircleQRcodeSingleComponent,
+    CircleQRcodeDoubleComponent,
+    RectangleDatamatrixComponent,
+    RectangleCode128Component,
   ],
   imports: [
     BrowserAnimationsModule,
