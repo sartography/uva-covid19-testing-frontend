@@ -42,10 +42,12 @@ export class LabelLayout {
   numCopies = 1;
 
   constructor(private options: LayoutOptions) {
-    const keys = Object.keys(options);
-    keys.forEach(k => {
-      this[k] = options[k];
-    });
+    if (options) {
+      const keys = Object.keys(options);
+      keys.forEach(k => {
+        this[k] = options[k];
+      });
+    }
   }
 
   get dimensions() {

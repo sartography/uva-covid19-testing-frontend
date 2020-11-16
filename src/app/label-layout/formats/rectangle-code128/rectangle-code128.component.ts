@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AppDefaults} from '../../../models/appDefaults.interface';
+import {Sample} from '../../../models/sample.interface';
 
 @Component({
   selector: 'app-rectangle-code128',
@@ -7,7 +8,7 @@ import {AppDefaults} from '../../../models/appDefaults.interface';
   styleUrls: ['./rectangle-code128.component.scss']
 })
 export class RectangleCode128Component implements OnInit {
-  @Input() value: string;
+  @Input() sample: Sample;
   @Input() settings: AppDefaults;
   @Input() x: number;
   @Input() y: number;

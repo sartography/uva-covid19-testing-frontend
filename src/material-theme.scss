@@ -442,4 +442,25 @@
       }
     }
   }
+
+
+  svg.label-layout-format {
+    text, tspan {
+      font-style: normal;
+      font-variant: normal;
+      font-weight: bold;
+      font-stretch: normal;
+      font-size: 2.11666656px;
+      line-height: 1.25;
+      font-family: monospace;
+      text-align: center;
+      font-variant-ligatures: normal;
+      font-variant-caps: normal;
+      font-variant-numeric: normal;
+      font-feature-settings: normal;
+      font-variant-numeric: normal;
+      font-feature-settings: normal;
+      text-anchor: middle;
+    }
+  }
 }

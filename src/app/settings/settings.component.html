@@ -29,16 +29,15 @@
           [formControl]="labelLayoutFormControl"
         >
           <mat-option *ngFor="let layout of labelLayouts" [value]="layout.type" [ngStyle]="{height: 'inherit', width: 'inherit'}">
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px" (click)="labelLayoutFormControl.patchValue(layout)">
               <div fxFlex="50%" [ngStyle]="{whiteSpace: 'normal', lineHeight: '1.2'}">
                 {{layout.name}}
               </div>
               <div fxFlex="50%">
-<!--                <img src="/assets/formats/{{layout.type}}.svg" alt="{{layout.name}}">-->
-                <app-circle-qrcode-single *ngIf="layout.type === 'circle_1up_32mm_x_32mm_qrcode'"></app-circle-qrcode-single>
-                <app-circle-qrcode-double *ngIf="layout.type === 'circle_2up_64mm_x_32mm_qrcode'"></app-circle-qrcode-double>
-                <app-rectangle-code128 *ngIf="layout.type === 'rectangular_54mm_x_34mm_code128'"></app-rectangle-code128>
-                <app-rectangle-datamatrix *ngIf="layout.type === 'rectangular_54mm_x_34mm_datamatrix'"></app-rectangle-datamatrix>
+                <app-circle-qrcode-single *ngIf="layout.type === 'circle_1up_32mm_x_32mm_qrcode'" [sample]="fakeSample"></app-circle-qrcode-single>
+                <app-circle-qrcode-double *ngIf="layout.type === 'circle_2up_64mm_x_32mm_qrcode'" [sample]="fakeSample"></app-circle-qrcode-double>
+                <app-rectangle-code128 *ngIf="layout.type === 'rectangular_54mm_x_34mm_code128'" [sample]="fakeSample"></app-rectangle-code128>
+                <app-rectangle-datamatrix *ngIf="layout.type === 'rectangular_54mm_x_34mm_datamatrix'" [sample]="fakeSample"></app-rectangle-datamatrix>
               </div>
             </div>
           </mat-option>

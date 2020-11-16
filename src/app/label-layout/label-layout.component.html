@@ -1,42 +1,4 @@
-<div
-  class="label-layout"
-  [ngStyle]="pageStyle"
->
-  <div
-    class="date"
-    [ngStyle]="{marginTop: settings.labelLayout.dimensions.topTextMargin}"
-  >{{dateCreated | date:'yyMMdd'}}{{initials.toUpperCase()}}</div>
-  <div
-    class="time"
-    [ngStyle]="{marginLeft: settings.labelLayout.dimensions.sideTextMargin}"
-  >
-    T<br />
-    {{dateCreated | date:'HH'}}<br />
-    {{dateCreated | date:'mm'}}
-  </div>
-  <qrcode-svg
-    *ngIf="settings.labelLayout.barcodeType === 'qrcode'"
-    [value]="qrCodeValue"
-    errorCorrectionLevel="H"
-    [ngStyle]="barcodeStyle"
-  ></qrcode-svg>
-  <app-barcode-data-matrix
-    *ngIf="settings.labelLayout.barcodeType !== 'qrcode'"
-    [value]="qrCodeValue"
-    [format]="settings.labelLayout.barcodeType"
-    [ngStyle]="barcodeStyle"
-    [settings]="settings"
-  ></app-barcode-data-matrix>
-  <div
-    class="location"
-    [ngStyle]="{marginRight: settings.labelLayout.dimensions.sideTextMargin}"
-  >
-    L<br />
-    {{settings.locationId.slice(0, 2)}}<br />
-    {{settings.locationId.slice(2, 4)}}
-  </div>
-  <div
-    class="barcode"
-    [ngStyle]="{marginBottom: settings.labelLayout.dimensions.bottomTextMargin}"
-  >#{{barCode}}</div>
-</div>
+<app-circle-qrcode-single *ngIf="settings.labelLayout.type === 'circle_1up_32mm_x_32mm_qrcode'" [sample]="sample"></app-circle-qrcode-single>
+<app-circle-qrcode-double *ngIf="settings.labelLayout.type === 'circle_2up_64mm_x_32mm_qrcode'" [sample]="sample"></app-circle-qrcode-double>
+<app-rectangle-code128 *ngIf="settings.labelLayout.type === 'rectangular_54mm_x_34mm_code128'" [sample]="sample"></app-rectangle-code128>
+<app-rectangle-datamatrix *ngIf="settings.labelLayout.type === 'rectangular_54mm_x_34mm_datamatrix'" [sample]="sample"></app-rectangle-datamatrix>

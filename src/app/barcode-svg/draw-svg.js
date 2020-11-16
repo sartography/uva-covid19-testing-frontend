@@ -77,10 +77,10 @@ function DrawingSVG(opts, FontLib) {
         init(width, height) {
             // Add in the effects of padding.  These are always set before the
             // drawing constructor is called.
-            var padl = opts.paddingleft;
-            var padr = opts.paddingright;
-            var padt = opts.paddingtop;
-            var padb = opts.paddingbottom;
+            var padl = opts.paddingleft || 0;
+            var padr = opts.paddingright || 0;
+            var padt = opts.paddingtop || 0;
+            var padb = opts.paddingbottom || 0;
             var rot  = opts.rotate || 'N';
 
             width  += padl + padr;
@@ -120,11 +120,11 @@ function DrawingSVG(opts, FontLib) {
             // Try to keep the lines "crisp" by using with the SVG line drawing spec to
             // our advantage.
             if (lw & 1) {
-                if (x0 == x1) {
+                if (x0 === x1) {
                     x0 += 0.5;
                     x1 += 0.5;
                 }
-                if (y0 == y1) {
+                if (y0 === y1) {
                     y0 += 0.5;
                     y1 += 0.5;
                 }
@@ -261,8 +261,8 @@ function DrawingSVG(opts, FontLib) {
         y += gs_dy;
         var tx = tx0 * x + tx1 * y + tx2 * (gs_width-1) + tx3 * (gs_height-1);
         var ty = ty0 * x + ty1 * y + ty2 * (gs_width-1) + ty3 * (gs_height-1);
-        return '' + ((tx|0) == tx ? tx : tx.toFixed(2)) + ' ' +
-                    ((ty|0) == ty ? ty : ty.toFixed(2));
+        return '' + ((tx|0) === tx ? tx : tx.toFixed(2)) + ' ' +
+                    ((ty|0) === ty ? ty : ty.toFixed(2));
     }
 }
 

@@ -2,9 +2,11 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@a
 import {FormControl, Validators} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
+import {createQrCodeValue} from '../_util/qrCode';
 import {labelLayouts} from '../config/defaults';
 import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
+import {Sample} from '../models/sample.interface';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -18,6 +20,8 @@ export class SettingsComponent implements AfterViewInit {
   labelLayoutFormControl: FormControl;
   locationIdFormControl: FormControl;
   labelLayouts: LabelLayout[];
+  fakeSample: Sample;
+  fakeBarcodeValue: string;
 
   @ViewChild('locationIdInput') locationIdInput: MatInput;
 
@@ -41,6 +45,8 @@ export class SettingsComponent implements AfterViewInit {
     ]);
 
     this.labelLayouts = Object.values(labelLayouts);
+
+    this._loadFakeData();
   }
 
   get hasInfo(): boolean {
@@ -61,5 +67,25 @@ export class SettingsComponent implements AfterViewInit {
       });
       this.router.navigate(['/']);
     }
+  }
+
+  // Make some fake data for sample barcodes
+  private _loadFakeData() {
+    this.fakeSample = {
+      barcode: '',
+      student_id: '123456789',
+      initials: 'ABCDE',
+      date: new Date(),
+      location: this.settings.locationId,
+    };
+
+    this.fakeBarcodeValue = createQrCodeValue(
+      this.fakeSample.student_id,
+      this.fakeSample.initials,
+      this.fakeSample.date,
+      this.fakeSample.location
+    );
+
+    this.fakeSample.barcode = this.fakeBarcodeValue;
   }
 }
