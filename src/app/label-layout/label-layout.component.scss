@@ -1,0 +1,13 @@
+::ng-deep app-circle-qrcode-single,
+::ng-deep app-circle-qrcode-double,
+::ng-deep app-rectangle-code128,
+::ng-deep app-rectangle-datamatrix {
+  background-color: transparent;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  line-height: 0;
+  width: inherit;
+  height: inherit;
+  display: block;
+}

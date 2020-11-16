@@ -35,7 +35,7 @@ export class SettingsComponent implements AfterViewInit {
       Validators.required,
     ]);
 
-    this.labelLayoutFormControl = new FormControl(this.settings.labelLayout.type, [
+    this.labelLayoutFormControl = new FormControl(this.settings.labelLayout.id, [
       Validators.required,
     ]);
 
@@ -87,5 +87,9 @@ export class SettingsComponent implements AfterViewInit {
     );
 
     this.fakeSample.barcode = this.fakeBarcodeValue;
+  }
+
+  selectLabelLayout(layout: LabelLayout) {
+    this.labelLayoutFormControl.patchValue(layout);
   }
 }

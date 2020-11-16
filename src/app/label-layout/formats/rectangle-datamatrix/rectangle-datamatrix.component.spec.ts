@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {mockSample} from '../../../testing/sample.mock';
 
 import { RectangleDatamatrixComponent } from './rectangle-datamatrix.component';
 
@@ -16,6 +17,7 @@ describe('RectangleDatamatrixComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RectangleDatamatrixComponent);
     component = fixture.componentInstance;
+    component.sample = mockSample;
     fixture.detectChanges();
   });
 

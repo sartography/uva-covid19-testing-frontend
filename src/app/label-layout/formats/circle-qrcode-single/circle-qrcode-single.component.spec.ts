@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {mockSample} from '../../../testing/sample.mock';
 
 import { CircleQRcodeSingleComponent } from './circle-qrcode-single.component';
 
@@ -16,6 +17,7 @@ describe('CircleQRcodeSingleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CircleQRcodeSingleComponent);
     component = fixture.componentInstance;
+    component.sample = mockSample;
     fixture.detectChanges();
   });
 

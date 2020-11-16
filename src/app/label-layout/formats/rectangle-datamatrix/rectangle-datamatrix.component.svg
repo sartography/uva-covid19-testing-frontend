@@ -21,6 +21,7 @@
 
   <g transform="translate(1.5, 1)">
     <rect
+      class="label-layout-border"
       fill="#FFFFFF"
       stroke="#CCCCCC"
       stroke-width="0.2"
@@ -30,14 +31,14 @@
       y="0"
       rx="2"
     />
-    <use xlink:href="#up_arrow" x="1" y="1" />
+    <use xlink:href="#up_arrow" x="2" y="2" />
     <g
       appBarcodeSvg
       format="datamatrix"
       [value]="sample.barcode"
       [width]="3.5"
       [height]="3.5"
-      transform="translate(5, 10)"
+      transform="translate(3.5, 10)"
     />
     <g transform="translate(18, 14)">
       <text x="0" y="0" style="text-anchor: start; text-align: left;">
@@ -50,6 +51,6 @@
         {{sample.initials}} {{sample.location}}
       </text>
     </g>
-    <use xlink:href="#up_arrow" x="1" y="28.5" />
+    <use xlink:href="#up_arrow" x="2" y="27.5" />
   </g>
 </svg>

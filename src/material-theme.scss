@@ -450,7 +450,7 @@
       font-variant: normal;
       font-weight: bold;
       font-stretch: normal;
-      font-size: 2.11666656px;
+      font-size: 2.11666656px; // 6pt
       line-height: 1.25;
       font-family: monospace;
       text-align: center;
@@ -461,6 +461,12 @@
       font-variant-numeric: normal;
       font-feature-settings: normal;
       text-anchor: middle;
+    }
+
+    @media print {
+      .label-layout-border {
+        stroke: transparent;
+      }
     }
   }
 }

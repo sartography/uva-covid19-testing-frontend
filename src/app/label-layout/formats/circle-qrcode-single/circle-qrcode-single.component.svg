@@ -8,6 +8,7 @@
   viewBox="0 0 32 32"
 >
   <circle
+    class="label-layout-border"
     cx="16"
     cy="16"
     fill="#FFFFFF"

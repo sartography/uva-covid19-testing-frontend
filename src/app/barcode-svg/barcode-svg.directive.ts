@@ -17,9 +17,6 @@ export class BarcodeSvgDirective implements OnInit {
   }
 
   ngOnInit() {
-    console.log('this.format', this.format);
-    console.log('this.barcodeContainer', this.barcodeContainer);
-    console.log('bwipjs', bwipjs);
     if (!!(bwipjs && bwipjs.render && this.format)) {
       const opts: { [key: string]: any } = {
         bcid: this.format,

@@ -18,7 +18,7 @@ import {QRCodeSVGModule} from 'ngx-qrcode-svg';
 import {ThisEnvironment} from '../environments/environment.injectable';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BarcodeSvgComponent} from './barcode-svg/barcode-svg.component';
+import {BarcodeSvgDirective} from './barcode-svg/barcode-svg.directive';
 import {CountComponent} from './count/count.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
@@ -36,7 +36,6 @@ import {ApiService} from './services/api.service';
 import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
-import { BarcodeSvgDirective } from './barcode-svg/barcode-svg.directive';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -56,6 +55,9 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
 @NgModule({
   declarations: [
     AppComponent,
+    BarcodeSvgDirective,
+    CircleQRcodeDoubleComponent,
+    CircleQRcodeSingleComponent,
     CountComponent,
     FooterComponent,
     HomeComponent,
@@ -64,14 +66,10 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     NavbarComponent,
     PrintComponent,
     PrintLayoutComponent,
+    RectangleCode128Component,
+    RectangleDatamatrixComponent,
     SampleComponent,
     SettingsComponent,
-    BarcodeSvgComponent,
-    CircleQRcodeSingleComponent,
-    CircleQRcodeDoubleComponent,
-    RectangleDatamatrixComponent,
-    RectangleCode128Component,
-    BarcodeSvgDirective,
   ],
   imports: [
     BrowserAnimationsModule,

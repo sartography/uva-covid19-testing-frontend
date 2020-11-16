@@ -16,11 +16,9 @@ export class CircleQRcodeSingleComponent implements OnInit {
   @Input() height: number;
 
   constructor(private changeDetector: ChangeDetectorRef) {
-    console.log('CircleQRcodeSingleComponent constructor this.sample', this.sample);
   }
 
   ngOnInit(): void {
-    console.log('CircleQRcodeSingleComponent ngOnInit this.sample', this.sample);
     if (this.sample) {
       this.changeDetector.detectChanges();
     }

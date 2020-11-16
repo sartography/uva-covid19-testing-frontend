@@ -37,14 +37,6 @@ export class PrintLayoutComponent implements AfterViewInit {
     return this.layout.dimensions.pageWidth;
   }
 
-  get marginWidth(): string {
-    return this.layout.dimensions.marginWidth;
-  }
-
-  get columnGap(): string {
-    return this.layout.dimensions.columnGap;
-  }
-
   get pages() {
     return Array(this.layout.numCopies).fill('');
   }

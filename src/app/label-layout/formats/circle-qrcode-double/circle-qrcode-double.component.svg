@@ -10,6 +10,7 @@
   <defs>
     <g id="circle_qrcode_single">
       <circle
+        class="label-layout-border"
         cx="16"
         cy="16"
         fill="#FFFFFF"

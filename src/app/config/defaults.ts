@@ -2,57 +2,33 @@ import {AppDefaultsOptions} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 
 export const labelLayouts = {
-  circle_1up_32mm_x_32mm_qrcode: new LabelLayout({
+  circle_qrcode_single: new LabelLayout({
     name: '32mm Round Label - QR Code (1up)',
     barcodeType: 'qrcode',
-    type: 'circle_1up_32mm_x_32mm_qrcode',
-    numCols: 1,
-    columnGap: 0,
-    barcodeWidth: 28.6,
-    barcodeHeight: 28.6,
-    sideTextMargin: 0,
-    topTextMargin: 0,
-    bottomTextMargin: 0,
+    id: 'circle_qrcode_single',
+    pageWidth: 32,
+    pageHeight: 32,
   }),
-  circle_2up_32mm_x_32mm_qrcode: new LabelLayout({
+  circle_qrcode_double: new LabelLayout({
     name: '32mm Round Label - QR Code (2up)',
     barcodeType: 'qrcode',
-    type: 'circle_2up_64mm_x_32mm_qrcode',
-    numCols: 2,
-    columnGap: 3.4,
-    barcodeWidth: 28.6,
-    barcodeHeight: 28.6,
-    sideTextMargin: 0,
-    topTextMargin: 0,
-    bottomTextMargin: 0,
+    id: 'circle_qrcode_double',
+    pageWidth: 64,
+    pageHeight: 32,
   }),
-  rectangular_54mm_x_34mm_code128: new LabelLayout({
+  rectangle_code128: new LabelLayout({
     name: '2in x 1.25in Rectangular Label - CODE128',
     barcodeType: 'code128',
-    type: 'rectangular_54mm_x_34mm_code128',
-    numCols: 1,
-    columnGap: 0,
-    columnWidth: 54,
-    columnHeight: 34,
-    barcodeWidth: 10,
-    barcodeHeight: 10,
-    sideTextMargin: 0,
-    topTextMargin: 0,
-    bottomTextMargin: 0,
+    id: 'rectangle_code128',
+    pageWidth: 54,
+    pageHeight: 34,
   }),
-  rectangular_54mm_x_34mm_datamatrix: new LabelLayout({
+  rectangle_datamatrix: new LabelLayout({
     name: '2in x 1.25in Rectangular Label - DataMatrix',
     barcodeType: 'datamatrix',
-    type: 'rectangular_54mm_x_34mm_datamatrix',
-    numCols: 1,
-    columnGap: 0,
-    columnWidth: 54,
-    columnHeight: 34,
-    barcodeWidth: 10,
-    barcodeHeight: 10,
-    sideTextMargin: 0,
-    topTextMargin: 0,
-    bottomTextMargin: 0,
+    id: 'rectangle_datamatrix',
+    pageWidth: 54,
+    pageHeight: 34,
   }),
 };
 
@@ -66,7 +42,7 @@ export const defaultOptions: AppDefaultsOptions = {
   dateEncodedFormat: 'yyyyMMddHHmm',                        // Format for dates when encoded in IDs for database records.
   initialsLength: 5,
   initialsRegExp: /^[a-zA-Z]{2,5}$/,
-  labelLayout: labelLayouts.circle_1up_32mm_x_32mm_qrcode,  // Which label layout to use for printing. Can be overridden by user setting.
+  labelLayout: labelLayouts.circle_qrcode_single,  // Which label layout to use for printing. Can be overridden by user setting.
   lineCountRegExp: /^[\d]{4}-[\d]{12}$/,                    // ID format for Line Count records.
   locationId: '0000',                                       // Default location ID. Can be overridden by user setting.
   locationIdRegExp: /^[\d]{4}$/,                            // ID format for Line Count records.

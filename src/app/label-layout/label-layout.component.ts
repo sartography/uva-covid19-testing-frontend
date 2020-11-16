@@ -38,4 +38,8 @@ export class LabelLayoutComponent {
 
     this.sample.barcode = this.barcodeValue;
   }
+
+  isLayout(layoutId: string) {
+    return this.settings.labelLayout.id === layoutId;
+  }
 }
