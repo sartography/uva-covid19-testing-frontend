@@ -40,9 +40,9 @@ export const defaultOptions: AppDefaultsOptions = {
   countsCollection: 'counts',                               // Name of collection for Line Counts in Firebase.
   dateDisplayFormat: 'MM/dd/yyyy, hh:mm aa',                // Format for dates when displayed to user.
   dateEncodedFormat: 'yyyyMMddHHmm',                        // Format for dates when encoded in IDs for database records.
-  initialsLength: 5,
-  initialsRegExp: /^[a-zA-Z]{2,5}$/,
-  labelLayout: labelLayouts.circle_qrcode_single,  // Which label layout to use for printing. Can be overridden by user setting.
+  initialsLength: 6,
+  initialsRegExp: /^[a-zA-Z]{2,6}$/,
+  labelLayout: labelLayouts.circle_qrcode_single,           // Which label layout to use for printing. Can be overridden by user setting.
   lineCountRegExp: /^[\d]{4}-[\d]{12}$/,                    // ID format for Line Count records.
   locationId: '0000',                                       // Default location ID. Can be overridden by user setting.
   locationIdRegExp: /^[\d]{4}$/,                            // ID format for Line Count records.
