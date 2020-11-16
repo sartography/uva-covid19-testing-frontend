@@ -53,6 +53,13 @@ export class SettingsComponent implements AfterViewInit {
     return this.numCopiesFormControl.valid && this.locationIdFormControl.valid;
   }
 
+  get selectedLabelLayout(): LabelLayout {
+    const selectedLayoutId = this.labelLayoutFormControl.value;
+    if (selectedLayoutId) {
+      return this.labelLayouts.find(layout => layout.id === selectedLayoutId);
+    }
+  }
+
   ngAfterViewInit(): void {
     this.locationIdInput.focus();
     this.changeDetector.detectChanges();
