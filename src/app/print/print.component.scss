@@ -39,7 +39,11 @@
     display: none;
   }
 
-  #media-print { display: block !important; }
+  #media-print {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
   #media-screen { display: none !important; }
 }
 

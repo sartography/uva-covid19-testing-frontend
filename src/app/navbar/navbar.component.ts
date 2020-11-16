@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppDefaults} from '../models/appDefaults.interface';
 import {SettingsService} from '../services/settings.service';
-import {TestingLocation} from '../models/testingLocation.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +8,20 @@ import {TestingLocation} from '../models/testingLocation.interface';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @Input() testingLocation: TestingLocation;
+  settings: AppDefaults;
+  locationId: string;
 
   constructor(private settingsService: SettingsService) {
+    this.settingsService.settings.subscribe(settings => {
+      this.settings = settings;
+      this.locationId = !this.hasDefaultId ? this.settings.locationId : '0000';
+    });
+  }
+
+  get hasDefaultId(): boolean {
+    return (!this.settings || this.settings.locationId === '0000');
   }
 
   ngOnInit(): void {
-  }
-
-  get locationId(): string {
-    const settings = this.settingsService.getSettings();
-    return settings.locationId;
   }
 }

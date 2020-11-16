@@ -10,13 +10,14 @@
     </mat-card-header>
 
     <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
-      <mat-form-field class="location-input" fxFlex="95%">
+      <mat-form-field class="location-input" fxFlex="95%" >
         <mat-label>Location ID #</mat-label>
         <input
           #locationIdInput="matInput"
           matInput
           type="text"
           [formControl]="locationIdFormControl"
+          (keyup.enter)="save()"
         >
         <mat-error *ngIf="locationIdFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="locationIdFormControl.hasError('pattern')">Please enter exactly 4 digits.</mat-error>
@@ -27,7 +28,19 @@
           #labelLayoutSelect="matSelect"
           [formControl]="labelLayoutFormControl"
         >
-          <mat-option *ngFor="let layout of labelLayouts" [value]="layout.type">{{layout.name}}</mat-option>
+          <mat-option *ngFor="let layout of labelLayouts" [value]="layout.id" [ngStyle]="{height: 'inherit', width: 'inherit'}">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px" (click)="selectLabelLayout(layout)">
+              <div fxFlex="50%" [ngStyle]="{whiteSpace: 'normal', lineHeight: '1.2'}" (click)="selectLabelLayout(layout)">
+                {{layout.name}}
+              </div>
+              <div fxFlex="50%" (click)="selectLabelLayout(layout)">
+                <app-circle-qrcode-single *ngIf="layout.id === 'circle_qrcode_single'" [sample]="fakeSample"></app-circle-qrcode-single>
+                <app-circle-qrcode-double *ngIf="layout.id === 'circle_qrcode_double'" [sample]="fakeSample"></app-circle-qrcode-double>
+                <app-rectangle-code128 *ngIf="layout.id === 'rectangle_code128'" [sample]="fakeSample"></app-rectangle-code128>
+                <app-rectangle-datamatrix *ngIf="layout.id === 'rectangle_datamatrix'" [sample]="fakeSample"></app-rectangle-datamatrix>
+              </div>
+            </div>
+          </mat-option>
         </mat-select>
         <mat-error *ngIf="labelLayoutFormControl.hasError('required')">This field is required.</mat-error>
       </mat-form-field>
@@ -38,6 +51,7 @@
           matInput
           type="number"
           [formControl]="numCopiesFormControl"
+          (keyup.enter)="save()"
         >
         <mat-error *ngIf="numCopiesFormControl.hasError('required')">This field is required.</mat-error>
         <mat-error *ngIf="numCopiesFormControl.hasError('pattern')">Please enter only 2-5 letters.</mat-error>

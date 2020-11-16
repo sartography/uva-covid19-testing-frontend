@@ -45,20 +45,14 @@
         color="accent"
         [disabled]="hasErrors"
         (click)="goPrint()"
-        fxFlex="33%"
+        fxFlex="50%"
       >Next <mat-icon>navigate_next</mat-icon></button>
       <button
         mat-flat-button
         class="btn-lg"
         (click)="resetForm()"
-        fxFlex="33%"
+        fxFlex="50%"
       ><mat-icon>restore</mat-icon> Reset</button>
-      <button
-        mat-flat-button
-        class="btn-lg"
-        routerLink="/"
-        fxFlex="33%"
-      ><mat-icon>cancel</mat-icon> Cancel</button>
     </mat-card-actions>
   </mat-card>
 

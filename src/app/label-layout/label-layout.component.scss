@@ -1,51 +1,13 @@
-.date,
-.time,
-.location,
-.barcode {
-  position: absolute;
-  font-family: monospace;
-  font-weight: bolder;
-  text-align: center;
-  font-size: 6pt;
-}
-
-.label-layout {
-  position: relative;
-  width: 24.6mm;
-  height: 24.6mm;
-  border: 2mm solid white;
-  border-radius: 100%;
-  background-color: white;
-  padding: 0;
-  margin: 0;
-
-  .date {
-    top: 0;
-    width: 100%;
-  }
-
-  .barcode {
-    bottom: 0;
-    width: 100%;
-  }
-
-  .time {
-    top: calc(50% - 3mm);
-    left: 0;
-  }
-
-  .location {
-    top: calc(50% - 3mm);
-    right: 0;
-  }
-
-  qrcode-svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -11mm;
-    margin-top: -11mm;
-    width: 22mm;
-    height: 22mm;
-  }
+::ng-deep app-circle-qrcode-single,
+::ng-deep app-circle-qrcode-double,
+::ng-deep app-rectangle-code128,
+::ng-deep app-rectangle-datamatrix {
+  background-color: transparent;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  line-height: 0;
+  width: inherit;
+  height: inherit;
+  display: block;
 }

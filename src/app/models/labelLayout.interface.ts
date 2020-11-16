@@ -1,76 +1,40 @@
 export interface LayoutOptions {
-  type?: string;
+  barcodeType?: string;
+  id?: string;
   name?: string;
   units?: string;
-  pointsPerUnit?: number;
-  labelSize?: number;
-  marginSize?: number;
+  pageHeight?: number;
+  pageWidth?: number;
   numCols?: number;
-  columnGap?: number;
-  sideTextWidth?: number;
-  sideTextTop?: number;
-  sideTextMargin?: number;
-  topTextMargin?: number;
-  bottomTextMargin?: number;
-  fontSizePt?: number;
   numCopies?: number;
 }
 
 export class LabelLayout {
-  type = 'round_32mm_1up';
-  name = '32mm Round Label - 1up';
+  name = '32mm Round Label - QR Code (1up)';
+  barcodeType = 'qrcode';
+  id = 'circle_qrcode_double';
   units = 'mm';
-  pointsPerUnit = 0.3528;
-  labelSize = 28.6;
-  marginSize = 1.7;
+  pageHeight = 32;
+  pageWidth = 32;
   numCols = 1;
-  columnGap = 4;
-  sideTextWidth = 4;
-  sideTextTop = 11;
-  sideTextMargin = 1.5;
-  topTextMargin = 3;
-  bottomTextMargin = 2.5;
-  fontSizePt = 6;
   numCopies = 1;
 
   constructor(private options: LayoutOptions) {
-    const keys = Object.keys(options);
-    keys.forEach(k => {
-      this[k] = options[k];
-    });
+    if (options) {
+      const keys = Object.keys(options);
+      keys.forEach(k => {
+        this[k] = options[k];
+      });
+    } else {
+      console.error('options is empty:', options);
+    }
   }
 
   get dimensions() {
     return {
-      bottomTextMargin: this._toUnits(this.bottomTextMargin),
-      columnGap: this._toUnits(this.columnGap),
-      fontSize: this._toUnits(this.fontSize),
-      labelSize: this._toUnits(this.labelSize),
-      labelSizeWithMargins: this._toUnits(this.labelSizeWithMargins),
-      marginWidth: this._toUnits(this.marginSize),
-      pageHeight: this._toUnits(this.pageHeight),
       pageWidth: this._toUnits(this.pageWidth),
-      sideTextMargin: this._toUnits(this.sideTextMargin),
-      sideTextTop: this._toUnits(this.sideTextTop),
-      sideTextWidth: this._toUnits(this.sideTextWidth),
-      topTextMargin: this._toUnits(this.topTextMargin),
+      pageHeight: this._toUnits(this.pageHeight),
     };
-  }
-
-  get labelSizeWithMargins(): number {
-    return (this.labelSize + (this.marginSize * 2));
-  }
-
-  get pageWidth(): number {
-    return (this.labelSizeWithMargins * this.numCols);
-  }
-
-  get pageHeight(): number {
-    return (this.labelSizeWithMargins * this.numCopies);
-  }
-
-  get fontSize(): number {
-    return this.fontSizePt * this.pointsPerUnit;
   }
 
   private _toUnits(num: number) {

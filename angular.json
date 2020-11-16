@@ -29,6 +29,11 @@
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "allowedCommonJsDependencies": [
+              "bwip-js",
+              "qrcode",
+              "serialize-javascript"
             ]
           },
           "configurations": {
