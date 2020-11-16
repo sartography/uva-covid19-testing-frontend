@@ -35,7 +35,9 @@ export class LabelLayoutComponent implements OnInit {
       this.sample.student_id,
       this.sample.initials,
       this.sample.date,
-      this.sample.location
+      this.sample.location,
+      this.settings.labelLayout.delimiter,
+      this.settings.labelLayout.barcodeType,
     );
 
     this.sample.barcode = this.barcodeValue;

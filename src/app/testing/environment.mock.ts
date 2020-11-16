@@ -7,4 +7,8 @@ export class MockEnvironment implements AppEnvironment {
   api = 'apiRoot';
   title = 'Mock Title';
   googleAnalyticsKey = 'SOME_KEY';
+
+  constructor() {
+    console.log('MockEnvironment constructor');
+  }
 }

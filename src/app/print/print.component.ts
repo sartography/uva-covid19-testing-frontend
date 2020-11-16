@@ -77,7 +77,9 @@ export class PrintComponent implements AfterViewInit {
       this.barCode,
       this.initials,
       this.dateCreated,
-      this.settings.locationId
+      this.settings.locationId,
+      this.settings.labelLayout.delimiter,
+      this.settings.labelLayout.barcodeType,
     );
 
     const newSample: Sample = {

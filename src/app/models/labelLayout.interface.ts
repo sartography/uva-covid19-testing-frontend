@@ -7,6 +7,7 @@ export interface LayoutOptions {
   pageWidth?: number;
   numCols?: number;
   numCopies?: number;
+  delimiter?: string;
 }
 
 export class LabelLayout {
@@ -18,6 +19,7 @@ export class LabelLayout {
   pageWidth = 32;
   numCols = 1;
   numCopies = 1;
+  delimiter = '-';
 
   constructor(private options: LayoutOptions) {
     if (options) {

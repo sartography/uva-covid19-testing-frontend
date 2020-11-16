@@ -8,6 +8,7 @@ import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 import {Sample} from '../models/sample.interface';
 import {SettingsService} from '../services/settings.service';
+import createClone from 'rfdc';
 
 @Component({
   selector: 'app-settings',
@@ -70,7 +71,7 @@ export class SettingsComponent implements AfterViewInit {
       this.settingsService.saveSettings({
         labelLayout: labelLayouts[this.labelLayoutFormControl.value],
         numCopies: this.numCopiesFormControl.value,
-        locationId: this.locationIdFormControl.value,
+        locationId: this.locationIdFormControl.value.toString().padStart(4, '0'),
       });
       this.router.navigate(['/']);
     }
@@ -81,7 +82,7 @@ export class SettingsComponent implements AfterViewInit {
     this.fakeSample = {
       barcode: '',
       student_id: '123456789',
-      initials: 'ABCDE',
+      initials: 'ABC9Z',
       date: new Date(),
       location: this.settings.locationId,
     };
@@ -90,7 +91,9 @@ export class SettingsComponent implements AfterViewInit {
       this.fakeSample.student_id,
       this.fakeSample.initials,
       this.fakeSample.date,
-      this.fakeSample.location
+      this.fakeSample.location,
+      '-',
+      'datamatrix',
     );
 
     this.fakeSample.barcode = this.fakeBarcodeValue;
@@ -98,5 +101,19 @@ export class SettingsComponent implements AfterViewInit {
 
   selectLabelLayout(layout: LabelLayout) {
     this.labelLayoutFormControl.patchValue(layout);
+  }
+
+  sampleForLayout(layout: LabelLayout) {
+     const sample: Sample = createClone()(this.fakeSample);
+     sample.barcode = createQrCodeValue(
+       sample.student_id,
+       sample.initials,
+       sample.date,
+       sample.location,
+       layout.delimiter,
+       layout.barcodeType,
+     );
+
+     return sample;
   }
 }

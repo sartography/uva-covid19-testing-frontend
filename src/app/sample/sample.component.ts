@@ -1,9 +1,13 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
+import {AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {Params, Router} from '@angular/router';
 import {AppDefaults} from '../models/appDefaults.interface';
+import {AppEnvironment} from '../models/appEnvironment.interface';
+import {ApiService} from '../services/api.service';
+import {CacheService} from '../services/cache.service';
 import {SettingsService} from '../services/settings.service';
 
 
@@ -12,7 +16,7 @@ import {SettingsService} from '../services/settings.service';
   templateUrl: './sample.component.html',
   styleUrls: ['./sample.component.scss']
 })
-export class SampleComponent implements AfterViewInit {
+export class SampleComponent implements OnInit, AfterViewInit {
   settings: AppDefaults;
   barCodeFormControl: FormControl;
   initialsFormControl: FormControl;
@@ -24,6 +28,8 @@ export class SampleComponent implements AfterViewInit {
     private router: Router,
     private changeDetector: ChangeDetectorRef,
     private settingsService: SettingsService,
+    private cacheService: CacheService,
+    private apiService: ApiService
   ) {
     this.settings = this.settingsService.getSettings();
     this.barCodeFormControl = new FormControl('', [
@@ -63,6 +69,29 @@ export class SampleComponent implements AfterViewInit {
 
   get hasErrors(): boolean {
     return !(this.barCodeFormControl.valid && this.initialsFormControl.valid);
+  }
+
+  ngOnInit(): void {
+    const cachedRecords = this.cacheService.getRecords();
+    let numSuccess = 0;
+    if (cachedRecords && cachedRecords.length > 0) {
+      cachedRecords.forEach(r => {
+        this.apiService.addSample(r).subscribe(() => {
+          numSuccess++;
+          console.log('cachedRecords', cachedRecords);
+          console.log('numSuccess', numSuccess);
+
+          if (numSuccess === cachedRecords.length) {
+            console.log('Cache cleared.');
+            this.cacheService.clearCache();
+          }
+        }, error => {
+          console.log('Cannot connect to server. Cache not cleared.');
+        });
+      });
+    } else {
+      console.log('No cached records to upload.');
+    }
   }
 
   ngAfterViewInit() {

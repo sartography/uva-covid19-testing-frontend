@@ -15,12 +15,12 @@
         <input
           #locationIdInput="matInput"
           matInput
-          type="text"
+          type="number"
           [formControl]="locationIdFormControl"
           (keyup.enter)="save()"
         >
         <mat-error *ngIf="locationIdFormControl.hasError('required')">This field is required.</mat-error>
-        <mat-error *ngIf="locationIdFormControl.hasError('pattern')">Please enter exactly 4 digits.</mat-error>
+        <mat-error *ngIf="locationIdFormControl.hasError('pattern')">Please enter a number between 1 and 4 digits long.</mat-error>
       </mat-form-field>
       <mat-form-field class="label-layout-select" fxFlex="95%">
         <mat-label>Label layout</mat-label>
@@ -39,7 +39,7 @@
                 {{layout.name}}
               </div>
               <div fxFlex="50%">
-                <app-circle-qrcode-single *ngIf="layout.id === 'circle_qrcode_single'" [sample]="fakeSample"></app-circle-qrcode-single>
+                <app-circle-qrcode-single *ngIf="layout.id === 'circle_qrcode_single'" [sample]="sampleForLayout(layout)"></app-circle-qrcode-single>
                 <app-circle-qrcode-double *ngIf="layout.id === 'circle_qrcode_double'" [sample]="fakeSample"></app-circle-qrcode-double>
                 <app-rectangle-code128 *ngIf="layout.id === 'rectangle_code128'" [sample]="fakeSample"></app-rectangle-code128>
                 <app-rectangle-datamatrix *ngIf="layout.id === 'rectangle_datamatrix'" [sample]="fakeSample"></app-rectangle-datamatrix>

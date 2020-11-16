@@ -22,6 +22,7 @@ export const labelLayouts = {
     id: 'rectangle_code128',
     pageWidth: 54,
     pageHeight: 34,
+    delimiter: '',
   }),
   rectangle_datamatrix: new LabelLayout({
     name: '2in x 1.25in Rectangular Label - DataMatrix',
@@ -41,11 +42,11 @@ export const defaultOptions: AppDefaultsOptions = {
   dateDisplayFormat: 'MM/dd/yyyy, hh:mm aa',                // Format for dates when displayed to user.
   dateEncodedFormat: 'yyyyMMddHHmm',                        // Format for dates when encoded in IDs for database records.
   initialsLength: 6,
-  initialsRegExp: /^[a-zA-Z]{2,6}$/,
+  initialsRegExp: /^[a-zA-Z0-9]{2,6}$/,
   labelLayout: labelLayouts.circle_qrcode_single,           // Which label layout to use for printing. Can be overridden by user setting.
   lineCountRegExp: /^[\d]{4}-[\d]{12}$/,                    // ID format for Line Count records.
   locationId: '0000',                                       // Default location ID. Can be overridden by user setting.
-  locationIdRegExp: /^[\d]{4}$/,                            // ID format for Line Count records.
+  locationIdRegExp: /^[\d]{1,4}$/,                          // ID format for Line Count records.
   numCopies: 1,                                             // Default number of copies of labels to print.
                                                             // Can be overridden by user setting.
   qrCodeRegExp: /^[\d]{9}-[a-zA-Z]+-[\d]{12}-[\d]{4}$/,     // ID format for QR Code records.

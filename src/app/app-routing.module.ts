@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ThisEnvironment} from '../environments/environment.injectable';
 import {CountComponent} from './count/count.component';
-import {HomeComponent} from './home/home.component';
 import {PrintComponent} from './print/print.component';
 import {SampleComponent} from './sample/sample.component';
 import {SettingsComponent} from './settings/settings.component';

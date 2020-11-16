@@ -22,7 +22,6 @@ import {FormlyMaterialModule} from '@ngx-formly/material';
 import {routes} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
-import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {MockEnvironment} from './testing/environment.mock';
 
@@ -38,7 +37,6 @@ describe('Router: App', () => {
       declarations: [
         AppComponent,
         FooterComponent,
-        HomeComponent,
         NavbarComponent,
       ],
       imports: [

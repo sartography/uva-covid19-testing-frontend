@@ -35,10 +35,10 @@
       <g
         appBarcodeSvg
         [format]="'code128'"
-        [height]="10"
+        [height]="40"
         [value]="sample.barcode"
-        [width]="47"
-        transform="scale(0.345)"/>
+        [width]="188"
+        transform="scale(0.08625)"/>
     </g>
     <use xlink:href="#up_arrow" x="2" y="27.5" />
   </g>
