@@ -10,7 +10,7 @@ import {SettingsService} from '../services/settings.service';
   templateUrl: './label-layout.component.html',
   styleUrls: ['./label-layout.component.scss']
 })
-export class LabelLayoutComponent {
+export class LabelLayoutComponent implements OnInit {
   @Input() dateCreated: Date;
   @Input() barCode: string;
   @Input() initials: string;
@@ -20,11 +20,13 @@ export class LabelLayoutComponent {
 
   constructor(private settingsService: SettingsService) {
     this.settings = this.settingsService.getSettings();
+  }
 
+  ngOnInit() {
     this.sample = {
       barcode: '',
-      student_id: '123456789',
-      initials: 'ABCDE',
+      student_id: this.barCode,
+      initials: this.initials,
       date: new Date(),
       location: this.settings.locationId,
     };
