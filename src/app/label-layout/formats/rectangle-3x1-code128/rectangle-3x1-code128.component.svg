@@ -1,0 +1,45 @@
+<svg
+  class="label-layout-format"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="78.2mm"
+  height="26.4mm"
+  viewBox="0 0 78.2 26.4"
+>
+  <defs>
+    <g id="up_arrow">
+      <g transform="translate(2.5, 2)">
+        <g transform="translate(-2.5, -2) scale(0.1)">
+          <path d="M 0,0 H 24 V 24 H 0 Z" style="fill:none"/>
+          <path d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z" />
+        </g>
+        <text x="1" y="0">UP</text>
+      </g>
+    </g>
+  </defs>
+  <g transform="translate(1, 1)">
+    <rect
+      class="label-layout-border"
+      fill="#FFFFFF"
+      stroke="#CCCCCC"
+      stroke-width="0.2"
+      width="76.2"
+      height="24.4"
+      x="0"
+      y="0"
+      rx="2"
+    />
+    <use xlink:href="#up_arrow" x="2" y="2" />
+    <g transform="translate(3, 7.2)">
+      <g
+        appBarcodeSvg
+        [format]="'code128'"
+        [height]="40"
+        [value]="sample.barcode"
+        [width]="288"
+        transform="scale(0.08625)"/>
+    </g>
+  </g>
+  <text x="50%" y="22">{{sample.barcode}}</text>
+</svg>

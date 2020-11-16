@@ -41,6 +41,7 @@
               <div fxFlex="50%">
                 <app-circle-qrcode-single *ngIf="layout.id === 'circle_qrcode_single'" [sample]="sampleForLayout(layout)"></app-circle-qrcode-single>
                 <app-circle-qrcode-double *ngIf="layout.id === 'circle_qrcode_double'" [sample]="fakeSample"></app-circle-qrcode-double>
+                <app-rectangle-3x1-code128 *ngIf="layout.id === 'rectangle_3x1_code128'" [sample]="fakeSample"></app-rectangle-3x1-code128>
                 <app-rectangle-code128 *ngIf="layout.id === 'rectangle_code128'" [sample]="fakeSample"></app-rectangle-code128>
                 <app-rectangle-datamatrix *ngIf="layout.id === 'rectangle_datamatrix'" [sample]="fakeSample"></app-rectangle-datamatrix>
               </div>

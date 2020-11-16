@@ -8,15 +8,11 @@ export const createQrCodeValue = (
   delimiter = '-',
   barcodeType: string
 ): string => {
-  const is1D = barcodeType === 'code128';
-  const locId = is1D ? locationId.slice(2, 4) : locationId;
-  const dateFormat = is1D ? 'yyMMdd' : 'yyyyMMddHHmm';
-
   const valArray = [
     barCode,
     initials.toUpperCase(),
-    formatDate(dateCreated, dateFormat, 'en-us'),
-    locId,
+    formatDate(dateCreated, 'yyyyMMddHHmm', 'en-us'),
+    locationId,
   ];
   return valArray.join(delimiter);
 };
