@@ -25,13 +25,13 @@
       stroke="#CCCCCC"
       stroke-width="0.2"
       width="76.2"
-      height="24.4"
+      height="25.4"
       x="0"
       y="0"
       rx="2"
     />
     <use xlink:href="#up_arrow" x="2" y="2" />
-    <g transform="translate(3, 7.2)">
+    <g transform="translate(3, 8.2)">
       <g
         appBarcodeSvg
         [format]="'code128'"
@@ -41,5 +41,5 @@
         transform="scale(0.08625)"/>
     </g>
   </g>
-  <text x="50%" y="22">{{sample.barcode}}</text>
+  <text x="50%" y="23">{{sample.barcode}}</text>
 </svg>

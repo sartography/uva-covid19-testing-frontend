@@ -445,6 +445,8 @@
 
 
   svg.label-layout-format {
+    background-color: transparent;
+
     text, tspan {
       font-style: normal;
       font-variant: normal;
@@ -465,7 +467,7 @@
 
     @media print {
       .label-layout-border {
-        stroke: transparent;
+        //stroke: transparent;
       }
     }
   }
