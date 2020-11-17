@@ -41,5 +41,5 @@
         transform="scale(0.08625)"/>
     </g>
   </g>
-  <text x="50%" y="23">{{sample.barcode}}</text>
+  <text x="50%" y="23" style="font-size: 3px">{{sample.barcode}}</text>
 </svg>
