@@ -20,8 +20,8 @@ export const labelLayouts = {
     name: '3in x 1in Rectangular Label - CODE128',
     barcodeType: 'code128',
     id: 'rectangle_3x1_code128',
-    pageWidth: 79.37500,
-    pageHeight: 28.57500,
+    pageWidth: 79.375,
+    pageHeight: 28.575,
     delimiter: '',
   }),
   rectangle_code128: new LabelLayout({
