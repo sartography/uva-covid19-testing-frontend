@@ -10,7 +10,7 @@ import {SettingsService} from '../services/settings.service';
 })
 export class PrintLayoutComponent implements AfterViewInit {
   @Input() dateCreated: Date;
-  @Input() barCode: string;
+  @Input() cardNum: string;
   @Input() initials: string;
   settings: AppDefaults;
   layout: LabelLayout;

@@ -9,12 +9,11 @@
 >
   <defs>
     <g id="up_arrow">
-      <g transform="translate(2.5, 2)">
-        <g transform="translate(-2.5, -2) scale(0.1)">
-          <path d="M 0,0 H 24 V 24 H 0 Z" style="fill:none"/>
-          <path d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z" />
-        </g>
+      <g transform="translate(0, 2)">
         <text x="1" y="0">UP</text>
+        <g transform="translate(2, -2)">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="scale(0.1)"/>
+        </g>
       </g>
     </g>
   </defs>
@@ -30,16 +29,26 @@
       y="0"
       rx="2"
     />
-    <use xlink:href="#up_arrow" x="2" y="2" />
-    <g transform="translate(3, 8.2)">
+    <use xlink:href="#up_arrow" x="71" y="1" />
+    <use xlink:href="#up_arrow" x="71" y="22" />
+<!--    <rect x="18" y="9" width="40" height="10" fill="#FF0000" />-->
+    <g transform="translate(13, 9)">
       <g
         appBarcodeSvg
         [format]="'code128'"
-        [height]="40"
+        [height]="10000"
         [value]="sample.barcode"
-        [width]="288"
-        transform="scale(0.08625)"/>
+        [width]="50000"
+        transform="scale(.00035)"/>
     </g>
   </g>
-  <text x="50%" y="23" style="font-size: 3px">{{sample.barcode}}</text>
+  <text x="50%" y="6" style="font-size: 2.7px">
+    #{{sample.student_id}}
+    {{sample.initials}}
+  </text>
+  <text x="50%" y="9" style="font-size: 2.7px">
+    {{sample.date | date:'yyyy-MM-dd HH:mm'}}
+    {{sample.location}}
+  </text>
+  <text x="50%" y="23" style="font-size: 2.7px">{{sample.barcode}}</text>
 </svg>

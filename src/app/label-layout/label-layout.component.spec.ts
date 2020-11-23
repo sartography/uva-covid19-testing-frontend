@@ -21,7 +21,7 @@ describe('LabelLayoutComponent', () => {
     fixture = TestBed.createComponent(LabelLayoutComponent);
     component = fixture.componentInstance;
     component.dateCreated = new Date();
-    component.barCode = '123456789';
+    component.cardNum = '123456789';
     component.initials = 'abc';
     fixture.detectChanges();
   });

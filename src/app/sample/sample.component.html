@@ -10,18 +10,18 @@
     </mat-card-header>
 
     <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
-      <mat-form-field class="barcode-input" fxFlex="95%">
+      <mat-form-field class="cardnum-input" fxFlex="95%">
         <mat-label>Barcode ID #</mat-label>
         <input
-          #barCodeInput="matInput"
+          #cardNumInput="matInput"
           matInput
           type="text"
-          [formControl]="barCodeFormControl"
-          (change)="checkBarCodeValue()"
+          [formControl]="cardNumFormControl"
+          (change)="checkCardNumValue()"
           (keyup.enter)="goPrint()"
         >
-        <mat-error *ngIf="barCodeFormControl.hasError('required')">This field is required.</mat-error>
-        <mat-error *ngIf="barCodeFormControl.hasError('pattern')">Please enter exactly 9 or 14 digits.</mat-error>
+        <mat-error *ngIf="cardNumFormControl.hasError('required')">This field is required.</mat-error>
+        <mat-error *ngIf="cardNumFormControl.hasError('pattern')">Please enter exactly 9 or 14 digits.</mat-error>
       </mat-form-field>
       <mat-form-field class="initials-input" fxFlex="95%">
         <mat-label>Initials or 6-character UVA Computing ID</mat-label>
@@ -39,6 +39,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button
+        id="btn_next"
         #nextButton="matButton"
         mat-flat-button
         class="btn-lg"

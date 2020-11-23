@@ -43,7 +43,7 @@ export const labelLayouts = {
 
 export const defaultOptions: AppDefaultsOptions = {
   barCodeNumLength: 9,                                      // Number of digits in Bar Code.
-  barCodeRegExp: /^[\d]{14}$|^[\d]{9}$/,                    // Pattern for Bar Code data.
+  cardNumRegExp: /^[\d]{14}$|^[\d]{9}$/,                    // Pattern for Bar Code data.
                                                             // Scanned barcodes will be either 9 or 14 digits long.
                                                             // Manually-entered ID numbers will be exactly 9 digits long.
   countsCollection: 'counts',                               // Name of collection for Line Counts in Firebase.

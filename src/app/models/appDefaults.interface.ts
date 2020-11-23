@@ -3,7 +3,7 @@ import {LabelLayout} from './labelLayout.interface';
 
 export interface AppDefaultsOptions {
   barCodeNumLength?: number;
-  barCodeRegExp?: RegExp | string;
+  cardNumRegExp?: RegExp | string;
   countsCollection?: string;
   dateDisplayFormat?: string;
   dateEncodedFormat?: string;
@@ -20,7 +20,7 @@ export interface AppDefaultsOptions {
 
 export class AppDefaults {
   barCodeNumLength: number;
-  barCodeRegExp: RegExp;
+  cardNumRegExp: RegExp;
   countsCollection: string;
   dateDisplayFormat: string;
   dateEncodedFormat: string;

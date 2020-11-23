@@ -15,7 +15,7 @@ import {SettingsService} from '../services/settings.service';
   styleUrls: ['./print.component.scss']
 })
 export class PrintComponent implements AfterViewInit {
-  barCode: string;
+  cardNum: string;
   initials: string;
   dateCreated: Date;
   settings: AppDefaults;
@@ -33,7 +33,7 @@ export class PrintComponent implements AfterViewInit {
   ) {
     this.dateCreated = new Date();
     this.route.queryParamMap.subscribe(queryParamMap => {
-      this.barCode = queryParamMap.get('barCode');
+      this.cardNum = queryParamMap.get('cardNum');
       this.initials = queryParamMap.get('initials').toUpperCase();
     });
     this.settings = this.settingsService.getSettings();
@@ -70,11 +70,12 @@ export class PrintComponent implements AfterViewInit {
     styleEl.setAttribute('type', 'text/css');
     styleEl.appendChild(document.createTextNode(printCss));
     headEl.appendChild(styleEl);
+    this.changeDetector.detectChanges();
   }
 
   save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
-      this.barCode,
+      this.cardNum,
       this.initials,
       this.dateCreated,
       this.settings.locationId,
@@ -84,7 +85,7 @@ export class PrintComponent implements AfterViewInit {
 
     const newSample: Sample = {
       barcode: id,
-      student_id: this.barCode,
+      student_id: this.cardNum,
       date: this.dateCreated,
       location: this.settings.locationId,
     };

@@ -16,13 +16,14 @@
       *ngIf="isSaved; else loadingMessage"
     >
       <app-print-layout
-        [barCode]="barCode"
+        [cardNum]="cardNum"
         [initials]="initials.toUpperCase()"
         [dateCreated]="dateCreated"
       ></app-print-layout>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="center center">
       <button
+        id="btn_print"
         #saveAndPrintButton="matButton"
         mat-flat-button
         class="btn-lg"
@@ -42,9 +43,11 @@
   </mat-card>
 </div>
 
-<div id="media-print">
+<div
+  id="media-print"
+>
   <app-print-layout
-    [barCode]="barCode"
+    [cardNum]="cardNum"
     [initials]="initials.toUpperCase()"
     [dateCreated]="dateCreated"
   ></app-print-layout>

@@ -35,7 +35,7 @@ export class LabelLayout {
   get dimensions() {
     return {
       pageWidth: this._toUnits(this.pageWidth),
-      pageHeight: this._toUnits(this.pageHeight),
+      pageHeight: this._toUnits(this.pageHeight * this.numCopies),
     };
   }
 

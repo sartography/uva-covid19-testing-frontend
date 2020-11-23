@@ -33,7 +33,7 @@ describe('PrintComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'},
         {
           provide: ActivatedRoute,
-          useValue: {queryParamMap: of(convertToParamMap({barCode: '123456789', initials: 'abc'}))}
+          useValue: {queryParamMap: of(convertToParamMap({cardNum: '123456789', initials: 'abc'}))}
         },
       ]
     })

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import {catchError, timeout} from 'rxjs/operators';
 import {ApiError} from '../models/apiError.interface';
 import {AppEnvironment} from '../models/appEnvironment.interface';
 import {Sample} from '../models/sample.interface';
@@ -39,6 +39,7 @@ export class ApiService {
 
     return this.httpClient
       .post<null>(url, sample)
+      .pipe(timeout(1000), catchError(err => this._handleError(err)))
       .pipe(catchError(err => this._handleError(err)));
   }
 

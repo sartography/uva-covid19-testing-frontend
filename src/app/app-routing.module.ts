@@ -5,6 +5,7 @@ import {CountComponent} from './count/count.component';
 import {PrintComponent} from './print/print.component';
 import {SampleComponent} from './sample/sample.component';
 import {SettingsComponent} from './settings/settings.component';
+import {MultipleLabelsComponent} from './multiple-labels/multiple-labels.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,11 @@ export const routes: Routes = [
     pathMatch: 'full',
     component: SettingsComponent
   },
+  {
+    path: 'multiple',
+    pathMatch: 'full',
+    component: MultipleLabelsComponent
+  }
 ];
 
 @NgModule({

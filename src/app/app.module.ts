@@ -36,6 +36,7 @@ import {ApiService} from './services/api.service';
 import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
+import { MultipleLabelsComponent } from './multiple-labels/multiple-labels.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -62,6 +63,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     FooterComponent,
     LabelLayoutComponent,
     LoadingComponent,
+    MultipleLabelsComponent,
     NavbarComponent,
     PrintComponent,
     PrintLayoutComponent,

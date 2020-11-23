@@ -1,0 +1,17 @@
+<div id="media-print" *ngIf="samples && samples.length > 0">
+  <div
+    class="print-layout"
+    [style]="{width: pageWidth, height: pageHeight}"
+    [gdRows]="pagesToGridFractions"
+    gdAlignColumns="center"
+    gdAlignRows="center"
+  >
+    <ng-container *ngFor="let sample of samples; let i = index">
+      <app-label-layout
+        [cardNum]="sample.student_id"
+        [initials]="sample.initials.toUpperCase()"
+        [dateCreated]="sample.date"
+      ></app-label-layout>
+    </ng-container>
+  </div>
+</div>

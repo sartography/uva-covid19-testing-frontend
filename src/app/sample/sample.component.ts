@@ -18,9 +18,9 @@ import {SettingsService} from '../services/settings.service';
 })
 export class SampleComponent implements OnInit, AfterViewInit {
   settings: AppDefaults;
-  barCodeFormControl: FormControl;
+  cardNumFormControl: FormControl;
   initialsFormControl: FormControl;
-  @ViewChild('barCodeInput') barCodeInput: MatInput;
+  @ViewChild('cardNumInput') cardNumInput: MatInput;
   @ViewChild('initialsInput') initialsInput: MatInput;
   @ViewChild('nextButton') nextButton: MatButton;
 
@@ -32,35 +32,35 @@ export class SampleComponent implements OnInit, AfterViewInit {
     private apiService: ApiService
   ) {
     this.settings = this.settingsService.getSettings();
-    this.barCodeFormControl = new FormControl('', [
+    this.cardNumFormControl = new FormControl('', [
       Validators.required,
-      Validators.pattern(this.settings.barCodeRegExp),
+      Validators.pattern(this.settings.cardNumRegExp),
     ]);
     this.initialsFormControl = new FormControl('', [
       Validators.required,
       Validators.pattern(this.settings.initialsRegExp),
     ]);
-    this.barCodeFormControl.registerOnChange(() => this.checkBarCodeValue());
+    this.cardNumFormControl.registerOnChange(() => this.checkCardNumValue());
     this.initialsFormControl.registerOnChange(() => this.checkInitialsValue());
   }
 
   get queryParams(): Params {
     return {
-      barCode: this.barCodeValue.slice(0, 9),
+      cardNum: this.cardNumValue.slice(0, 9),
       initials: this.initialsValue.toUpperCase(),
     };
   }
 
-  get barCodeValue(): string {
-    return this.barCodeFormControl.value;
+  get cardNumValue(): string {
+    return this.cardNumFormControl.value;
   }
 
   get initialsValue(): string {
     return this.initialsFormControl.value.toUpperCase();
   }
 
-  get hasBarCode(): boolean {
-    return this.settings.barCodeRegExp.test(this.barCodeValue);
+  get hasCardNum(): boolean {
+    return this.settings.cardNumRegExp.test(this.cardNumValue);
   }
 
   get hasInitials(): boolean {
@@ -68,7 +68,7 @@ export class SampleComponent implements OnInit, AfterViewInit {
   }
 
   get hasErrors(): boolean {
-    return !(this.barCodeFormControl.valid && this.initialsFormControl.valid);
+    return !(this.cardNumFormControl.valid && this.initialsFormControl.valid);
   }
 
   ngOnInit(): void {
@@ -95,26 +95,26 @@ export class SampleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.barCodeInput.focus();
+    this.cardNumInput.focus();
     this.changeDetector.detectChanges();
   }
 
-  checkBarCodeValue() {
-    if (this.hasBarCode) {
+  checkCardNumValue() {
+    if (this.hasCardNum) {
       this.initialsInput.focus();
       this.changeDetector.detectChanges();
     }
   }
 
   checkInitialsValue() {
-    if (this.hasInitials && this.hasBarCode) {
+    if (this.hasInitials && this.hasCardNum) {
       this.nextButton.focus();
       this.changeDetector.detectChanges();
     }
   }
 
   resetForm() {
-    this.barCodeFormControl.patchValue('');
+    this.cardNumFormControl.patchValue('');
     this.initialsFormControl.patchValue('');
   }
 

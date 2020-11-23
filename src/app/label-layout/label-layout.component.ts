@@ -12,7 +12,7 @@ import {SettingsService} from '../services/settings.service';
 })
 export class LabelLayoutComponent implements OnInit {
   @Input() dateCreated: Date;
-  @Input() barCode: string;
+  @Input() cardNum: string;
   @Input() initials: string;
   settings: AppDefaults;
   sample: Sample;
@@ -25,9 +25,9 @@ export class LabelLayoutComponent implements OnInit {
   ngOnInit() {
     this.sample = {
       barcode: '',
-      student_id: this.barCode,
+      student_id: this.cardNum,
       initials: this.initials,
-      date: new Date(),
+      date: this.dateCreated,
       location: this.settings.locationId,
     };
 

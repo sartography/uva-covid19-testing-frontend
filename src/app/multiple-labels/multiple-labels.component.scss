@@ -1,0 +1,48 @@
+@media screen {
+  #media-print { display: none !important; }
+  #media-screen {
+    display: flex !important;
+
+  }
+}
+
+@media print {
+  @page {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  ::ng-deep html,
+  ::ng-deep body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  ::ng-deep .no-print,
+  ::ng-deep mat-card,
+  ::ng-deep app-navbar,
+  ::ng-deep app-footer {
+    display: none;
+  }
+
+  #media-print {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: blue;
+
+    .print-layout {
+      display: grid !important;
+      background-color: transparent;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+  }
+  #media-screen { display: none !important; }
+}
+
