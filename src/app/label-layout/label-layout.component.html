@@ -1,5 +1,13 @@
 <app-circle-qrcode-single *ngIf="isLayout('circle_qrcode_single')" [sample]="sample"></app-circle-qrcode-single>
 <app-circle-qrcode-double *ngIf="isLayout('circle_qrcode_double')" [sample]="sample"></app-circle-qrcode-double>
-<app-rectangle-3x1-code128 *ngIf="isLayout('rectangle_3x1_code128')" [sample]="sample"></app-rectangle-3x1-code128>
-<app-rectangle-code128 *ngIf="isLayout('rectangle_code128')" [sample]="sample"></app-rectangle-code128>
+<app-rectangle-code128
+  *ngIf="isLayout('rectangle_3x1_code128')"
+  [sample]="sample"
+  [labelLayout]="settings.labelLayout"
+></app-rectangle-code128>
+<app-rectangle-code128
+  *ngIf="isLayout('rectangle_code128')"
+  [sample]="sample"
+  [labelLayout]="settings.labelLayout"
+></app-rectangle-code128>
 <app-rectangle-datamatrix *ngIf="isLayout('rectangle_datamatrix')" [sample]="sample"></app-rectangle-datamatrix>

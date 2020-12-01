@@ -1,5 +1,8 @@
+@font-face {
+  font-family: "code128";
+  src: url("assets/fonts/code128.ttf");
+}
 @import "material";
-
 @include mat-core($custom-typography);
 @include angular-material-theme($cr-connect-theme);
 
@@ -443,7 +446,6 @@
     }
   }
 
-
   svg.label-layout-format {
     background-color: transparent;
 
@@ -463,6 +465,13 @@
       font-variant-numeric: normal;
       font-feature-settings: normal;
       text-anchor: middle;
+
+      &.code128-barcode {
+        text-align: center;
+        font-family: "code128", monospace;
+        font-size: 5.7px;
+        font-weight: normal;
+      }
     }
 
     @media print {

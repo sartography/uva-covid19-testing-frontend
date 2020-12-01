@@ -36,6 +36,7 @@
     "@ngx-formly/core": "^5.8.0",
     "@ngx-formly/material": "^5.8.0",
     "bwip-js": "^2.0.11",
+    "code-128-encoder": "^3.1.1",
     "lodash.isequal": "^4.5.0",
     "ngx-qrcode-svg": "^2.0.0",
     "rfdc": "^1.1.4",

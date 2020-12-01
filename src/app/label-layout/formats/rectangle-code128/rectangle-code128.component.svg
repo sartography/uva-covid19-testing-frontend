@@ -3,44 +3,54 @@
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="54mm"
-  height="34mm"
-  viewBox="0 0 54 34"
+  [attr.width]="labelLayout.dimensions.pageWidth"
+  [attr.height]="labelLayout.dimensions.pageHeight"
+  [attr.viewBox]="'0 0 ' + width + ' ' + height"
 >
   <defs>
     <g id="up_arrow">
-      <g transform="translate(2.5, 2)">
-        <g transform="translate(-2.5, -2) scale(0.1)">
-          <path d="M 0,0 H 24 V 24 H 0 Z" style="fill:none"/>
-          <path d="M 20,11 H 7.83 L 13.42,5.41 12,4 4,12 12,20 13.41,18.59 7.83,13 H 20 Z" />
-        </g>
+      <g transform="translate(0, 2)">
         <text x="1" y="0">UP</text>
+        <g transform="translate(2, -2)">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="scale(0.1)"/>
+        </g>
       </g>
     </g>
   </defs>
-  <g transform="translate(1.5, 1)">
+  <g [attr.transform]="'translate(' + marginHorizontal + ', ' + marginVertical + ')'">
     <rect
       class="label-layout-border"
       fill="#FFFFFF"
       stroke="#CCCCCC"
       stroke-width="0.2"
-      width="51"
-      height="32"
+      [attr.width]="widthMinusMargins"
+      [attr.height]="heightMinusMargins"
       x="0"
       y="0"
       rx="2"
     />
-    <use xlink:href="#up_arrow" x="2" y="2" />
-    <g transform="translate(2, 11)">
-      <g
-        appBarcodeSvg
-        [format]="'code128'"
-        [height]="40"
-        [value]="sample.barcode"
-        [width]="188"
-        transform="scale(0.08625)"/>
-    </g>
-    <use xlink:href="#up_arrow" x="2" y="27.5" />
+    <use
+      xlink:href="#up_arrow"
+      [attr.x]="width - (marginHorizontal * 5.5)"
+      [attr.y]="marginVertical"
+    />
+    <use
+      xlink:href="#up_arrow"
+      [attr.x]="width - (marginHorizontal * 5.5)"
+      [attr.y]="height - (marginVertical * 4.25)"
+    />
   </g>
-  <text x="50%" y="75%">{{sample.barcode}}</text>
+  <text x="50%" [attr.y]="marginVertical * 4" style="font-size: 2.7px">
+    #{{sample.student_id}}
+    {{sample.initials}}
+  </text>
+  <text x="50%" [attr.y]="marginVertical * 5.5" style="font-size: 2.7px">
+    {{sample.date | date:'yyyy-MM-dd HH:mm'}}
+    {{sample.location}}
+  </text>
+  <g [attr.transform]="'translate(0, ' + (height/2 + 0.75) + ')'">
+    <text x="50%" y="0" class="code128-barcode">{{encodedCode128String}}</text>
+    <text x="50%" y="5.6" class="code128-barcode">{{encodedCode128String}}</text>
+  </g>
+  <text x="50%" [attr.y]="height - (marginVertical * 3.5)" style="font-size: 2.7px">{{sample.barcode}}</text>
 </svg>

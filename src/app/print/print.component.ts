@@ -73,6 +73,10 @@ export class PrintComponent implements AfterViewInit {
     this.changeDetector.detectChanges();
   }
 
+  get pageHeight() {
+    return `${this.settings.labelLayout.pageHeight * 1.5}${this.settings.labelLayout.units}`;
+  }
+
   save(callback: (s: Sample) => void) {
     const id = createQrCodeValue(
       this.cardNum,

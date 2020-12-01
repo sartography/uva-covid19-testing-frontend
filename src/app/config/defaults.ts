@@ -25,11 +25,11 @@ export const labelLayouts = {
     delimiter: '',
   }),
   rectangle_code128: new LabelLayout({
-    name: '2in x 1.25in Rectangular Label - CODE128',
+    name: '2.63in x 1.125in Rectangular Label - CODE128',
     barcodeType: 'code128',
     id: 'rectangle_code128',
-    pageWidth: 54,
-    pageHeight: 34,
+    pageWidth: 66.8,
+    pageHeight: 28.6,
     delimiter: '',
   }),
   rectangle_datamatrix: new LabelLayout({

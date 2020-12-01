@@ -17,8 +17,8 @@ export const createQrCodeValue = (
   const valArray = [
     cardNum,
     compId,
-    dateString,
-    locId,
+    longDate,
+    locationId,
   ];
   return valArray.join(delimiter);
 };

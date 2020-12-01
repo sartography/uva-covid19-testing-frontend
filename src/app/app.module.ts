@@ -23,7 +23,6 @@ import {CountComponent} from './count/count.component';
 import {FooterComponent} from './footer/footer.component';
 import {CircleQRcodeDoubleComponent} from './label-layout/formats/circle-qrcode-double/circle-qrcode-double.component';
 import {CircleQRcodeSingleComponent} from './label-layout/formats/circle-qrcode-single/circle-qrcode-single.component';
-import {Rectangle3x1Code128Component} from './label-layout/formats/rectangle-3x1-code128/rectangle-3x1-code128.component';
 import {RectangleCode128Component} from './label-layout/formats/rectangle-code128/rectangle-code128.component';
 import {RectangleDatamatrixComponent} from './label-layout/formats/rectangle-datamatrix/rectangle-datamatrix.component';
 import {LabelLayoutComponent} from './label-layout/label-layout.component';
@@ -67,7 +66,6 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     NavbarComponent,
     PrintComponent,
     PrintLayoutComponent,
-    Rectangle3x1Code128Component,
     RectangleCode128Component,
     RectangleDatamatrixComponent,
     SampleComponent,

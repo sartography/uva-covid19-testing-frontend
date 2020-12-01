@@ -14,6 +14,7 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       *ngIf="isSaved; else loadingMessage"
+      [ngStyle]="{height: pageHeight}"
     >
       <app-print-layout
         [cardNum]="cardNum"
