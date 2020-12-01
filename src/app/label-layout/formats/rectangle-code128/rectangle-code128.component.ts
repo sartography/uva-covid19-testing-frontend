@@ -40,6 +40,14 @@ export class RectangleCode128Component implements OnInit {
     return (this.width - (this.marginHorizontal * 2));
   }
 
+  get labelCenterHorizontal(): number {
+    return (this.widthMinusMargins / 2);
+  }
+
+  get labelCenterVertical(): number {
+    return (this.heightMinusMargins / 2);
+  }
+
   ngOnInit(): void {
     //  Replace "#barcode" element with svg of barcode
   }

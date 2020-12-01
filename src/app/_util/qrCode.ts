@@ -10,14 +10,13 @@ export const createQrCodeValue = (
 ): string => {
   const is1D = (barcodeType === 'code128');
   const compId = is1D ? '' : initials.toUpperCase();
-  const longDate = formatDate(dateCreated, 'yyyyMMddHHmm', 'en-us');
-  const dateString = is1D ? longDate.slice(3, 10) : longDate;
-  const locId = is1D ? '' : locationId;
+  const dateFormat = is1D ? 'yyMMddHH' : 'yyyyMMddHHmm';
+  const dateString = formatDate(dateCreated, dateFormat, 'en-us');
 
   const valArray = [
     cardNum,
     compId,
-    longDate,
+    dateString,
     locationId,
   ];
   return valArray.join(delimiter);
