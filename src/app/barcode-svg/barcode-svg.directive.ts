@@ -30,6 +30,10 @@ export class BarcodeSvgDirective implements OnInit {
         // padding: this.settings.labelLayout.marginSize,
       };
 
+      if (this.format === 'datamatrixrectangularextension') {
+        opts.version = '8x96';
+      }
+
       if (this.format === 'qrcode') {
         opts.eclevel = 'H';
       }

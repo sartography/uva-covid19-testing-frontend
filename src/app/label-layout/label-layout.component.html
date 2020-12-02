@@ -10,4 +10,8 @@
   [sample]="sample"
   [labelLayout]="settings.labelLayout"
 ></app-rectangle-code128>
-<app-rectangle-datamatrix *ngIf="isLayout('rectangle_datamatrix')" [sample]="sample"></app-rectangle-datamatrix>
+<app-rectangle-datamatrix
+  *ngIf="isLayout('rectangle_datamatrix')"
+  [sample]="sample"
+  [labelLayout]="settings.labelLayout"
+></app-rectangle-datamatrix>

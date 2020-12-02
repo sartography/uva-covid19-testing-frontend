@@ -3,11 +3,18 @@
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="54mm"
-  height="34mm"
-  viewBox="0 0 54 34"
+  [attr.width]="labelLayout.dimensions.pageWidth"
+  [attr.height]="labelLayout.dimensions.pageHeight"
+  [attr.viewBox]="'0 0 ' + width + ' ' + height"
 >
   <defs>
+    <g id="fill_line">
+      <line x1="0" y1="0" x2="0" y2="3" stroke-width="0.3" stroke="#999999" />
+      <line x1="0" y1="1.5" x2="5" y2="1.5" stroke-width="0.3" stroke="#999999" />
+      <text x="8" y="2.25" fill="#999999">FILL</text>
+      <line x1="11" y1="1.5" x2="16" y2="1.5" stroke-width="0.3" stroke="#999999" />
+      <line x1="16" y1="0" x2="16" y2="3" stroke-width="0.3" stroke="#999999" />
+    </g>
     <g id="up_arrow">
       <g transform="translate(2.5, 2)">
         <g transform="translate(-2.5, -2) scale(0.1)">
@@ -19,38 +26,50 @@
     </g>
   </defs>
 
-  <g transform="translate(1.5, 1)">
+  <g [attr.transform]="'translate(' + marginHorizontal + ', ' + marginVertical + ')'">
     <rect
       class="label-layout-border"
       fill="#FFFFFF"
       stroke="#CCCCCC"
       stroke-width="0.2"
-      width="51"
-      height="32"
+      [attr.width]="widthMinusMargins"
+      [attr.height]="heightMinusMargins"
       x="0"
       y="0"
       rx="2"
     />
     <use xlink:href="#up_arrow" x="2" y="2" />
-    <g
-      appBarcodeSvg
-      format="datamatrix"
-      [value]="sample.barcode"
-      [width]="3.5"
-      [height]="3.5"
-      transform="translate(3.5, 10)"
+    <use xlink:href="#up_arrow" x="2" [attr.y]="heightMinusMargins - 4" />
+    <use
+      xlink:href="#fill_line"
+      [attr.x]="labelCenterHorizontal - 15"
+      [attr.y]="0"
     />
-    <g transform="translate(18, 14)">
+    <use
+      xlink:href="#fill_line"
+      [attr.x]="labelCenterHorizontal - 15"
+      [attr.y]="heightMinusMargins - 3"
+    />
+    <g transform="translate(5, 7)">
+      <g
+        appBarcodeSvg
+        format="datamatrixrectangularextension"
+        [value]="sample.barcode"
+        [width]="36"
+        [height]="3"
+        transform="scale(0.4)"
+      />
+    </g>
+    <g transform="translate(5, 16)">
       <text x="0" y="0" style="text-anchor: start; text-align: left;">
         #{{sample.student_id}}
       </text>
-      <text x="0" y="3" style="text-anchor: start; text-align: left;">
+      <text x="0" y="2" style="text-anchor: start; text-align: left;">
         {{sample.date | date:'yyyy-MM-dd HH:mm'}}
       </text>
-      <text x="0" y="6" style="text-anchor: start; text-align: left;">
+      <text x="0" y="4" style="text-anchor: start; text-align: left;">
         {{sample.initials}} {{sample.location}}
       </text>
     </g>
-    <use xlink:href="#up_arrow" x="2" y="27.5" />
   </g>
 </svg>

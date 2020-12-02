@@ -55,7 +55,11 @@
                   [sample]="sampleForLayout(layout)"
                   [labelLayout]="layout"
                 ></app-rectangle-code128>
-                <app-rectangle-datamatrix *ngIf="layout.id === 'rectangle_datamatrix'" [sample]="sampleForLayout(layout)"></app-rectangle-datamatrix>
+                <app-rectangle-datamatrix
+                  *ngIf="layout.id === 'rectangle_datamatrix'"
+                  [sample]="sampleForLayout(layout)"
+                  [labelLayout]="layout"
+                ></app-rectangle-datamatrix>
               </div>
             </div>
           </mat-option>

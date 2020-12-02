@@ -35,11 +35,11 @@ export const labelLayouts = {
     delimiter: '',
   }),
   rectangle_datamatrix: new LabelLayout({
-    name: '2in x 1.25in Rectangular Label - DataMatrix',
+    name: '2in x 1in Rectangular Label - DataMatrix',
     barcodeType: 'datamatrix',
     id: 'rectangle_datamatrix',
-    pageWidth: 54,
-    pageHeight: 34,
+    pageWidth: 50.8 + labelMargin,
+    pageHeight: 25.4 + labelMargin,
   }),
 };
 
