@@ -1,6 +1,8 @@
 import {AppDefaultsOptions} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 
+const labelMargin = 1.5875 * 2; // 3.175mm = 0.125in
+
 export const labelLayouts = {
   circle_qrcode_single: new LabelLayout({
     name: '32mm Round Label - QR Code (1up)',
@@ -20,16 +22,16 @@ export const labelLayouts = {
     name: '3in x 1in Rectangular Label - CODE128',
     barcodeType: 'code128',
     id: 'rectangle_3x1_code128',
-    pageWidth: 79.375,
-    pageHeight: 28.575,
+    pageWidth: 76.2 + labelMargin,
+    pageHeight: 25.4 + labelMargin,
     delimiter: '',
   }),
   rectangle_code128: new LabelLayout({
-    name: '2.63in x 1.125in Rectangular Label - CODE128',
+    name: '2.75in x 1.25in Rectangular Label - CODE128',
     barcodeType: 'code128',
     id: 'rectangle_code128',
-    pageWidth: 66.8,
-    pageHeight: 28.6,
+    pageWidth: 69.9 + labelMargin,
+    pageHeight: 31.8 + labelMargin,
     delimiter: '',
   }),
   rectangle_datamatrix: new LabelLayout({
