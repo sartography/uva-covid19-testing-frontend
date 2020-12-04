@@ -8,7 +8,7 @@
   [attr.viewBox]="'0 0 ' + width + ' ' + height"
 >
   <defs>
-    <g id="dm_fill_line">
+    <g id="dmr_fill_line">
       <line x1="0" y1="0" x2="0" y2="3" stroke-width="0.3" stroke="#000000" />
       <line x1="0" y1="1.5" x2="2" y2="1.5" stroke-width="0.3" stroke="#000000" />
       <text x="7" y="2.25" fill="#000000">MAX FILL</text>
@@ -42,26 +42,26 @@
     <use xlink:href="#up_arrow" x="2" y="2" />
     <use xlink:href="#up_arrow" x="2" [attr.y]="heightMinusMargins - 4" />
     <use
-      xlink:href="#dm_fill_line"
+      xlink:href="#dmr_fill_line"
       [attr.x]="8"
       [attr.y]="0"
     />
     <use
-      xlink:href="#dm_fill_line"
+      xlink:href="#dmr_fill_line"
       [attr.x]="8"
       [attr.y]="heightMinusMargins - 3"
     />
-    <g transform="translate(4, 7.75)">
+    <g transform="translate(3, 9.5)">
       <g
         appBarcodeSvg
-        format="datamatrix"
+        format="datamatrixrectangular"
         [value]="sample.barcode"
-        [width]="20"
-        [height]="20"
+        [width]="36"
+        [height]="12"
         transform="scale(0.175)"
       />
     </g>
-    <g transform="translate(17, 11.75)">
+    <g transform="translate(24, 11.5)">
       <text x="0" y="0" style="font-size: 2.7px; text-anchor: start; text-align: left;">
         #{{sample.student_id}}
       </text>
@@ -69,8 +69,7 @@
         {{sample.date | date:'yyyy-MM-dd HH:mm'}}
       </text>
       <text x="0" y="4" style="font-size: 2.7px; text-anchor: start; text-align: left;">
-        {{sample.location}}
-        {{sample.initials}}
+        {{sample.location}}  {{sample.initials}}
       </text>
     </g>
   </g>

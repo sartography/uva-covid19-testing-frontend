@@ -20,7 +20,7 @@ export class SettingsComponent implements AfterViewInit {
   numCopiesFormControl: FormControl;
   labelLayoutFormControl: FormControl;
   locationIdFormControl: FormControl;
-  labelLayouts: LabelLayout[];
+  allLabelLayouts: LabelLayout[];
   fakeSample: Sample;
   fakeBarcodeValue: string;
 
@@ -45,7 +45,7 @@ export class SettingsComponent implements AfterViewInit {
       Validators.pattern(this.settings.locationIdRegExp),
     ]);
 
-    this.labelLayouts = Object.values(labelLayouts);
+    this.allLabelLayouts = Object.values(labelLayouts);
 
     this._loadFakeData();
   }
@@ -57,7 +57,7 @@ export class SettingsComponent implements AfterViewInit {
   get selectedLabelLayout(): LabelLayout {
     const selectedLayoutId = this.labelLayoutFormControl.value;
     if (selectedLayoutId) {
-      return this.labelLayouts.find(layout => layout.id === selectedLayoutId);
+      return this.allLabelLayouts.find(layout => layout.id === selectedLayoutId);
     }
   }
 

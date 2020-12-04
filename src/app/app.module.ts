@@ -36,6 +36,7 @@ import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
 import { MultipleLabelsComponent } from './multiple-labels/multiple-labels.component';
+import { RectangleDatamatrixRectangularComponent } from './label-layout/formats/rectangle-datamatrix-rectangular/rectangle-datamatrix-rectangular.component';
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -70,6 +71,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     RectangleDatamatrixComponent,
     SampleComponent,
     SettingsComponent,
+    RectangleDatamatrixRectangularComponent,
   ],
   imports: [
     BrowserAnimationsModule,

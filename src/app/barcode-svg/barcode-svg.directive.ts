@@ -31,7 +31,7 @@ export class BarcodeSvgDirective implements OnInit {
       };
 
       if (this.format === 'datamatrixrectangularextension') {
-        opts.version = '8x96';
+        opts.version = '8x64';
       }
 
       if (this.format === 'qrcode') {

@@ -17,7 +17,7 @@ export class MultipleLabelsComponent implements OnInit, AfterViewInit {
   numLabels = 10;
 
   constructor(private settingsService: SettingsService) {
-    const startingId = 391;
+    const startingId = 1;
     this.settings = this.settingsService.getSettings();
     this.layout = new LabelLayout(this.settings.labelLayout);
     this.layout.numCopies = this.numLabels;

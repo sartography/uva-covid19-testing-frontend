@@ -30,7 +30,7 @@
         >
           <mat-select-trigger [ngClass]="'selected-label-layout'">{{selectedLabelLayout.name}}</mat-select-trigger>
           <mat-option
-            *ngFor="let layout of labelLayouts"
+            *ngFor="let layout of allLabelLayouts"
             [value]="layout.id"
             [ngStyle]="{height: 'inherit', width: 'inherit'}"
           >
@@ -60,6 +60,11 @@
                   [sample]="sampleForLayout(layout)"
                   [labelLayout]="layout"
                 ></app-rectangle-datamatrix>
+                <app-rectangle-datamatrix-rectangular
+                  *ngIf="layout.id === 'rectangle_datamatrixrectangular'"
+                  [sample]="sampleForLayout(layout)"
+                  [labelLayout]="layout"
+                ></app-rectangle-datamatrix-rectangular>
               </div>
             </div>
           </mat-option>

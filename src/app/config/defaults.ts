@@ -41,6 +41,13 @@ export const labelLayouts = {
     pageWidth: 50.8 + labelMargin,
     pageHeight: 25.4 + labelMargin,
   }),
+  rectangle_datamatrixrectangular: new LabelLayout({
+    name: '2in x 1in Rectangular Label - DataMatrix Rectangular',
+    barcodeType: 'datamatrixrectangular',
+    id: 'rectangle_datamatrixrectangular',
+    pageWidth: 50.8 + labelMargin,
+    pageHeight: 25.4 + labelMargin,
+  }),
 };
 
 export const defaultOptions: AppDefaultsOptions = {
