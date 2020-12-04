@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {createQrCodeValue} from '../_util/qrCode';
 import {AppDefaults} from '../models/appDefaults.interface';
-import {CssStyle} from '../models/cssStyle.interface';
 import {Sample} from '../models/sample.interface';
 import {SettingsService} from '../services/settings.service';
 

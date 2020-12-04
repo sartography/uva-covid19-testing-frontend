@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Sample} from '../models/sample.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 import {SettingsService} from '../services/settings.service';
