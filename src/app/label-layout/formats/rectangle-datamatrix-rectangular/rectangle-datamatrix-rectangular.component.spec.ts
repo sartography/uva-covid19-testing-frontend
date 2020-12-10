@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {RectangleDatamatrixRectangularComponent} from './rectangle-datamatrix-rectangular.component';
 import {labelLayouts} from '../../../config/defaults';
-import {mockSample} from "../../../testing/sample.mock";
+import {mockSample} from '../../../testing/sample.mock';
 
 describe('RectangleDatamatrixRectangularComponent', () => {
   let component: RectangleDatamatrixRectangularComponent;

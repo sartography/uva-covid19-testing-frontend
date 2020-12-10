@@ -68,7 +68,7 @@ describe('COVID19 Testing Kiosk App', () => {
     page.clickAndExpectRoute('#btn_save', '/');
   });
 
-  it('should enter a sample', async () => {
+  xit('should enter a sample', async () => {
     const studentId = '987654321';
     const computingId = 'ABC123';
     const idFieldSelector = '.cardnum-input input';
