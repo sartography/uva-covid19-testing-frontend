@@ -64,14 +64,14 @@
         transform="scale(0.175)"
       />
     </g>
-    <g transform="translate(24, 11.5)">
+    <g transform="translate(24, 10.5)">
       <text x="0" y="0" style="font-size: 2.7px; text-anchor: start; text-align: left;">
         #{{sample.student_id}}
       </text>
-      <text x="0" y="2" style="font-size: 2.7px; text-anchor: start; text-align: left;">
+      <text x="0" y="3" style="font-size: 2.7px; text-anchor: start; text-align: left;">
         {{sample.date | date:'yyyy-MM-dd HH:mm'}}
       </text>
-      <text x="0" y="4" style="font-size: 2.7px; text-anchor: start; text-align: left;">
+      <text x="0" y="6" style="font-size: 2.7px; text-anchor: start; text-align: left;">
         {{sample.location}}  {{sample.initials}}
       </text>
     </g>
