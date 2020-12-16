@@ -28,7 +28,7 @@
           #labelLayoutSelect="matSelect"
           [formControl]="labelLayoutFormControl"
         >
-          <mat-select-trigger [ngClass]="'selected-label-layout'">{{selectedLabelLayout.name}}</mat-select-trigger>
+          <mat-select-trigger [ngClass]="'selected-label-layout'">{{selectedLabelLayout?.name}}</mat-select-trigger>
           <mat-option
             *ngFor="let layout of allLabelLayouts"
             [value]="layout.id"

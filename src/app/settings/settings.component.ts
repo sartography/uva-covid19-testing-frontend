@@ -45,7 +45,7 @@ export class SettingsComponent implements AfterViewInit {
       Validators.pattern(this.settings.locationIdRegExp),
     ]);
 
-    this.allLabelLayouts = Object.values(labelLayouts);
+    this.allLabelLayouts = Object.values(labelLayouts).filter(layout => !layout.hide);
 
     this._loadFakeData();
   }

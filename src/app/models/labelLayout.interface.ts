@@ -8,6 +8,7 @@ export interface LayoutOptions {
   numCols?: number;
   numCopies?: number;
   delimiter?: string;
+  hide?: boolean;
 }
 
 export class LabelLayout {
@@ -20,6 +21,7 @@ export class LabelLayout {
   numCols = 1;
   numCopies = 1;
   delimiter = '-';
+  hide = false;
 
   constructor(private options: LayoutOptions) {
     if (options) {
