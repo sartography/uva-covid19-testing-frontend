@@ -92,6 +92,7 @@ export class PrintComponent implements AfterViewInit {
       student_id: this.cardNum,
       date: this.dateCreated,
       location: this.settings.locationId,
+      computing_id: this.initials,
     };
 
     this.api.addSample(newSample).subscribe((result) => {

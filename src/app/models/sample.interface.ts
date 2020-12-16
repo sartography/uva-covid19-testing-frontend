@@ -4,4 +4,5 @@ export interface Sample {
   initials?: string;
   date: Date;
   location: string;
+  computing_id?: string;
 }
