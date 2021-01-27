@@ -1,0 +1,28 @@
+
+<div class="container-fluid mt--7">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">The following files were imported from IVY</h3>
+        </div>
+        <div class="card-body">
+            <div class="justify-content-center">
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead><tr><th>Date Added</th><th>File Name</th><th>Sample Count</th></tr></thead>
+                        <tbody>
+                        <tr *ngFor="let file of fileList">
+                          <td>{{file.date_added | date : 'medium'}}</td>
+                          <td>{{file.file_name}}</td>
+                          <td>{{file.sample_count}}</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+
+        <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="updatePage($event)">
+      </mat-paginator>
+    </div>
+</div>

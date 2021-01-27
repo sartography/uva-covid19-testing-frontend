@@ -36,8 +36,11 @@
     "@ngx-formly/core": "^5.8.0",
     "@ngx-formly/material": "^5.8.0",
     "bwip-js": "^2.0.11",
+    "chart.js": "^2.9.4",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "code-128-encoder": "^3.1.1",
     "lodash.isequal": "^4.5.0",
+    "ng2-charts": "^2.4.2",
     "ngx-qrcode-svg": "^2.0.0",
     "rfdc": "^1.1.4",
     "rxjs": "~6.6.3",
@@ -46,7 +49,7 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1001.2",
+    "@angular-devkit/build-angular": "^0.1101.1",
     "@angular/cli": "^10.1.2",
     "@angular/compiler-cli": "~11.0.0-next.2",
     "@angular/language-service": "~11.0.0-next.2",

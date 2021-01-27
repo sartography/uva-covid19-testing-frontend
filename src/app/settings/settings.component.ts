@@ -8,8 +8,7 @@ import {AppDefaults} from '../models/appDefaults.interface';
 import {LabelLayout} from '../models/labelLayout.interface';
 import {Sample} from '../models/sample.interface';
 import {SettingsService} from '../services/settings.service';
-import createClone from 'rfdc';
-
+import * as createClone from 'rfdc';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',

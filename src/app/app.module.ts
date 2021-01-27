@@ -32,11 +32,22 @@ import {PrintLayoutComponent} from './print-layout/print-layout.component';
 import {PrintComponent} from './print/print.component';
 import {SampleComponent} from './sample/sample.component';
 import {ApiService} from './services/api.service';
+import {GraphService} from './services/graph.service';
 import {CacheService} from './services/cache.service';
 import {SettingsService} from './services/settings.service';
 import {SettingsComponent} from './settings/settings.component';
 import {MultipleLabelsComponent} from './multiple-labels/multiple-labels.component';
 import {RectangleDatamatrixRectangularComponent} from './label-layout/formats/rectangle-datamatrix-rectangular/rectangle-datamatrix-rectangular.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { DepositsComponent } from './deposits/deposits.component';
+import { ImportedFilesComponent } from './imported-files/imported-files.component';
+import { GraphsComponent } from './graphs/graphs.component';
+import { ChartsModule } from 'ng2-charts';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { CustomDateAdapter } from './custom-date-adapter';
+
 
 /**
  * This function is used internal to get a string instance of the `<base href="" />` value from `index.html`.
@@ -72,8 +83,15 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     RectangleDatamatrixRectangularComponent,
     SampleComponent,
     SettingsComponent,
+    DepositsComponent,
+    GraphsComponent,
+    ImportedFilesComponent
   ],
   imports: [
+    MatPaginatorModule,
+    MatNativeDateModule,
+    BrowserModule,
+    ChartsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormlyModule,
@@ -81,6 +99,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -94,8 +113,11 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   ],
   providers: [
     ApiService,
+    GraphService,
     CacheService,
-    SettingsService,
+    SettingsService, 
+    MatDatepickerModule,
+    {provide: DateAdapter, useClass: CustomDateAdapter },
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},

@@ -1,6 +1,8 @@
-import {Component, Inject} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {AppEnvironment} from './models/appEnvironment.interface';
+import { Component, Inject, OnInit} from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { AppEnvironment } from './models/appEnvironment.interface';
+
+declare var jQuery: any;
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import {AppEnvironment} from './models/appEnvironment.interface';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   loading: boolean;
 
   constructor(
@@ -18,7 +20,13 @@ export class AppComponent {
     this.titleService.setTitle(this.environment.title);
   }
 
-
+  ngOnInit() {
+    (function ($) {
+      $("#menu-toggle").click(function () {
+        $("#wrapper").toggleClass("toggled");
+      });
+    })(jQuery);
+  }
   reload() {
     this.loading = true;
     setTimeout(() => this.loading = false, 300);
