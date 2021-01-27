@@ -47,6 +47,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CustomDateAdapter } from './custom-date-adapter';
+import { MatTableModule } from '@angular/material/table'  
+
 
 
 /**
@@ -89,6 +91,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   ],
   imports: [
     MatPaginatorModule,
+    MatTableModule,
     MatNativeDateModule,
     BrowserModule,
     ChartsModule,

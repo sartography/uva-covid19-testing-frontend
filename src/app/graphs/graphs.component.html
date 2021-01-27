@@ -201,7 +201,7 @@
       </table>
     </div>
 
-    <mat-paginator #paginator [length]="topBarData[0]" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
       (page)="updatePage($event)">
     </mat-paginator>
 
