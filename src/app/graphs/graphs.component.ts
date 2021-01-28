@@ -8,12 +8,34 @@ import { SearchForm } from '../models/search_form'
 import {PageEvent} from '@angular/material/paginator'
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
+
 @Component({
   selector: 'app-graphs',
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.css']
 })
+
 export class GraphsComponent implements OnInit {
+
+  tiles: Tile[] = [
+    // {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    // {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    // {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    // {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
+    {text: 'Five', cols: 1, rows: 1, color: '#DDBDF1'},
+    {text: 'Six', cols: 1, rows: 1, color: '#DDBDF1'},
+    {text: 'Seven', cols: 2, rows: 1, color: '#DDBDF1'}
+  ];
 
   constructor(private graphService: GraphService) { }
 

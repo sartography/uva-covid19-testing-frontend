@@ -1,3 +1,25 @@
-.card{
-    display: flex;
-}
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 0;
+  } 
+  .topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+  } 
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  } 
+  .bottomright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  } 
+  .box {
+    border-radius: 5px;
+    padding: 50px;
+    font-size: 150%;
+  }

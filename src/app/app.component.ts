@@ -10,7 +10,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   loading: boolean;
 
   constructor(
@@ -20,13 +20,6 @@ export class AppComponent implements OnInit {
     this.titleService.setTitle(this.environment.title);
   }
 
-  ngOnInit() {
-    (function ($) {
-      $("#menu-toggle").click(function () {
-        $("#wrapper").toggleClass("toggled");
-      });
-    })(jQuery);
-  }
   reload() {
     this.loading = true;
     setTimeout(() => this.loading = false, 300);
