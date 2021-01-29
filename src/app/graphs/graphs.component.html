@@ -1,79 +1,55 @@
-<mat-grid-list cols="6" rowHeight="2:1" class="full-height bg-primary">
-  <mat-grid-tile colspan="1">
-    <mat-card>
+<div class="full-height flex-container bg-primary">
+  <div class="flex-grid">
+    <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted">Total Samples within<br> {{form.start_date | date}}
         -
         {{form.end_date | date}}</h5>
       <span class="h2 font-weight-bold">{{topBarData[0]}}</span>
     </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1">
 
-    <mat-card>
+    <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{start_date_1 | date}}
         -
         {{end_date_1 | date}}</h5>
       <span class="h2 font-weight-bold ">{{topBarData[1]}}</span>
     </mat-card>
 
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card>
+    <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted ">Total Samples within <br> {{start_date_2 |
         date}}
         -
         {{end_date_2 | date}}</h5>
       <span class="h2 font-weight-bold ">{{topBarData[2]}}</span>
     </mat-card>
-  </mat-grid-tile>
 
-  <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card>
+    <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted ">Email Notifications within <br>
         {{form.start_date |
         date}} - {{form.end_date | date}}</h5>
       <span class="h2 font-weight-bold "><span style="color:green">{{topBarData[3]}}</span>/<span
           style="color:red">{{topBarData[4]}}</span></span>
     </mat-card>
-  </mat-grid-tile>
 
-  <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card>
+    <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted ">Text Notifications within <br>
         {{form.start_date |
         date}} - {{form.end_date | date}}</h5>
       <span class="h2 font-weight-bold"><span style="color:green">{{topBarData[5]}}</span>/<span
           style="color:red">{{topBarData[6]}}</span></span>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile colspan="2" rowspan="4 ">
-    <mat-card>
-      <mat-card-header fxLayout="row"  fxLayoutGap="10px">
-          <h3>Search</h3>
-          <button
-            mat-flat-button
-            class="btn-lg"
-            color="primary"
-            (click)="searchToday()"
-          >Today</button>
-          <button
-            mat-flat-button
-            class="btn-lg"
-            color="primary"
-            (click)="searchAll()"
-          >All</button>
-          <button
-            mat-flat-button
-            class="btn-lg"
-            color="primary"
-            (click)="updateGraphData()"
-            fxFlex="25%"
-          >Run</button>
+
+    <mat-card class="row">
+      <mat-card-header class="flex-grid">
+        <h3 class="col">Search</h3>
+        <button mat-flat-button class="btn-lg col" color="primary" (click)="searchToday()">Today</button>
+        <button mat-flat-button class="btn-lg col" color="primary" (click)="searchAll()">All</button>
+        <button mat-flat-button class="btn-lg col" color="primary" (click)="updateGraphData()">Run</button>
 
       </mat-card-header>
-        <p>
-        <mat-form-field style="height:5vw"> 
+
+        <mat-form-field>
           <mat-date-range-input [rangePicker]="picker">
             <input matStartDate [(ngModel)]="start_date">
             <input matEndDate [(ngModel)]="end_date">
@@ -81,39 +57,26 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field style="height:5vw">
+
+        <mat-form-field>
           <mat-label>Location ID(s)</mat-label>
-          <input matInput 
-          [(ngModel)]="form.location"
-          placeholder="Ex. Pizza">
+          <textarea matInput [(ngModel)]="form.location" placeholder="Location Codes"></textarea>
         </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field style="height:5vw">
+        <mat-form-field>
           <mat-label>Student ID(s)</mat-label>
-          <textarea matInput 
-          [(ngModel)]="form.student_id"
-          placeholder="Ex. It makes me feel..."></textarea>
+          <textarea matInput [(ngModel)]="form.student_id" placeholder="Ex. It makes me feel..."></textarea>
 
         </mat-form-field>
-</p>
-<p>
-        <mat-form-field style="height:5vw">
+  
+        <mat-form-field>
           <mat-label>Compute ID(s)</mat-label>
-          <textarea matInput 
-          [(ngModel)]="form.compute_id"
-          placeholder="Ex. It makes me feel..."></textarea>
+          <textarea matInput [(ngModel)]="form.compute_id" placeholder="Ex. It makes me feel..."></textarea>
 
         </mat-form-field>
-        </p>
+
     </mat-card>
 
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="4" rowspan="4">
-    <mat-card>
+    <mat-card class="col">
       <mat-card-header>
         <h1>{{ChartName}}</h1>
       </mat-card-header>
@@ -123,41 +86,34 @@
       </canvas>
     </mat-card>
 
-  </mat-grid-tile>
+    <div class="flex-grid">
 
-  <mat-grid-tile colspan="3" rowspan="3">
-    <mat-card>
-      <mat-card-header>
-        <h1>Average Count By Weekday For {{form.start_date | date}} - {{form.end_date | date}}</h1>
-      </mat-card-header>
+      <mat-card class="col">
+        <mat-card-header>
+          <h1>Average Count By Weekday For {{form.start_date | date}} - {{form.end_date | date}}</h1>
+        </mat-card-header>
 
-      <div style="display: block">
-        <canvas baseChart [datasets]="weekdayChartsData" [labels]="weekdayChartLabels" [options]="barChartOptions"
-          [legend]=false chartType="horizontalBar">
-        </canvas>
-      </div>
+        <div style="display: block">
+          <canvas baseChart [datasets]="weekdayChartsData" [labels]="weekdayChartLabels" [options]="barChartOptions"
+            [legend]=false chartType="horizontalBar">
+          </canvas>
+        </div>
+      </mat-card>
 
-    </mat-card>
-  </mat-grid-tile>
+      <mat-card class="col">
+        <mat-card-header>
+          <h1>Average Count By Hour For {{form.start_date | date}} - {{form.end_date | date}}</h1>
+        </mat-card-header>
 
+        <div style="display: block">
+          <canvas baseChart [datasets]="hourlyChartsData" [labels]="hourlyChartLabels" [options]="barChartOptions"
+            [legend]=false chartType="horizontalBar">
+          </canvas>
+        </div>
 
-  <mat-grid-tile colspan="3" rowspan="3">
-    <mat-card>
-      <mat-card-header>
-        <h1>Average Count By Hour For {{form.start_date | date}} - {{form.end_date | date}}</h1>
-      </mat-card-header>
+      </mat-card>
+    </div>
 
-      <div style="display: block">
-        <canvas baseChart [datasets]="hourlyChartsData" [labels]="hourlyChartLabels" [options]="barChartOptions"
-          [legend]=false chartType="horizontalBar">
-        </canvas>
-      </div>
-
-    </mat-card>
-
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="6" rowspan="5">
     <mat-card>
       <mat-card-header>
         <h3 class="mb-0">Records to be processed </h3>
@@ -167,26 +123,27 @@
 
         <!--- Note that these columns can bea defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
+
         <!-- Position Column -->
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef> Barcode </th>
-          
+
           <td mat-cell *matCellDef="let sample; let i = index;"> {{sample.barcode}} </td>
         </ng-container>
-      
+
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Date </th>
-          
+
           <td mat-cell *matCellDef="let sample; let i = index;"> {{sample.date}}</td>
         </ng-container>
-      
+
         <!-- Weight Column -->
         <ng-container matColumnDef="weight">
           <th mat-header-cell *matHeaderCellDef> Location </th>
-          
-          <td mat-cell *matCellDef="let sample; let i = index;"> Location: {{sample.location}}<br>Station: {{sample.station}}</td>
+
+          <td mat-cell *matCellDef="let sample; let i = index;"> Location: {{sample.location}}<br>Station:
+            {{sample.station}}</td>
         </ng-container>
 
         <ng-container matColumnDef="email">
@@ -205,11 +162,10 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-    
-    </mat-card>
-  </mat-grid-tile>
 
-</mat-grid-list>
+    </mat-card>
+
+</div>
 
 <!-- 
   <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
