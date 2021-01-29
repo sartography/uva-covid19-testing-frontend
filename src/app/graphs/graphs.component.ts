@@ -87,10 +87,10 @@ export class GraphsComponent implements OnInit {
       }
     }
   };
-
   tempData: JSON = <JSON>{};
 
   searchResult: Sample[] = [];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'text', 'email'];
 
   start_date: Date = new Date();
   end_date: Date = new Date();
