@@ -1,127 +1,79 @@
-<div class="full-height bg-primary" fxLayout="space-evenly" fxLayoutAlign="center center" fxLayoutGap="40px">
+<mat-grid-list cols="6" rowHeight="2:1" class="full-height bg-primary">
+  <mat-grid-tile colspan="1">
+    <mat-card>
+      <h5 class="card-title text-uppercase text-muted">Total Samples within<br> {{form.start_date | date}}
+        -
+        {{form.end_date | date}}</h5>
+      <span class="h2 font-weight-bold">{{topBarData[0]}}</span>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1">
 
-    <mat-card-content class="containerX">
-      <div class="colorNested box" style="height: auto;">
-        <div gdGap="30px" gdColumns="200px 200px 200px"
-             gdAreas="header  header  header | sidebar content content | footer  footer  footer">
-          <div class="box" gdArea="header">
-            
-              <div class="col-xl-2">
-                <div class="card card-stats  mb-xl-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within<br> {{form.start_date | date}}
-                          -
-                          {{form.end_date | date}}</h5>
-                        <span id="card_1" class="h2 font-weight-bold">{{topBarData[0]}}</span>
-          
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-2">
-                <div class="card card-stats  mb-xl-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{start_date_1 | date}}
-                          -
-                          {{end_date_1 | date}}</h5>
-                        <span id="card_1" class="h2 font-weight-bold mb-0">{{topBarData[1]}}</span>
-          
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-2">
-                <div class="card card-stats  mb-xl-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{start_date_2 | date}}
-                          -
-                          {{end_date_2 | date}}</h5>
-                        <span id="card_1" class="h2 font-weight-bold mb-0">{{topBarData[2]}}</span>
-          
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3">
-                <div class="card card-stats  mb-xl-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Email Notifications within <br> {{form.start_date |
-                          date}} - {{form.end_date | date}}</h5>
-                        <span id="card_1" class="h2 font-weight-bold mb-0"><span
-                            style="color:green">{{topBarData[3]}}</span>/<span style="color:red">{{topBarData[4]}}</span></span>
-          
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 ">
-                <div class="card card-stats  mb-xl-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Text Notifications within <br> {{form.start_date |
-                          date}} - {{form.end_date | date}}</h5>
-                        <span id="card_1" class="h2 font-weight-bold mb-0"><span
-                            style="color:green">{{topBarData[5]}}</span>/<span style="color:red">{{topBarData[6]}}</span></span>
-          
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          
-          
-          </div>
-          <div class="box" gdArea="sidebar">Sidebar</div>
-          <div class="box" gdArea="content" style="position: relative;">Content
-            <br /> The four arrows are inline images inside the content area.
-            <img src="http://gridbyexample.com/examples/code/arrow-top-left.png"
-                 alt="top left" class="topleft" />
-            <img src="http://gridbyexample.com/examples/code/arrow-top-right.png"
-                 alt="top right" class="topright" />
-            <img src="http://gridbyexample.com/examples/code/arrow-bottom-left.png"
-                 alt="bottom left" class="bottomleft" />
-            <img src="http://gridbyexample.com/examples/code/arrow-bottom-right.png"
-                 alt="bottom right" class="bottomright" /></div>
-          <div class="box" gdArea="footer">Footer</div>
-        </div>
-      </div>
-    </mat-card-content>
-      <!-- <mat-card>
-        <mat-card-header>
-          <h1>{{ChartName}}</h1>
-        </mat-card-header>
-          <canvas baseChart [datasets]="dailyChartsData" [labels]="dailyChartLabels" [options]="barChartOptions"
-            [legend]="true" chartType="bar" (chartClick)="chartClicked($event)">
-          </canvas>
-      </mat-card> -->
-    
-  <!-- <mat-card >
-    <mat-card-header>
-      <div class=row>
-        <h3 class="mb-3 col ">Search</h3>
-        <button (click)="searchToday()" class="btn btn-sm btn-primary col mr-3">Today</button>
-        <button (click)="searchAll()" class="btn btn-sm btn-primary col mr-3">All</button>
-        <button (click)="updateGraphData()" class="btn btn-sm btn-primary col ">Run</button>
-      </div>
-    </mat-card-header>
+    <mat-card>
+      <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{start_date_1 | date}}
+        -
+        {{end_date_1 | date}}</h5>
+      <span class="h2 font-weight-bold ">{{topBarData[1]}}</span>
+    </mat-card>
 
-    <div class="col">
-      <div class="form-group row">
-        <label for="range" class="col mt-3 mr-3">Search Range</label>
-        <mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card>
+      <h5 class="card-title text-uppercase text-muted ">Total Samples within <br> {{start_date_2 |
+        date}}
+        -
+        {{end_date_2 | date}}</h5>
+      <span class="h2 font-weight-bold ">{{topBarData[2]}}</span>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card>
+      <h5 class="card-title text-uppercase text-muted ">Email Notifications within <br>
+        {{form.start_date |
+        date}} - {{form.end_date | date}}</h5>
+      <span class="h2 font-weight-bold "><span style="color:green">{{topBarData[3]}}</span>/<span
+          style="color:red">{{topBarData[4]}}</span></span>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card>
+      <h5 class="card-title text-uppercase text-muted ">Text Notifications within <br>
+        {{form.start_date |
+        date}} - {{form.end_date | date}}</h5>
+      <span class="h2 font-weight-bold"><span style="color:green">{{topBarData[5]}}</span>/<span
+          style="color:red">{{topBarData[6]}}</span></span>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="2" rowspan="4 ">
+    <mat-card>
+      <mat-card-header fxLayout="row"  fxLayoutGap="10px">
+          <h3>Search</h3>
+          <button
+            mat-flat-button
+            class="btn-lg"
+            color="primary"
+            (click)="searchToday()"
+          >Today</button>
+          <button
+            mat-flat-button
+            class="btn-lg"
+            color="primary"
+            (click)="searchAll()"
+          >All</button>
+          <button
+            mat-flat-button
+            class="btn-lg"
+            color="primary"
+            (click)="updateGraphData()"
+            fxFlex="25%"
+          >Run</button>
+
+      </mat-card-header>
+      <div >
+        <mat-form-field style="height:5vw"> 
           <mat-date-range-input [rangePicker]="picker">
             <input matStartDate [(ngModel)]="start_date">
             <input matEndDate [(ngModel)]="end_date">
@@ -129,82 +81,113 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
+
+        <mat-form-field style="height:5vw">
+          <mat-label>Location ID(s)</mat-label>
+          <input matInput 
+          [(ngModel)]="form.location"
+          placeholder="Ex. Pizza">
+        </mat-form-field>
+      
+        <mat-form-field style="height:5vw">
+          <mat-label>Student ID(s)</mat-label>
+          <textarea matInput 
+          [(ngModel)]="form.student_id"
+          placeholder="Ex. It makes me feel..."></textarea>
+
+        </mat-form-field>
+
+        <mat-form-field style="height:5vw">
+          <mat-label>Compute ID(s)</mat-label>
+          <textarea matInput 
+          [(ngModel)]="form.compute_id"
+          placeholder="Ex. It makes me feel..."></textarea>
+
+        </mat-form-field>
       </div>
+    </mat-card>
 
-      <div class="form-group row ">
+  </mat-grid-tile>
 
-        <label for="location" class="col mt-3 mr-3">Location ID(s)</label>
+  <mat-grid-tile colspan="4" rowspan="4">
+    <mat-card>
+      <mat-card-header>
+        <h1>{{ChartName}}</h1>
+      </mat-card-header>
 
-        <textarea class="form-control col mr-3 mt-3" id="location" [(ngModel)]="form.location" rows="2"></textarea>
+      <canvas baseChart [datasets]="dailyChartsData" [labels]="dailyChartLabels" [options]="barChartOptions"
+        [legend]="true" chartType="bar" (chartClick)="chartClicked($event)">
+      </canvas>
+    </mat-card>
 
-      </div>
-      <div class="form-group row ">
+  </mat-grid-tile>
 
-        <label for="student" class="col mt-3 mr-3">Student ID(s)</label>
+  <mat-grid-tile colspan="3" rowspan="3">
+    <mat-card>
+      <mat-card-header>
+        <h1>Average Count By Weekday For {{form.start_date | date}} - {{form.end_date | date}}</h1>
+      </mat-card-header>
 
-        <textarea class="form-control col mr-3 mt-3" id="student" [(ngModel)]="form.student_id" rows="2"></textarea>
-
-      </div>
-      <div class="form-group row ">
-
-        <label for="compute" class="col mt-3 mr-3">Compute ID(s)</label>
-
-        <textarea class="form-control col mr-3 mt-3" id="compute" [(ngModel)]="form.compute_id" rows="2"></textarea>
-
-      </div>
-    </div>
-  </mat-card>  -->
-
-  <!-- <div class="card-header">
-        <h3 class="mb-3 ">Average Count By Weekday For {{form.start_date | date}} - {{form.end_date | date}}</h3>
-      </div>
       <div style="display: block">
         <canvas baseChart [datasets]="weekdayChartsData" [labels]="weekdayChartLabels" [options]="barChartOptions"
           [legend]=false chartType="horizontalBar">
         </canvas>
       </div>
 
+    </mat-card>
+  </mat-grid-tile>
 
-      <div class="card-header">
-        <h3 class="mb-3">Average Count By Hour For {{form.start_date | date}} - {{form.end_date | date}}</h3>
-      </div>
+
+  <mat-grid-tile colspan="3" rowspan="3">
+    <mat-card>
+      <mat-card-header>
+        <h1>Average Count By Hour For {{form.start_date | date}} - {{form.end_date | date}}</h1>
+      </mat-card-header>
+
       <div style="display: block">
         <canvas baseChart [datasets]="hourlyChartsData" [labels]="hourlyChartLabels" [options]="barChartOptions"
           [legend]=false chartType="horizontalBar">
         </canvas>
-      </div> -->
+      </div>
 
-  <!-- <div class="card row ">
-  <div class="card-header">
-    <h3 class="mb-0">Records to be processed </h3>
-  </div>
-  <div class="table-responsive">
-    <table class="table align-items-center table-flush">
-      <thead>
-        <tr>
-          <th>Barcode </th>
-          <th>Date</th>
-          <th>Location</th>
-          <th>IDs</th>
-          <th>Contacts</th>
-          <th>Notifications</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let sample of searchResult">
-          <td>{{sample.barcode}}</td>
-          <td>{{sample.date| date :"medium"}}</td>
-          <td>Location: {{sample.location}}<br>Station: {{sample.station}}</td>
-          <td>Compute ID: {{sample.compute_id}}<br>Student ID: {{sample.student_id}}</td>
-          <td>Phone: {{sample.phone}}<br>Email: {{sample.email}}</td>
+    </mat-card>
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  </mat-grid-tile>
 
+  <mat-grid-tile colspan="6" rowspan="5">
+    <mat-card>
+      <mat-card-header>
+        <h3 class="mb-0">Records to be processed </h3>
+      </mat-card-header>
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead>
+            <tr>
+              <th>Barcode </th>
+              <th>Date</th>
+              <th>Location</th>
+              <th>IDs</th>
+              <th>Contacts</th>
+              <th>Notifications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sample of searchResult">
+              <td>{{sample.barcode}}</td>
+              <td>{{sample.date| date :"medium"}}</td>
+              <td>Location: {{sample.location}}<br>Station: {{sample.station}}</td>
+              <td>Compute ID: {{sample.compute_id}}<br>Student ID: {{sample.student_id}}</td>
+              <td>Phone: {{sample.phone}}<br>Email: {{sample.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<!-- 
   <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
     (page)="updatePage($event)">
   </mat-paginator> -->
-
-</div>

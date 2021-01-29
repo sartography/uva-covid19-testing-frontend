@@ -60,14 +60,15 @@ export class ApiService {
 
 
   /**  */
-  getFiles(page: Number): Observable<IvyFile[]> {
+  getFilesInfo(page: Number): Observable<Array<Array<any>>> {
     let params = new HttpParams().set("page", String(page));
     const url = this.apiRoot + this.endpoints.ivy_file;
     return this.httpClient
-      .get<IvyFile[]>(url, { params: params })
+      .get<Array<Array<any>>>(url, { params: params })
       .pipe(timeout(1000), catchError(err => this._handleError(err)))
       .pipe(catchError(err => this._handleError(err)));
   }
+
 
   /** Add new sample */
   addSample(sample: Sample): Observable<null> {

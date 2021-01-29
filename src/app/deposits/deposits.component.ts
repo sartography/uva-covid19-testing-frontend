@@ -17,7 +17,7 @@ export class DepositsComponent implements OnInit {
     notes: ''
   };
   date_temp = new Date(Date.now());
-
+  notify_data : Array<Array<number>>[] = [];
   constructor(
     private depositService: ApiService) {
   }

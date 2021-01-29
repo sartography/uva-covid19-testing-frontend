@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
-import {PageEvent} from '@angular/material/paginator'
+import { PageEvent } from '@angular/material/paginator'
 import { IvyFile } from '../models/ivyfile.interface';
 
 @Component({
@@ -10,30 +10,33 @@ import { IvyFile } from '../models/ivyfile.interface';
   styleUrls: ['./imported-files.component.css']
 })
 export class ImportedFilesComponent implements OnInit {
-  fileList: IvyFile[] = [];
+  fileDataList: any[][] = [];
 
   constructor(private fileService: ApiService) { }
 
-  
+
   ngOnInit(): void {
-    this.fileService.getFiles(0).subscribe(fileList => this.fileList = fileList);
+    this.fileService.getFilesInfo(0).subscribe(fileList => this.fileDataList = fileList);
+ 
   }
-  displayedColumns: string[] = ['position', 'name', 'weight'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'text', 'email'];
   current_page: number = 0;
   pageSize: number = 10;
-  
-  updatePage(event: PageEvent) {
-    this.current_page = event.pageIndex;
-    this.fileService.getFiles(this.current_page).subscribe(fileList => this.fileList = fileList);
+
+  updatePage() {
+    
+    this.fileService.getFilesInfo(this.current_page).subscribe(fileList => this.fileDataList = fileList);
   }
-  next(){
-    if (this.fileList.length > 0){
-    this.current_page += 1; 
-    this.fileService.getFiles(this.current_page).subscribe(fileList => this.fileList = fileList);  }}
-  prev(){
-    if (this.current_page > 0){
-      this.current_page -= 1; 
-      this.fileService.getFiles(this.current_page).subscribe(fileList => this.fileList = fileList);
+  next() {
+    if (this.fileDataList.length > 0) {
+      this.current_page += 1;
+      this.updatePage();
+    }
+  }
+  prev() {
+    if (this.current_page > 0) {
+      this.current_page -= 1;
+      this.updatePage();
     }
   }
 

@@ -49,6 +49,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { CustomDateAdapter } from './custom-date-adapter';
 import { MatTableModule } from '@angular/material/table'  
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -93,6 +94,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   ],
   imports: [
     MatPaginatorModule,
+    MatDividerModule,
     MatGridListModule,
     MatTableModule,
     MatNativeDateModule,
