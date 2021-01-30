@@ -8,12 +8,6 @@ import { SearchForm } from '../models/search_form'
 import {PageEvent} from '@angular/material/paginator'
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-graphs',

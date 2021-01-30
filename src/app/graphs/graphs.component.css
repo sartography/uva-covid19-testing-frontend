@@ -1,5 +1,8 @@
+/* https://css-tricks.com/dont-overthink-flexbox-grids/ */
 .flex-grid {
   display: flex;
+
+  align-items: center;
 }
 .flex-grid .col {
   flex: 1;
@@ -22,8 +25,6 @@
     }
   }
 }
-
-
 
 
 * {
