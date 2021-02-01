@@ -118,6 +118,7 @@ export class GraphsComponent implements OnInit {
     this.end_date = new Date();
     this.updateGraphData();
   }
+  
   searchAll(): void {
     this.start_date = new Date(2020,9,5);
     this.end_date = new Date();

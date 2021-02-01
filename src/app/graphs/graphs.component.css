@@ -4,13 +4,16 @@
 
   align-items: center;
 }
+
 .flex-grid .col {
   flex: 1;
 }
+
 .flex-grid-thirds {
   display: flex;
   justify-content: space-between;
 }
+
 .flex-grid-thirds .col {
   width: 32%;
 }
@@ -26,10 +29,10 @@
   }
 }
 
-
 * {
   box-sizing: border-box;
 }
+
 mat-form-field {
   margin: 20px;
 }
@@ -38,7 +41,6 @@ mat-card {
   margin: 20px;
 }
 
-
 body {
   padding: 20px;
 }
@@ -46,7 +48,6 @@ body {
   margin: 0 20px 20px 0;
 }
 .col {
-  /* background: salmon; */
   padding: 20px;
 }
 

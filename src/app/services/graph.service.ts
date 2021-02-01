@@ -69,6 +69,7 @@ export class GraphService {
       .set("student_id", form.student_id)
       .set("compute_id", form.compute_id)
       .set("location", form.location)
+      .set("include_tests", String(form.include_tests))
     return params;
   }
 

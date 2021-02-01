@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatOptionModule} from '@angular/material/core';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
@@ -98,6 +99,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     MatGridListModule,
     MatTableModule,
     MatNativeDateModule,
+    MatCheckboxModule,
     BrowserModule,
     ChartsModule,
     BrowserAnimationsModule,

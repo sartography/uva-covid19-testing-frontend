@@ -43,6 +43,9 @@
     <div class="flex-grid">
       <div class="col">
         <h1>Search</h1>
+        <br>
+        <mat-checkbox [(ngModel)]="form.include_tests">Include Tests</mat-checkbox>
+
       </div>
       <div class="col">
         <button mat-raised-button class="btn-lg" color="primary" (click)="searchToday()">Today</button>
@@ -74,18 +77,17 @@
       <div class="col">
         <mat-form-field>
           <mat-label>Student ID(s)</mat-label>
-          <textarea matInput [(ngModel)]="form.student_id" placeholder="Ex. It makes me feel..."></textarea>
+          <textarea matInput [(ngModel)]="form.student_id" placeholder="Ex. 00224483"></textarea>
         </mat-form-field>
       </div>
 
       <div class="col">
         <mat-form-field>
           <mat-label>Compute ID(s)</mat-label>
-          <textarea matInput [(ngModel)]="form.compute_id" placeholder="Ex. It makes me feel..."></textarea>
+          <textarea matInput [(ngModel)]="form.compute_id" placeholder="Ex. ECC8Z"></textarea>
         </mat-form-field>
       </div>
     </div>
-
   </mat-card>
 
   <div class="flex-grid">
@@ -95,9 +97,10 @@
       </mat-card-header>
 
       <div style="display: block">
-      <canvas baseChart [datasets]="dailyChartsData" [labels]="dailyChartLabels" [options]="barChartOptions"
-        [legend]="true" chartType="bar" (chartClick)="chartClicked($event)">
-      </canvas></div>
+        <canvas baseChart [datasets]="dailyChartsData" [labels]="dailyChartLabels" [options]="barChartOptions"
+          [legend]="true" chartType="bar" (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
     </mat-card>
 
     <mat-card class="col">
@@ -122,9 +125,7 @@
           [legend]=false chartType="horizontalBar">
         </canvas>
       </div>
-
     </mat-card>
-
   </div>
 
   <mat-card>
