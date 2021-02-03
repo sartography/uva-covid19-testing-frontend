@@ -44,7 +44,7 @@
       <div class="col">
         <h1>Search</h1>
         <br>
-        <mat-checkbox [(ngModel)]="form.include_tests">Include Tests</mat-checkbox>
+        <mat-checkbox [(ngModel)]="form.include_tests">Include Test Labels</mat-checkbox>
 
       </div>
       <div class="col">
@@ -176,12 +176,13 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
+    <!-- <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="updatePage($event)">
+  </mat-paginator>  -->
   </mat-card>
 
 </div>
 
 <!-- 
-  <mat-paginator #paginator [length]="100000" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="updatePage($event)">
-  </mat-paginator> -->
+
+-->
