@@ -5,6 +5,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatOptionModule} from '@angular/material/core';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
@@ -51,7 +52,8 @@ import { CustomDateAdapter } from './custom-date-adapter';
 import { MatTableModule } from '@angular/material/table'  
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -91,10 +93,13 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     SettingsComponent,
     DepositsComponent,
     GraphsComponent,
-    ImportedFilesComponent
+    ImportedFilesComponent,
+    SidebarComponent
   ],
   imports: [
     MatPaginatorModule,
+    MatListModule,
+    MatSidenavModule,
     MatDividerModule,
     MatGridListModule,
     MatTableModule,

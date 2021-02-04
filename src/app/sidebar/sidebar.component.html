@@ -1,0 +1,22 @@
+<mat-sidenav-container class="full-height flex-container bg-primary">
+	<mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <mat-nav-list >
+            <mat-list-item>
+            <div class="flex-items" [routerLink]="['/dashboard', 'graphs']"><p>View Graphs</p></div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="flex-items" [routerLink]="['/dashboard', 'imports']"><p>Imported Files</p></div>
+                </mat-list-item>
+                <mat-list-item>
+                    <div class="flex-items" [routerLink]="['/dashboard', 'deposits']"><p>Manage Label Inventory</p></div>
+                    </mat-list-item>
+        </mat-nav-list>
+	</mat-sidenav>
+
+	<mat-sidenav-content >
+		<p>
+			<mat-checkbox [(ngModel)]="opened">Toggle Sidebar</mat-checkbox>
+		</p>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
