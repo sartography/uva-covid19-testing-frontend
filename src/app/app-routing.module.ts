@@ -22,6 +22,10 @@ export const routes: Routes = [
     component: SidebarComponent,
     children: [
       {
+        path: '', // child route path
+        component: GraphsComponent, // child route component that the router renders
+      },
+      {
         path: 'graphs', // child route path
         component: GraphsComponent, // child route component that the router renders
       },
