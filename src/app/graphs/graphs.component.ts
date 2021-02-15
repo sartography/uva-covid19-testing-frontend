@@ -5,6 +5,7 @@ import { Label } from 'ng2-charts';
 import { GraphService } from '../services/graph.service'
 import { Sample } from '../models/sample.interface'
 import { SearchForm } from '../models/search_form'
+
 import {PageEvent} from '@angular/material/paginator'
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
@@ -19,7 +20,7 @@ export class GraphsComponent implements OnInit {
 
   constructor(private graphService: GraphService) { }
 
-  topBarData: Array<number> = [0, 0, 0, 0, 0, 0, 0];
+  topBarData: Array<number> = [0, 0, 0, 0, 0, 0, 0, 0];
   ChartName: String = "Location Activity";
   dailyChartLabels: Label[] = [];
   weekdayChartLabels: Label[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
