@@ -6,5 +6,6 @@
     <button id="nav_home" mat-icon-button routerLink="/"><mat-icon>home</mat-icon></button>
     <button id="nav_dash" mat-icon-button [routerLink]="['/dashboard', 'graphs']"><mat-icon>dashboard</mat-icon></button>
     <button id="nav_settings" mat-icon-button routerLink="/settings"><mat-icon>settings</mat-icon></button>
+    <div *ngIf="user">{{user.display_name}}</div>
   </mat-toolbar-row>
 </mat-toolbar>

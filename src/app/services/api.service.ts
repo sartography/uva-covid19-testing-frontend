@@ -9,6 +9,7 @@ import { Sample } from '../models/sample.interface';
 import { InventoryDeposit } from '../models/deposit.interface';
 import { IvyFile } from '../models/ivyfile.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import {User} from '../models/user.interface';
 
 
 
@@ -21,6 +22,7 @@ export class ApiService {
     sample: '/sample',
     deposit: '/deposit',
     ivy_file: '/ivy_file',
+    user: '/user'
   };
 
   constructor(
@@ -76,6 +78,15 @@ export class ApiService {
 
     return this.httpClient
       .post<null>(url, sample)
+      .pipe(timeout(1000), catchError(err => this._handleError(err)))
+      .pipe(catchError(err => this._handleError(err)));
+  }
+
+  getUser(): Observable<User> {
+    const url = this.apiRoot + this.endpoints.user;
+
+    return this.httpClient
+      .get<User>(url)
       .pipe(timeout(1000), catchError(err => this._handleError(err)))
       .pipe(catchError(err => this._handleError(err)));
   }

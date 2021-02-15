@@ -1,5 +1,5 @@
 import {APP_BASE_HREF, PlatformLocation} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -54,6 +54,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import { CustomDatePipe } from './custom-date-adapter';
+import {DevHeaderInterceptorInterceptor} from './dev-header-interceptor.interceptor';
 
 
 
@@ -137,6 +138,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    {provide: HTTP_INTERCEPTORS, useClass: DevHeaderInterceptorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
   entryComponents: []
