@@ -8,7 +8,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { MultipleLabelsComponent } from './multiple-labels/multiple-labels.component';
 import { DepositsComponent } from './deposits/deposits.component';
 import { GraphsComponent } from './graphs/graphs.component';
-import { ImportedFilesComponent } from './imported-files/imported-files.component'
+import { ImportedFilesComponent } from './imported-files/imported-files.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 export const routes: Routes = [

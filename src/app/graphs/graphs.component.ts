@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 
 import { Label } from 'ng2-charts';
-import { GraphService } from '../services/graph.service'
-import { Sample } from '../models/sample.interface'
-import { SearchForm } from '../models/search_form'
+import { GraphService } from '../services/graph.service';
+import { Sample } from '../models/sample.interface';
+import { SearchForm } from '../models/search_form';
 
-import {PageEvent} from '@angular/material/paginator'
+import {PageEvent} from '@angular/material/paginator';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 
@@ -21,10 +21,10 @@ export class GraphsComponent implements OnInit {
   constructor(private graphService: GraphService) { }
 
   topBarData: Array<number> = [0, 0, 0, 0, 0, 0, 0, 0];
-  ChartName: String = "Location Activity";
+  ChartName = 'Location Activity';
   dailyChartLabels: Label[] = [];
-  weekdayChartLabels: Label[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  hourlyChartLabels: Label[] = ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"];
+  weekdayChartLabels: Label[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  hourlyChartLabels: Label[] = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM', '12 PM'];
   dailyChartsData: ChartDataSets[] = [];
   hourlyChartsData: ChartDataSets[] = [];
   weekdayChartsData: ChartDataSets[] = [];
@@ -61,7 +61,7 @@ export class GraphsComponent implements OnInit {
         align: 'end',
         formatter: (value: any, ctx: any) => {
 
-          let datasets = ctx.chart.data.datasets;
+          const datasets = ctx.chart.data.datasets;
           if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
             let sum = 0;
             datasets.map((dataset: any) => {
@@ -82,84 +82,84 @@ export class GraphsComponent implements OnInit {
       }
     }
   };
-  tempData: JSON = <JSON>{};
+  tempData: JSON = {} as JSON;
 
   searchResult: Sample[] = [];
   displayedColumns: string[] = ['position', 'name', 'weight', 'text', 'email'];
 
-  start_date: Date = new Date();
-  end_date: Date = new Date();
+  startDate: Date = new Date();
+  endDate: Date = new Date();
 
-  start_date_1: string = "";
-  end_date_1: string = "";
-  start_date_2: string = "";
-  end_date_2: string = "";
+  startDate1 = '';
+  endDate1 = '';
+  startDate2 = '';
+  endDate2 = '';
 
-  current_page: number = 0;
-  pageSize: number = 10;
-  pageSizeOptions: number[] = [10,20,50,100];
-  
-  updatePage(event: PageEvent) {
-    this.current_page = event.pageIndex;
-    this.graphService.getRawSearchData(this.form, this.current_page).subscribe(searchResult => this.searchResult = searchResult);
-  }
-  
+  currentPage = 0;
+  pageSize = 10;
+  pageSizeOptions: number[] = [10, 20, 50, 100];
+
   form: SearchForm = {
-    start_date: "",
-    end_date: "",
-    student_id: "",
-    location: "",
-    compute_id: "",
-    include_tests: false
+    startDate: '',
+    endDate: '',
+    studentId: '',
+    location: '',
+    computeId: '',
+    includeTests: false
   };
 
-  
+  updatePage(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.graphService.getRawSearchData(this.form, this.currentPage).subscribe(searchResult => this.searchResult = searchResult);
+  }
+
+
   searchToday(): void {
-    this.start_date = new Date();
-    this.end_date = new Date();
+    this.startDate = new Date();
+    this.endDate = new Date();
     this.updateGraphData();
   }
-  
+
   searchAll(): void {
-    this.start_date = new Date(2020,9,5);
-    this.end_date = new Date();
+    this.startDate = new Date(2020, 9, 5);
+    this.endDate = new Date();
     this.updateGraphData();
   }
 
   updateGraphData(): void {
 
-    if (this.form.location.trim().split(" ").length == 1) {
-      this.ChartName = "Total Samples per Station @ Location " + this.form.location;
+    if (this.form.location.trim().split(' ').length === 1) {
+      this.ChartName = 'Total Samples per Station @ Location ' + this.form.location;
     } else {
-      this.ChartName = "Total Samples per Location";
+      this.ChartName = 'Total Samples per Location';
     }
-    if (this.form.location.trim() == "") {
-      this.ChartName = "Total Samples per Location";
+    if (this.form.location.trim() === '') {
+      this.ChartName = 'Total Samples per Location';
     }
 
-    this.form.start_date = this.start_date.toLocaleDateString();
-    this.form.end_date = this.end_date.toLocaleDateString();
+    this.form.startDate = this.startDate.toLocaleDateString();
+    this.form.endDate = this.endDate.toLocaleDateString();
 
-    var date = new Date();
-    var date_2 = new Date();
+    const date = new Date();
+    const date2 = new Date();
 
-    date.setDate(this.start_date.getDate() - 7);
-    this.start_date_1 = date.toLocaleDateString();
+    date.setDate(this.startDate.getDate() - 7);
+    this.startDate1 = date.toLocaleDateString();
 
-    date_2.setDate(this.end_date.getDate() - 7);
-    this.end_date_1 = date_2.toLocaleDateString();
+    date2.setDate(this.endDate.getDate() - 7);
+    this.endDate1 = date2.toLocaleDateString();
 
     date.setDate(date.getDate() - 7);
-    this.start_date_2 = date.toLocaleDateString();
+    this.startDate2 = date.toLocaleDateString();
 
-    date_2.setDate(date_2.getDate() - 7);
-    this.end_date_2 = date_2.toLocaleDateString();
+    date2.setDate(date2.getDate() - 7);
+    this.endDate2 = date2.toLocaleDateString();
 
-    var temp = new Date(this.start_date.getTime());
+    const temp = new Date(this.startDate.getTime());
     this.dailyChartLabels = [];
     while (true) {
       this.dailyChartLabels.push(temp.toLocaleDateString());
-      if (temp.toLocaleDateString() == this.end_date.toLocaleDateString()) {
+      if (temp.toLocaleDateString() === this.endDate.toLocaleDateString()) {
         break;
       } else {
         temp.setDate(temp.getDate() + 1);
@@ -169,24 +169,24 @@ export class GraphsComponent implements OnInit {
     this.graphService.getDayData(this.form).subscribe(tempData => {
       this.tempData = tempData;
       this.dailyChartsData = [];
-      Object.entries(this.tempData).forEach(([loc_or_stat_name, totals]) => {
-        this.dailyChartsData.push({ data: totals, label: loc_or_stat_name, stack: 'a' })
+      Object.entries(this.tempData).forEach(([LOC_OR_STAT_NAME, totals]) => {
+        this.dailyChartsData.push({ data: totals, label: LOC_OR_STAT_NAME, stack: 'a' });
       });
     });
 
     this.graphService.getWeekdayData(this.form).subscribe(tempData => {
       this.tempData = tempData;
       this.weekdayChartsData = [];
-      Object.entries(this.tempData).forEach(([loc_or_stat_name, totals]) => {
-        this.weekdayChartsData.push({ data: totals, label: loc_or_stat_name, stack: 'a' })
+      Object.entries(this.tempData).forEach(([LOC_OR_STAT_NAME, totals]) => {
+        this.weekdayChartsData.push({ data: totals, label: LOC_OR_STAT_NAME, stack: 'a' });
       });
     });
 
     this.graphService.getHourData(this.form).subscribe(tempData => {
       this.tempData = tempData;
       this.hourlyChartsData = [];
-      Object.entries(this.tempData).forEach(([loc_or_stat_name, totals]) => {
-        this.hourlyChartsData.push({ data: totals, label: loc_or_stat_name, stack: 'c' })
+      Object.entries(this.tempData).forEach(([LOC_OR_STAT_NAME, totals]) => {
+        this.hourlyChartsData.push({ data: totals, label: LOC_OR_STAT_NAME, stack: 'c' });
       });
     });
 
@@ -197,10 +197,10 @@ export class GraphsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var end_date = new Date();
-    var start_date = new Date();
-    this.form.start_date = start_date.toLocaleDateString();
-    this.form.end_date = end_date.toLocaleDateString();
+    const endDate = new Date();
+    const startDate = new Date();
+    this.form.startDate = startDate.toLocaleDateString();
+    this.form.endDate = endDate.toLocaleDateString();
     this.updateGraphData();
   }
 
@@ -214,7 +214,7 @@ export class GraphsComponent implements OnInit {
         const label = chart.data.labels[clickedElementIndex];
         // get value by index
         const value = chart.data.datasets[0].data[clickedElementIndex];
-        console.log(clickedElementIndex, label, value)
+        console.log(clickedElementIndex, label, value);
         // this.updateGraphData();
       }
     }

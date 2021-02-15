@@ -39,8 +39,8 @@ export class ApiService {
   }
 
   /**  */
-  getDeposits(page: Number): Observable<InventoryDeposit[]> {
-    let param = new HttpParams().set("page", String(page));
+  getDeposits(page: number): Observable<InventoryDeposit[]> {
+    const param = new HttpParams().set('page', String(page));
 
     const url = this.apiRoot + this.endpoints.deposit;
     return this.httpClient
@@ -60,11 +60,11 @@ export class ApiService {
 
 
   /**  */
-  getFilesInfo(page: Number): Observable<Array<Array<any>>> {
-    let params = new HttpParams().set("page", String(page));
+  getFilesInfo(page: number): Observable<Array<Array<any>>> {
+    const params = new HttpParams().set('page', String(page));
     const url = this.apiRoot + this.endpoints.ivy_file;
     return this.httpClient
-      .get<Array<Array<any>>>(url, { params: params })
+      .get<Array<Array<any>>>(url, { params })
       .pipe(timeout(1000), catchError(err => this._handleError(err)))
       .pipe(catchError(err => this._handleError(err)));
   }

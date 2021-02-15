@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-//https://github.com/visjs/vis-network/issues/67
+// https://github.com/visjs/vis-network/issues/67
 import * as createClone from 'rfdc';
 import {BehaviorSubject} from 'rxjs';
 import serializeJs from 'serialize-javascript';

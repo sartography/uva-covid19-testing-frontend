@@ -22,8 +22,8 @@
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef> Date Added <br>
             <input matInput 
-            [(ngModel)]="date_temp" 
-            [value] = "date_temp" 
+            [(ngModel)]="dateTemp" 
+            [value] = "dateTemp" 
             [matDatepicker]="picker"
             (keyup.enter)="addDeposit()">
             <mat-datepicker #picker></mat-datepicker>

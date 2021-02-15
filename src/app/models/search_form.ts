@@ -1,8 +1,8 @@
 export interface SearchForm{
-    start_date: string;
-    end_date: string;
-    student_id : string;
-    location : string;
-    compute_id : string;
-    include_tests : boolean;
+    startDate: string;
+    endDate: string;
+    studentId: string;
+    location: string;
+    computeId: string;
+    includeTests: boolean;
 }

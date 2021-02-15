@@ -48,12 +48,12 @@ import { ChartsModule } from 'ng2-charts';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { CustomDateAdapter } from './custom-date-adapter';
 import { MatTableModule } from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
+import { CustomDatePipe } from './custom-date-adapter';
 
 
 
@@ -79,6 +79,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     CircleQRcodeDoubleComponent,
     CircleQRcodeSingleComponent,
     CountComponent,
+    CustomDatePipe,
     FooterComponent,
     LabelLayoutComponent,
     LoadingComponent,
@@ -132,7 +133,6 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     CacheService,
     SettingsService,
     MatDatepickerModule,
-    {provide: DateAdapter, useClass: CustomDateAdapter },
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
