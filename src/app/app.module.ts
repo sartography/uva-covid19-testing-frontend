@@ -49,7 +49,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CustomDateAdapter } from './custom-date-adapter';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -130,7 +130,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     ApiService,
     GraphService,
     CacheService,
-    SettingsService, 
+    SettingsService,
     MatDatepickerModule,
     {provide: DateAdapter, useClass: CustomDateAdapter },
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
