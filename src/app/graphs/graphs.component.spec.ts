@@ -34,7 +34,8 @@ describe('GraphsComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'},
         {provide: Router, useValue: mockRouter},
         {provide: Location, useValue: location},
-        {provide: DateAdapter, useClass: CustomDateAdapter }
+        {provide: DateAdapter, useValue: CustomDateAdapter}
+
       ]
     });
     httpMock = TestBed.inject(HttpTestingController);
