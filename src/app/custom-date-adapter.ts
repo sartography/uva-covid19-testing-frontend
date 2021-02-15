@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
-@Pipe({ name: 'dated' })
+@Pipe({ name: 'changed_date' })
 export class CustomDatePipe implements PipeTransform {
   // adding a default value in case you don't want to pass the format then 'yyyy-MM-dd' will be used
   transform(date: Date | string, day: number, format: string = 'yyyy-MM-dd'): string {
@@ -15,6 +15,8 @@ export class CustomDatePipe implements PipeTransform {
     return new DatePipe('en-US').transform(date, format);
   }
 }
+
+@Pipe({ name: 'date' })
 @Injectable()
 export class CustomDateAdapter extends NativeDateAdapter {
 

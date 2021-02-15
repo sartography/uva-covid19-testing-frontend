@@ -90,11 +90,6 @@ export class GraphsComponent implements OnInit {
   startDate: Date = new Date();
   endDate: Date = new Date();
 
-  startDate1 = '';
-  endDate1 = '';
-  startDate2 = '';
-  endDate2 = '';
-
   currentPage = 0;
   pageSize = 10;
   pageSizeOptions: number[] = [10, 20, 50, 100];
@@ -139,21 +134,6 @@ export class GraphsComponent implements OnInit {
 
     this.form.startDate = this.startDate.toLocaleDateString();
     this.form.endDate = this.endDate.toLocaleDateString();
-
-    const date = new Date();
-    const date2 = new Date();
-
-    date.setDate(this.startDate.getDate() - 7);
-    this.startDate1 = date.toLocaleDateString();
-
-    date2.setDate(this.endDate.getDate() - 7);
-    this.endDate1 = date2.toLocaleDateString();
-
-    date.setDate(date.getDate() - 7);
-    this.startDate2 = date.toLocaleDateString();
-
-    date2.setDate(date2.getDate() - 7);
-    this.endDate2 = date2.toLocaleDateString();
 
     const temp = new Date(this.startDate.getTime());
     this.dailyChartLabels = [];

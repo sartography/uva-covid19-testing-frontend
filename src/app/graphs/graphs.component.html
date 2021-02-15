@@ -8,17 +8,17 @@
     </mat-card>
 
     <mat-card class="col">
-      <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{startDate1 | date}}
+      <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{form.startDate | changed_date: 7:'mediumDate'}}
         -
-        {{endDate1 | date}}</h5>
+        {{form.endDate | changed_date: 7:'mediumDate'}}</h5>
       <span class="h2 font-weight-bold ">{{topBarData[1]}}</span>
     </mat-card>
 
     <mat-card class="col">
-      <h5 class="card-title text-uppercase text-muted ">Total Samples within <br> {{startDate2 |
-        date}}
+      <h5 class="card-title text-uppercase text-muted ">Total Samples within <br> {{form.startDate |
+        changed_date: 14:'mediumDate'}}
         -
-        {{endDate2 | date}}</h5>
+        {{form.endDate | changed_date: 14:'mediumDate'}}</h5>
       <span class="h2 font-weight-bold ">{{topBarData[2]}}</span>
     </mat-card>
 

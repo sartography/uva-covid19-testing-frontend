@@ -133,6 +133,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     CacheService,
     SettingsService,
     MatDatepickerModule,
+    CustomDatePipe,
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
