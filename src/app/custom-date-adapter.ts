@@ -19,6 +19,9 @@ export class CustomDatePipe implements PipeTransform {
 @Pipe({ name: 'date' })
 @Injectable()
 export class CustomDateAdapter extends NativeDateAdapter implements PipeTransform  {
+  transform(value: any, ...args: any[]) {
+    throw new Error('Method not implemented.');
+  }
 
   getFirstDayOfWeek(): number {
    return 1;

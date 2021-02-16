@@ -38,59 +38,46 @@
           style="color:red">{{topBarData[6]}}</span></span>
     </mat-card>
   </div>
-
   <mat-card>
+
     <div class="flex-grid">
-      <div class="col">
-        <h1>Search</h1>
+      <div class="col" style="width: 300px">
+        <h1>Search</h1> 
+        <button mat-raised-button class="btn-lg" color="primary" (click)="searchToday()">Today</button>
+        <button mat-raised-button class="btn-lg" color="primary" (click)="searchAll()">All</button>
+        <button mat-raised-button class="btn-lg" color="primary" (click)="updateGraphData()">Run</button>
         <br>
         <mat-checkbox [(ngModel)]="form.includeTests">Include Test Labels</mat-checkbox>
-
       </div>
-      <div class="col">
-        <button mat-raised-button class="btn-lg" color="primary" (click)="searchToday()">Today</button>
-      </div>
-      <div class="col">
-        <button mat-raised-button class="btn-lg" color="primary" (click)="searchAll()">All</button>
-      </div>
-      <div class="col">
-        <button mat-raised-button class="btn-lg" color="primary" (click)="updateGraphData()">Run</button>
-      </div>
-
-      <div class="col">
-        <mat-form-field>
-          <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate [(ngModel)]="startDate">
-            <input matEndDate [(ngModel)]="endDate">
-          </mat-date-range-input>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
-      </div>
-      <div class="col">
+      <div class="col" style="width: flex">
+          <mat-form-field>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate [(ngModel)]="startDate">
+              <input matEndDate [(ngModel)]="endDate">
+            </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
         <mat-form-field>
           <mat-label>Location ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.location" placeholder="Location Codes"></textarea>
         </mat-form-field>
-      </div>
-
-      <div class="col">
+  
         <mat-form-field>
           <mat-label>Student ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.studentId" placeholder="Ex. 00224483"></textarea>
         </mat-form-field>
-      </div>
-
-      <div class="col">
+  
         <mat-form-field>
           <mat-label>Compute ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.computeId" placeholder="Ex. ECC8Z"></textarea>
         </mat-form-field>
+        
       </div>
     </div>
+  
   </mat-card>
-
-  <div class="flex-grid">
+  <div class="flex-grid flex-grid-plot">
     <mat-card class="col">
       <mat-card-header>
         <h1>{{ChartName}}</h1>

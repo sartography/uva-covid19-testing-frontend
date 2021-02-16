@@ -1,33 +1,21 @@
 /* https://css-tricks.com/dont-overthink-flexbox-grids/ */
 .flex-grid {
   display: flex;
-
   align-items: center;
 }
 
-.flex-grid .col {
-  flex: 1;
+.flex-grid-plot .col {
+  flex: 2;
 }
 
-.flex-grid-thirds {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-grid-thirds .col {
-  width: 32%;
-}
-
-@media (max-width: 400px) {
-  .flex-grid,
-  .flex-grid-thirds {
-    display: block;
+/* @media (max-width: 400px) {
+  .flex-grid {
+    display: flex;
     .col {
-      width: 100%;
       margin: 0 0 10px 0;
     }
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -35,6 +23,7 @@
 
 mat-form-field {
   margin: 20px;
+
 }
 
 mat-card {
@@ -42,6 +31,9 @@ mat-card {
 }
 
 body {
+  padding: 20px;
+}
+button {
   padding: 20px;
 }
 .flex-grid { 
