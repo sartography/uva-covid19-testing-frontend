@@ -8,15 +8,6 @@
   flex: 2;
 }
 
-/* @media (max-width: 400px) {
-  .flex-grid {
-    display: flex;
-    .col {
-      margin: 0 0 10px 0;
-    }
-  }
-} */
-
 * {
   box-sizing: border-box;
 }
