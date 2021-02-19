@@ -23,6 +23,7 @@ describe('GraphsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
+        GraphsComponent,
         ChangeDatePipe
       ],
       imports: [
