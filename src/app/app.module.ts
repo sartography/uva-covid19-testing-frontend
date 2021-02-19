@@ -53,7 +53,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
-import { CustomDatePipe } from './custom-date-adapter';
+import { ChangeDatePipe } from './change_date.pipe';
 import {DevHeaderInterceptorInterceptor} from './dev-header-interceptor.interceptor';
 
 
@@ -80,7 +80,6 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     CircleQRcodeDoubleComponent,
     CircleQRcodeSingleComponent,
     CountComponent,
-    CustomDatePipe,
     FooterComponent,
     LabelLayoutComponent,
     LoadingComponent,
@@ -96,7 +95,8 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     DepositsComponent,
     GraphsComponent,
     ImportedFilesComponent,
-    SidebarComponent
+    SidebarComponent,
+    ChangeDatePipe
   ],
   imports: [
     MatPaginatorModule,
@@ -128,13 +128,13 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     ReactiveFormsModule,
     AppRoutingModule, // <-- This line MUST be last (https://angular.io/guide/router#module-import-order-matters)
   ],
+
   providers: [
     ApiService,
     GraphService,
     CacheService,
     SettingsService,
     MatDatepickerModule,
-    CustomDatePipe,
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},

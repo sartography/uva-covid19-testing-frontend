@@ -1,16 +1,16 @@
 <div class="full-height flex-container bg-primary">
   <div class="flex-grid">
     <mat-card class="col">
-      <h5 class="card-title text-uppercase text-muted">Total Samples within<br> {{form.startDate | date}}
+      <h5 class="card-title text-uppercase text-muted">Total Samples within<br> {{form.startDate |changed_date : 0}}
         -
-        {{form.endDate | date}}</h5>
+        {{form.endDate |changed_date : 0}}</h5>
       <span class="h2 font-weight-bold">{{topBarData[0]}}</span>
     </mat-card>
 
     <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{form.startDate | changed_date: 7:'mediumDate'}}
         -
-        {{form.endDate | changed_date: 7:'mediumDate'}}</h5>
+        {{form.endDate | changed_date: 7: 'mediumDate'}}</h5>
       <span class="h2 font-weight-bold ">{{topBarData[1]}}</span>
     </mat-card>
 
@@ -25,7 +25,7 @@
     <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted ">Email Notifications within <br>
         {{form.startDate |
-        date}} - {{form.endDate | date}}</h5>
+       changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
       <span class="h2 font-weight-bold "><span style="color:green">{{topBarData[3]}}</span>/<span
           style="color:red">{{topBarData[4]}}</span></span>
     </mat-card>
@@ -33,7 +33,7 @@
     <mat-card class="col">
       <h5 class="card-title text-uppercase text-muted ">Text Notifications within <br>
         {{form.startDate |
-        date}} - {{form.endDate | date}}</h5>
+       changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
       <span class="h2 font-weight-bold"><span style="color:green">{{topBarData[5]}}</span>/<span
           style="color:red">{{topBarData[6]}}</span></span>
     </mat-card>
@@ -92,7 +92,7 @@
 
     <mat-card class="col">
       <mat-card-header>
-        <h1>Average Count By Weekday For {{form.startDate | date}} - {{form.endDate | date}}</h1>
+        <h1>Average Count By Weekday For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
       </mat-card-header>
 
       <div style="display: block">
@@ -104,7 +104,7 @@
 
     <mat-card class="col">
       <mat-card-header>
-        <h1>Average Count By Hour For {{form.startDate | date}} - {{form.endDate | date}}</h1>
+        <h1>Average Count By Hour For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
       </mat-card-header>
 
       <div style="display: block">

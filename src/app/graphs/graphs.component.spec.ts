@@ -8,9 +8,7 @@ import {ApiService} from '../services/api.service';
 import {APP_BASE_HREF} from '@angular/common';
 import {Router} from '@angular/router';
 import {MockEnvironment} from '../testing/environment.mock';
-import {DateAdapter} from '@angular/material/core';
-import {DatePipe} from '@angular/common';
-import {CustomDateAdapter, CustomDatePipe} from '../custom-date-adapter';
+import { ChangeDatePipe } from '../change_date.pipe';
 
 describe('GraphsComponent', () => {
   let component: GraphsComponent;
@@ -25,8 +23,7 @@ describe('GraphsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CustomDatePipe,
-        CustomDateAdapter
+        ChangeDatePipe
       ],
       imports: [
         HttpClientTestingModule,
@@ -35,12 +32,10 @@ describe('GraphsComponent', () => {
       ],
       providers: [
         ApiService,
-        DatePipe,
         {provide: 'APP_ENVIRONMENT', useValue: mockEnvironment},
         {provide: APP_BASE_HREF, useValue: '/'},
         {provide: Router, useValue: mockRouter},
         {provide: Location, useValue: location},
-        {provide: DateAdapter, useValue: CustomDateAdapter},
       ]
     });
     httpMock = TestBed.inject(HttpTestingController);
