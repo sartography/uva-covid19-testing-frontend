@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import createClone from 'rfdc';
+// https://github.com/visjs/vis-network/issues/67
+import * as createClone from 'rfdc';
 import {BehaviorSubject} from 'rxjs';
 import serializeJs from 'serialize-javascript';
 import {defaultOptions} from '../config/defaults';

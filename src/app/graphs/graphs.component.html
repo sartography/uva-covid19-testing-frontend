@@ -1,0 +1,175 @@
+<div class="full-height flex-container bg-primary">
+  <div class="flex-grid">
+    <mat-card class="col">
+      <h5 class="card-title text-uppercase text-muted">Total Samples within<br> {{form.startDate |changed_date : 0}}
+        -
+        {{form.endDate |changed_date : 0}}</h5>
+      <span class="h2 font-weight-bold">{{topBarData[0]}}</span>
+    </mat-card>
+
+    <mat-card class="col">
+      <h5 class="card-title text-uppercase text-muted mb-0">Total Samples within <br> {{form.startDate | changed_date: 7:'mediumDate'}}
+        -
+        {{form.endDate | changed_date: 7: 'mediumDate'}}</h5>
+      <span class="h2 font-weight-bold ">{{topBarData[1]}}</span>
+    </mat-card>
+
+    <mat-card class="col">
+      <h5 class="card-title text-uppercase text-muted ">Total Samples within <br> {{form.startDate |
+        changed_date: 14:'mediumDate'}}
+        -
+        {{form.endDate | changed_date: 14:'mediumDate'}}</h5>
+      <span class="h2 font-weight-bold ">{{topBarData[2]}}</span>
+    </mat-card>
+
+    <mat-card class="col">
+      <h5 class="card-title text-uppercase text-muted ">Email Notifications within <br>
+        {{form.startDate |
+       changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
+      <span class="h2 font-weight-bold "><span style="color:green">{{topBarData[3]}}</span>/<span
+          style="color:red">{{topBarData[4]}}</span></span>
+    </mat-card>
+
+    <mat-card class="col">
+      <h5 class="card-title text-uppercase text-muted ">Text Notifications within <br>
+        {{form.startDate |
+       changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
+      <span class="h2 font-weight-bold"><span style="color:green">{{topBarData[5]}}</span>/<span
+          style="color:red">{{topBarData[6]}}</span></span>
+    </mat-card>
+  </div>
+  <mat-card>
+
+    <div class="flex-grid">
+      <div class="col" style="width: 300px">
+        <h1>Search</h1> 
+        <button mat-raised-button class="btn-lg" color="primary" (click)="searchToday()">Today</button>
+        <button mat-raised-button class="btn-lg" color="primary" (click)="searchAll()">All</button>
+        <button mat-raised-button class="btn-lg" color="primary" (click)="updateGraphData()">Run</button>
+        <br>
+        <mat-checkbox [(ngModel)]="form.includeTests">Include Test Labels</mat-checkbox>
+      </div>
+      <div class="col" style="width: flex">
+          <mat-form-field>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate [(ngModel)]="startDate">
+              <input matEndDate [(ngModel)]="endDate">
+            </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        <mat-form-field>
+          <mat-label>Location ID(s)</mat-label>
+          <textarea matInput [(ngModel)]="form.location" placeholder="Location Codes"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Student ID(s)</mat-label>
+          <textarea matInput [(ngModel)]="form.studentId" placeholder="Ex. 00224483"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Compute ID(s)</mat-label>
+          <textarea matInput [(ngModel)]="form.computeId" placeholder="Ex. ECC8Z"></textarea>
+        </mat-form-field>
+        
+      </div>
+    </div>
+  
+  </mat-card>
+  <div class="flex-grid flex-grid-plot">
+    <mat-card class="col">
+      <mat-card-header>
+        <h1>{{ChartName}}</h1>
+      </mat-card-header>
+
+      <div style="display: block">
+        <canvas baseChart [datasets]="dailyChartsData" [labels]="dailyChartLabels" [options]="barChartOptions"
+          [legend]="true" chartType="bar" (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </mat-card>
+
+    <mat-card class="col">
+      <mat-card-header>
+        <h1>Average Count By Weekday For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
+      </mat-card-header>
+
+      <div style="display: block">
+        <canvas baseChart [datasets]="weekdayChartsData" [labels]="weekdayChartLabels" [options]="barChartOptions"
+          [legend]=false chartType="horizontalBar">
+        </canvas>
+      </div>
+    </mat-card>
+
+    <mat-card class="col">
+      <mat-card-header>
+        <h1>Average Count By Hour For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
+      </mat-card-header>
+
+      <div style="display: block">
+        <canvas baseChart [datasets]="hourlyChartsData" [labels]="hourlyChartLabels" [options]="barChartOptions"
+          [legend]=false chartType="horizontalBar">
+        </canvas>
+      </div>
+    </mat-card>
+  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <h3 class="mb-0">Records to be processed </h3>
+    </mat-card-header>
+
+    <table mat-table [dataSource]="searchResult" class="mat-elevation-z8">
+
+      <!--- Note that these columns can bea defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Barcode </th>
+
+        <td mat-cell *matCellDef="let sample; "> {{sample.barcode}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+
+        <td mat-cell *matCellDef="let sample; "> {{sample.date}}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+
+        <td mat-cell *matCellDef="let sample; "> Location: {{sample.location}}<br>Station:
+          {{sample.station}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+
+        <th mat-header-cell *matHeaderCellDef> IDs </th>
+        <td mat-cell *matCellDef="let sample; ">
+          Compute ID: {{sample.computeId}}<br>Student ID: {{sample.studentId}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="text">
+        <th mat-header-cell *matHeaderCellDef> Contacts </th>
+        <td mat-cell *matCellDef="let sample; ">
+          Phone: {{sample.phone}}<br>Email: {{sample.email}}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator #paginator [length]="topBarData[0]" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="updatePage($event)">
+  </mat-paginator> 
+  </mat-card>
+
+</div>
+
+<!-- 
+
+-->

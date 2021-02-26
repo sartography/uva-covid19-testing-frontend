@@ -1,6 +1,8 @@
-import {Component, Inject} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {AppEnvironment} from './models/appEnvironment.interface';
+import { Component, Inject, OnInit} from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { AppEnvironment } from './models/appEnvironment.interface';
+
+declare var jQuery: any;
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,6 @@ export class AppComponent {
   ) {
     this.titleService.setTitle(this.environment.title);
   }
-
 
   reload() {
     this.loading = true;

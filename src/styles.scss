@@ -1,2 +1,5 @@
 @import './material-theme.scss';
 @include cr-connect-theme($cr-connect-theme);
+table {
+    width: 100%;
+  }

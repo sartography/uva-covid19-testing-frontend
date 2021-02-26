@@ -1,0 +1,87 @@
+
+<div
+  class="full-height bg-primary"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+>
+  <mat-card fxFlex="50%">
+    <mat-card-header>
+      <h1>The following files were imported from IVY</h1>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center center">
+        <table mat-table [dataSource]="fileDataList" class="mat-elevation-z8">
+
+            <!--- Note that these columns can bea defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> Date Added </th>
+              
+              <td mat-cell *matCellDef="let element; let i = index;"> {{element[0] |changed_date : 0:"medium"}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> File Name </th>
+              
+              <td mat-cell *matCellDef="let element; let i = index;"> {{element[1]}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef> Sample Count </th>
+              
+              <td mat-cell *matCellDef="let element; let i = index;"> {{element[2]}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+
+              <th mat-header-cell *matHeaderCellDef> Email Notifications </th>
+              <td mat-cell *matCellDef="let element; let i = index;">
+                <span style="color:green">{{element[3]}}</span>/<span
+          style="color:red">{{element[4]}}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="text">
+              <th mat-header-cell *matHeaderCellDef> Text Notifications </th>
+              <td mat-cell *matCellDef="let element; let i = index;">
+                <span style="color:green">{{element[5]}}</span>/<span
+          style="color:red">{{element[6]}}</span>
+              </td>
+            </ng-container>
+
+        
+      
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-card-actions>
+            <button
+            mat-flat-button
+            class="btn-lg"
+            color="accent"
+            fxFlex="50%"
+            (click) = "prev()"
+          ><mat-icon>navigate_before</mat-icon>Prev </button>
+            <button
+              id="btn_next"
+              #nextButton="matButton"
+              mat-flat-button
+              class="btn-lg"
+              color="accent"
+              fxFlex="50%"
+              (click) = "next()"
+            >Next <mat-icon>navigate_next</mat-icon></button>
+           
+          </mat-card-actions>
+   
+    
+    </mat-card-content>
+    
+  </mat-card>
+
+</div>
