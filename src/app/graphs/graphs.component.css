@@ -2,19 +2,8 @@
 .flex-grid {
   display: flex;
   align-items: center;
-}
-
-.flex-grid-plot .col {
-  flex: 2;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-mat-form-field {
-  margin: 20px;
-
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 mat-card {
@@ -24,13 +13,10 @@ mat-card {
 body {
   padding: 20px;
 }
-button {
+
+.graph {
+  max-width: 800px;
   padding: 20px;
-}
-.flex-grid { 
-  margin: 0 20px 20px 0;
-}
-.col {
-  padding: 20px;
+  flex: 2;
 }
 
