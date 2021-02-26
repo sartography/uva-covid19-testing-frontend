@@ -40,16 +40,13 @@
   </div>
   <mat-card>
 
+    <h1>Search</h1>
     <div class="flex-grid">
-      <div class="col" style="width: 300px">
-        <h1>Search</h1> 
         <button mat-raised-button class="btn-lg" color="primary" (click)="searchToday()">Today</button>
         <button mat-raised-button class="btn-lg" color="primary" (click)="searchAll()">All</button>
         <button mat-raised-button class="btn-lg" color="primary" (click)="updateGraphData()">Run</button>
         <br>
         <mat-checkbox [(ngModel)]="form.includeTests">Include Test Labels</mat-checkbox>
-      </div>
-      <div class="col" style="width: flex">
           <mat-form-field>
             <mat-date-range-input [rangePicker]="picker">
               <input matStartDate [(ngModel)]="startDate">
@@ -62,23 +59,21 @@
           <mat-label>Location ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.location" placeholder="Location Codes"></textarea>
         </mat-form-field>
-  
+
         <mat-form-field>
           <mat-label>Student ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.studentId" placeholder="Ex. 00224483"></textarea>
         </mat-form-field>
-  
+
         <mat-form-field>
           <mat-label>Compute ID(s)</mat-label>
           <textarea matInput [(ngModel)]="form.computeId" placeholder="Ex. ECC8Z"></textarea>
         </mat-form-field>
-        
-      </div>
     </div>
-  
+
   </mat-card>
   <div class="flex-grid flex-grid-plot">
-    <mat-card class="col">
+    <mat-card class="graph">
       <mat-card-header>
         <h1>{{ChartName}}</h1>
       </mat-card-header>
@@ -90,7 +85,7 @@
       </div>
     </mat-card>
 
-    <mat-card class="col">
+    <mat-card class="graph">
       <mat-card-header>
         <h1>Average Count By Weekday For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
       </mat-card-header>
@@ -102,7 +97,7 @@
       </div>
     </mat-card>
 
-    <mat-card class="col">
+    <mat-card class="graph">
       <mat-card-header>
         <h1>Average Count By Hour For {{form.startDate |changed_date : 0}} - {{form.endDate |changed_date : 0}}</h1>
       </mat-card-header>
@@ -165,11 +160,11 @@
     </table>
     <mat-paginator #paginator [length]="topBarData[0]" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
     (page)="updatePage($event)">
-  </mat-paginator> 
+  </mat-paginator>
   </mat-card>
 
 </div>
 
-<!-- 
+<!--
 
 -->
