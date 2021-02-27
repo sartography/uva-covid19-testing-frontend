@@ -6,6 +6,11 @@
   justify-content: space-between;
 }
 
+mat-form-field, .mat-form-field, .mat-form-field-should-float label {
+  font-size: 1em;
+}
+
+
 mat-card {
   margin: 20px;
 }
