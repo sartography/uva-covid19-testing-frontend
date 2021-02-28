@@ -21,6 +21,16 @@ export class GraphService {
   ) {
     this.apiRoot = environment.api;
   }
+
+  downloadSearchResults(form: SearchForm): Observable<Sample[]> {
+    let params = this.createParams(form);
+
+    return this.httpClient
+      .get<Sample[]>(this.apiRoot + `/dashboard/download`, { params })
+      .pipe(timeout(1000), catchError(err => this._handleError(err)))
+      .pipe(catchError(err => this._handleError(err)));
+  }
+
   getRawSearchData(form: SearchForm, page: number): Observable<Sample[]> {
     let params = this.createParams(form);
     params = params.set('page', String(page));

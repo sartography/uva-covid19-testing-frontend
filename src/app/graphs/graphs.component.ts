@@ -182,6 +182,7 @@ export class GraphsComponent implements OnInit {
     this.form.startDate = startDate.toLocaleDateString();
     this.form.endDate = endDate.toLocaleDateString();
     this.updateGraphData();
+    this.graphService.downloadSearchResults(this.form);
   }
 
   chartClicked(e: any): void {
