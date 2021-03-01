@@ -23,12 +23,12 @@ export class GraphService {
   }
 
   downloadSearchResults(form: SearchForm): void {
-    let params = this.createParams(form);
- 
+    const params = this.createParams(form);
+
     this.httpClient
-      .get(this.apiRoot + `/dashboard/download`,  {responseType: 'text', params: params}).subscribe((data: string) => {
-        let blob = new Blob([data], { type: 'text/csv' });
-        saveAs(blob, "data.csv");
+      .get(this.apiRoot + `/dashboard/download`,  {responseType: 'text', params}).subscribe((data: string) => {
+        const blob = new Blob([data], { type: 'text/csv' });
+        saveAs(blob, 'data.csv');
       });
   }
 

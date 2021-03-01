@@ -119,7 +119,7 @@ export class GraphsComponent implements OnInit {
     this.endDate = new Date();
     this.updateGraphData();
   }
-  
+
   downloadSearchResults(): void {
     this.graphService.downloadSearchResults(this.form);
   }
