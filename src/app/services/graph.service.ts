@@ -1,15 +1,15 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { Observable, throwError } from 'rxjs';
-import { catchError, timeout } from 'rxjs/operators';
+import { catchError, map, timeout } from 'rxjs/operators';
 import { ApiError } from '../models/apiError.interface';
 import { AppEnvironment } from '../models/appEnvironment.interface';
 import { HttpParams } from '@angular/common/http';
 import { Sample } from '../models/sample.interface';
 
 import { SearchForm } from '../models/search_form';
-
+import { saveAs } from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +21,17 @@ export class GraphService {
   ) {
     this.apiRoot = environment.api;
   }
+
+  downloadSearchResults(form: SearchForm): void {
+    const params = this.createParams(form);
+
+    this.httpClient
+      .get(this.apiRoot + `/dashboard/download`,  {responseType: 'text', params}).subscribe((data: string) => {
+        const blob = new Blob([data], { type: 'text/csv' });
+        saveAs(blob, 'data.csv');
+      });
+  }
+
   getRawSearchData(form: SearchForm, page: number): Observable<Sample[]> {
     let params = this.createParams(form);
     params = params.set('page', String(page));

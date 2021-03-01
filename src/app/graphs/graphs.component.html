@@ -112,7 +112,7 @@
 
   <mat-card>
     <mat-card-header>
-      <h3 class="mb-0">Records to be processed </h3>
+      <h3 class="mb-0">Records to be processed <button mat-raised-button class="btn-sm" color="primary" (click)="downloadSearchResults()">Download Table</button> </h3> 
     </mat-card-header>
 
     <table mat-table [dataSource]="searchResult" class="mat-elevation-z8">

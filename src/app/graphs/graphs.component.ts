@@ -108,7 +108,6 @@ export class GraphsComponent implements OnInit {
     this.graphService.getRawSearchData(this.form, this.currentPage).subscribe(searchResult => this.searchResult = searchResult);
   }
 
-
   searchToday(): void {
     this.startDate = new Date();
     this.endDate = new Date();
@@ -119,6 +118,10 @@ export class GraphsComponent implements OnInit {
     this.startDate = new Date(2020, 9, 5);
     this.endDate = new Date();
     this.updateGraphData();
+  }
+
+  downloadSearchResults(): void {
+    this.graphService.downloadSearchResults(this.form);
   }
 
   updateGraphData(): void {
