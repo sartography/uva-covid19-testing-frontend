@@ -49,7 +49,12 @@ export class GraphsComponent implements OnInit {
     },
     legend: {
       onClick: (e, i) => {
+        if (!this.ChartName.includes('Station')){
         this.form.location = String(i.text);
+        }
+        else {
+          this.form.location = '';
+        }
         this.updateGraphData();
       }
     },
@@ -110,8 +115,8 @@ export class GraphsComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.pageIndex = event.pageIndex;
-    this.graphService.getRawSearchData(this.form, this.pageIndex).subscribe(
-      searchResult => {this.searchResult = searchResult; 
+    this.graphService.getRawSearchData(this.form, this.pageIndex, this.pageSize).subscribe(
+      searchResult => {this.searchResult = searchResult;
     });
   }
 
@@ -188,7 +193,7 @@ export class GraphsComponent implements OnInit {
       this.topBarData = tempData;
       this.totalItems = this.topBarData[0];
     });
-    this.graphService.getRawSearchData(this.form, 0).subscribe(searchResult => this.searchResult = searchResult);
+    this.graphService.getRawSearchData(this.form, 0, this.pageSize).subscribe(searchResult => this.searchResult = searchResult);
   }
 
   ngOnInit(): void {
