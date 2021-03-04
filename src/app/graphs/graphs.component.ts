@@ -125,7 +125,6 @@ export class GraphsComponent implements OnInit {
   }
 
   updateGraphData(): void {
-
     if (this.form.location.trim().split(' ').length === 1) {
       this.ChartName = 'Total Samples per Station @ Location ' + this.form.location;
     } else {
@@ -176,7 +175,8 @@ export class GraphsComponent implements OnInit {
     this.graphService.getTopBarData(this.form).subscribe(tempData => {
       this.topBarData = tempData;
     });
-    this.graphService.getRawSearchData(this.form, 0).subscribe(searchResult => this.searchResult = searchResult);
+    this.currentPage = 0;
+    this.graphService.getRawSearchData(this.form, this.currentPage).subscribe(searchResult => this.searchResult = searchResult);
   }
 
   ngOnInit(): void {
