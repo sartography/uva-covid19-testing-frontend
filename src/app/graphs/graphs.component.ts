@@ -141,7 +141,6 @@ export class GraphsComponent implements OnInit {
   }
 
   updateGraphData(): void {
-
     if (this.form.location.trim().split(' ').length === 1) {
       this.ChartName = 'Total Samples per Station @ Location ' + this.form.location;
     } else {
