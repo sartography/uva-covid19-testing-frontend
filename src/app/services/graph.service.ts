@@ -32,9 +32,10 @@ export class GraphService {
       });
   }
 
-  getRawSearchData(form: SearchForm, page: number): Observable<Sample[]> {
+  getRawSearchData(form: SearchForm, page: number, itemsPerPage: number ): Observable<Sample[]> {
     let params = this.createParams(form);
     params = params.set('page', String(page));
+    params = params.set('items_per_page', String(itemsPerPage));
 
     return this.httpClient
       .get<Sample[]>(this.apiRoot + `/dashboard/search`, { params })

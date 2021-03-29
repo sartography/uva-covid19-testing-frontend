@@ -23,7 +23,7 @@
     </mat-card>
 
     <mat-card class="col">
-      <h5 class="card-title text-uppercase text-muted ">Email Notifications within <br>
+      <h5 class="card-title text-uppercase text-muted ">Email Notifications sent <br>
         {{form.startDate |
        changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
       <span class="h2 font-weight-bold "><span style="color:green">{{topBarData[3]}}</span>/<span
@@ -31,7 +31,7 @@
     </mat-card>
 
     <mat-card class="col">
-      <h5 class="card-title text-uppercase text-muted ">Text Notifications within <br>
+      <h5 class="card-title text-uppercase text-muted ">Text Notifications sent <br>
         {{form.startDate |
        changed_date : 0}} - {{form.endDate |changed_date : 0}}</h5>
       <span class="h2 font-weight-bold"><span style="color:green">{{topBarData[5]}}</span>/<span
@@ -158,9 +158,14 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator #paginator [length]="topBarData[0]" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="updatePage($event)">
-  </mat-paginator>
+    <mat-paginator
+    (page)="updatePage($event)"
+    [length]="totalItems"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex">
+</mat-paginator>
   </mat-card>
 
 </div>

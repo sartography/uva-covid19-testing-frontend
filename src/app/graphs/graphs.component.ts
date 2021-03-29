@@ -49,7 +49,12 @@ export class GraphsComponent implements OnInit {
     },
     legend: {
       onClick: (e, i) => {
+        if (!this.ChartName.includes('Station')){
         this.form.location = String(i.text);
+        }
+        else {
+          this.form.location = '';
+        }
         this.updateGraphData();
       }
     },
@@ -90,9 +95,12 @@ export class GraphsComponent implements OnInit {
   startDate: Date = new Date();
   endDate: Date = new Date();
 
-  currentPage = 0;
+  pageIndex = 0;
+  totalItems = 0;
+
   pageSize = 10;
-  pageSizeOptions: number[] = [10, 20, 50, 100];
+  pageSizeOptions = [5, 10, 25];
+  showFirstLastButtons = true;
 
   form: SearchForm = {
     startDate: '',
@@ -104,8 +112,16 @@ export class GraphsComponent implements OnInit {
   };
 
   updatePage(event: PageEvent) {
-    this.currentPage = event.pageIndex;
-    this.graphService.getRawSearchData(this.form, this.currentPage).subscribe(searchResult => this.searchResult = searchResult);
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.pageIndex = event.pageIndex;
+    this.graphService.getRawSearchData(this.form, this.pageIndex, this.pageSize).subscribe(
+      searchResult => {this.searchResult = searchResult;
+    });
+  }
+
+  cancelEvent(event) {
+    event.preventDefault();
   }
 
   searchToday(): void {
@@ -174,9 +190,9 @@ export class GraphsComponent implements OnInit {
 
     this.graphService.getTopBarData(this.form).subscribe(tempData => {
       this.topBarData = tempData;
+      this.totalItems = this.topBarData[0];
     });
-    this.currentPage = 0;
-    this.graphService.getRawSearchData(this.form, this.currentPage).subscribe(searchResult => this.searchResult = searchResult);
+    this.graphService.getRawSearchData(this.form, 0, this.pageSize).subscribe(searchResult => this.searchResult = searchResult);
   }
 
   ngOnInit(): void {

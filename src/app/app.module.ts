@@ -55,6 +55,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import { ChangeDatePipe } from './change_date.pipe';
 import {DevHeaderInterceptorInterceptor} from './dev-header-interceptor.interceptor';
+import { TestWeekDateAdapter } from './test-week-date-adapter';
 
 
 
@@ -138,7 +139,8 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     {provide: 'APP_ENVIRONMENT', useClass: ThisEnvironment},
     {provide: APP_BASE_HREF, useFactory: getBaseHref, deps: [PlatformLocation]},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
-    {provide: HTTP_INTERCEPTORS, useClass: DevHeaderInterceptorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: DevHeaderInterceptorInterceptor, multi: true},
+    { provide: DateAdapter, useClass: TestWeekDateAdapter },
   ],
   bootstrap: [AppComponent],
   entryComponents: []
